@@ -1,23 +1,26 @@
-import styles from '../../../styles/statistics/Statistics.module.scss';
-import { CharacterFullData } from '../../types/CharactersData';
+import styles from "../../../styles/statistics/Statistics.module.scss";
+import {
+   CharacterFullData,
+   CharactersStatistics,
+} from "../../types/CharactersData";
 
 export default function StatisticsList({
-  items,
+   items,
 }: {
-  items: CharacterFullData[] | undefined;
+   items: CharactersStatistics[] | undefined;
 }) {
-  return (
-    <>
-      {items?.map(({ name, episode, id }: CharacterFullData) => {
-        return (
-          <tbody key={id} className={styles.table__body}>
-            <tr className={styles.table__dataRow}>
-              <td className={styles.table__item}>{name}</td>
-              <td className={styles.table__item}>{episode?.length}</td>
-            </tr>
-          </tbody>
-        );
-      })}
-    </>
-  );
+   return (
+      <>
+         {items?.map(({ name, episode, id }: CharactersStatistics) => {
+            return (
+               <tbody key={id} className={styles.table__body}>
+                  <tr className={styles.table__dataRow}>
+                     <td className={styles.table__item}>{name}</td>
+                     <td className={styles.table__item}>{episode?.length}</td>
+                  </tr>
+               </tbody>
+            );
+         })}
+      </>
+   );
 }
