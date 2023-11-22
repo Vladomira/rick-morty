@@ -1,8 +1,5 @@
 import styles from "../../../styles/statistics/Statistics.module.scss";
-import {
-   CharacterFullData,
-   CharactersStatistics,
-} from "../../types/CharactersData";
+import { CharactersStatistics } from "../../types/CharactersData";
 
 export default function StatisticsList({
    items,

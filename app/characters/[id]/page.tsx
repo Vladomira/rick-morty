@@ -3,10 +3,13 @@ import { Suspense } from "react";
 
 import CharacterDetail from "../../../src/components/CharacterDetail";
 import MainContainer from "../../../src/components/MainContainer";
-import { CharacterFullData } from "../../../src/types/CharactersData";
+import {
+   CharacterFullData,
+   CharacterInstance,
+} from "../../../src/types/CharactersData";
 import styles from "../../../styles/CharacterPage.module.scss";
 import { getClient } from "@/src/service/apollo";
-import { GET_CHARACTER } from "@/src/service/queries";
+import { character } from "@/src/service/queries.graphql";
 
 const btnClass = styles.btn + " " + styles.secondBtn;
 
@@ -17,23 +20,23 @@ export default async function CharacterPage({
 }: {
    params: { id: string };
 }) {
-   let characterData: CharacterFullData | undefined;
+   let characterData: CharacterInstance | undefined;
    let location: CharacterLocation = { name: "", type: "" };
    let episodes: CharacterEpisode[] = [];
    const { id } = params;
    try {
-      const { data } = await getClient().query({
-         query: GET_CHARACTER(id),
+      const { data }: CharacterFullData = await getClient().query({
+         query: character,
+         variables: { id },
          context: {
             fetchOptions: {
                next: { revalidate: 5 },
             },
          },
       });
-      const { character } = data;
       characterData = data.character;
 
-      const { name, type } = character.location;
+      const { name, type } = data.character.location;
       location = { name: name, type: type };
    } catch (error) {
       console.error("Error fetching character:", error);
@@ -53,9 +56,9 @@ export default async function CharacterPage({
                      Statistics
                   </button>
                </Link>
-               <Link href="/map">
+               <Link href="/locations">
                   <button type="button" className={btnClass}>
-                     Map
+                     Locations
                   </button>
                </Link>
                <Suspense fallback={<div>Loading...</div>}>

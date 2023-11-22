@@ -10,7 +10,7 @@ import {
 import btnStyles from "../../styles/CharacterPage.module.scss";
 import styles from "../../styles/statistics/Statistics.module.scss";
 import { getClient } from "@/src/service/apollo";
-import { GET_CHARACTERS_FOR_STATISTICS } from "@/src/service/queries";
+import { charactersForStatistics } from "@/src/service/queries.graphql";
 
 const episodeTable = styles.table__wrapper + " " + styles.table__episode;
 
@@ -18,7 +18,7 @@ export default async function Statistics() {
    let results: CharactersStatistics[] | undefined;
    try {
       const { data }: CharactersStatisticsData = await getClient().query({
-         query: GET_CHARACTERS_FOR_STATISTICS,
+         query: charactersForStatistics,
       });
       results = data.characters.results;
    } catch (error) {

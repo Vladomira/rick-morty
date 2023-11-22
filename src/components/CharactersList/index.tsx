@@ -6,24 +6,24 @@ import { BallTriangle } from "react-loader-spinner";
 import { List } from "./List";
 import style from "../../../styles/Home.module.scss";
 import {
-   CharactersListResult,
-   CharacterFullData,
+   CharactersFullData,
+   CharacterListItem,
 } from "../../types/CharactersData";
 import { Condition } from "../../types/common";
-import { GET_CHARACTERS } from "@/src/service/queries";
 import { useSuspenseQuery } from "@apollo/experimental-nextjs-app-support/ssr";
+import { characters } from "@/src/service/queries.graphql";
 
 type CharactersListProps = {
-   characters: CharacterFullData[];
+   charactersData: CharacterListItem[];
 };
 
-const CharactersList = ({ characters }: CharactersListProps) => {
+const CharactersList = ({ charactersData }: CharactersListProps) => {
    const [page, setPage] = useState<number>(2);
-   const [items, setItems] = useState<CharacterFullData[]>(characters);
+   const [items, setItems] = useState<CharacterListItem[]>(charactersData);
    const [loadMore, setLoadMore] = useState(true);
-   const { data }: CharactersListResult = useSuspenseQuery(
-      GET_CHARACTERS(page)
-   );
+   const { data }: CharactersFullData = useSuspenseQuery(characters, {
+      variables: { page },
+   });
    // const [condition, setCondition] = useState<Condition>('idle');
 
    const getMoreCharacters = async () => {
@@ -42,7 +42,7 @@ const CharactersList = ({ characters }: CharactersListProps) => {
          return console.error("something went wrong");
       }
       setTimeout(() => {
-         setItems((prev: CharacterFullData[]) => [...prev, ...results]);
+         setItems((prev: CharacterListItem[]) => [...prev, ...results]);
       }, 1000);
       // setCondition('resolved');
    };

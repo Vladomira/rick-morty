@@ -1,8 +1,8 @@
 import {
    CharactersStatistics,
    SortOrder,
-   locationObj,
-} from "../../types/CharactersData";
+   LocationForStatistics,
+} from "../types/CharactersData";
 
 export function sortData(items: CharactersStatistics[], order: SortOrder) {
    return [...items].sort((a, b) =>
@@ -12,7 +12,10 @@ export function sortData(items: CharactersStatistics[], order: SortOrder) {
    );
 }
 
-export function sortLocations(items: locationObj[], order: SortOrder) {
+export function sortLocations(
+   items: LocationForStatistics[],
+   order: SortOrder
+) {
    return [...items].sort((a, b) =>
       order === "asc" ? a.count - b.count : b.count - a.count
    );

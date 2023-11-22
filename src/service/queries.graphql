@@ -1,0 +1,60 @@
+query characters($page: Int!) {
+   characters(page: $page) {
+      results {
+         name
+         id
+         image
+      }
+   }
+}
+
+fragment episodeFields on Character {
+   episode {
+      name
+      air_date
+      episode
+   }
+}
+query character($id: ID!) {
+   character(id: $id) {
+      name
+      status
+      species
+      type
+      gender
+      image
+      location {
+         name
+      }
+
+      ...episodeFields
+   }
+}
+
+query locations {
+   locations {
+      results {
+         name
+         type
+         dimension
+         id
+      }
+   }
+}
+
+query charactersForStatistics {
+   characters {
+      results {
+         name
+         id
+
+         episode {
+            name
+         }
+
+         location {
+            name
+         }
+      }
+   }
+}

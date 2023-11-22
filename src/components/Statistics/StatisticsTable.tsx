@@ -4,11 +4,8 @@ import { useState } from "react";
 import ArrowsList from "./ArrowsList";
 import StatisticsList from "./StatisticsList";
 import styles from "../../../styles/statistics/Statistics.module.scss";
-import {
-   CharacterFullData,
-   CharactersStatistics,
-} from "../../types/CharactersData";
-import { sortData } from "../helpers/sort";
+import { CharactersStatistics } from "../../types/CharactersData";
+import { sortData } from "../../helpers/sort";
 
 export default function StatisticsTable({
    items,

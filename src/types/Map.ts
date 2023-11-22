@@ -1,18 +1,15 @@
 export type LocationData = {
-   id: number;
+   data: {
+      locations: {
+         __typename: "Locations";
+         results: LocationItem[];
+      };
+   };
+};
+export type LocationItem = {
+   __typename?: string;
    name: string;
    type: string;
    dimension: string;
-   //  residents: string[];
-   // url: string;
-   // created: string;
-};
-export type CartoonLocation = {
-   info: {
-      count: number;
-      pages: number;
-      next: string;
-      prev: null;
-   };
-   results: LocationData[];
+   id: string;
 };

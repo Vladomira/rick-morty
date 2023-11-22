@@ -2,12 +2,12 @@ import Image from "next/image";
 import React from "react";
 
 import styles from "../../../styles/CharacterPage.module.scss";
-import { CharacterFullData } from "../../types/CharactersData";
+import { CharacterInstance } from "../../types/CharactersData";
 
 const CharacterDetail = ({
    character,
 }: {
-   character: CharacterFullData | undefined;
+   character: CharacterInstance | undefined;
 }) => {
    return (
       <>

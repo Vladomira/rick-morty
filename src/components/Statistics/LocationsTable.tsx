@@ -4,8 +4,11 @@ import React, { useState } from "react";
 import ArrowsList from "./ArrowsList";
 import LocationList from "./LocationList";
 import styles from "../../../styles/statistics/Statistics.module.scss";
-import { CharactersStatistics, locationObj } from "../../types/CharactersData";
-import { sortLocations } from "../helpers/sort";
+import {
+   CharactersStatistics,
+   LocationForStatistics,
+} from "../../types/CharactersData";
+import { sortLocations } from "../../helpers/sort";
 
 export default function LocationsTable({
    items,
@@ -26,7 +29,7 @@ export default function LocationsTable({
       },
       {}
    );
-   const locationInfo: locationObj[] = Object.keys(locationCount).map(
+   const locationInfo: LocationForStatistics[] = Object.keys(locationCount).map(
       (name) => {
          return {
             name: name,
@@ -36,7 +39,7 @@ export default function LocationsTable({
       }
    );
    const [locationsInfo, setLocationsInfo] =
-      useState<locationObj[]>(locationInfo);
+      useState<LocationForStatistics[]>(locationInfo);
 
    const handleChange = (e: React.MouseEvent<HTMLButtonElement>): void => {
       const { name } = e.currentTarget;
