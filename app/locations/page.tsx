@@ -1,6 +1,7 @@
 import { getClient } from "@/src/service/apollo";
-import { LocationData, LocationItem } from "../../src/types/Map";
+import { LocationData, LocationItem } from "../../src/types/Locations";
 import { locations } from "@/src/service/queries.graphql";
+import { LocationsScene } from "@/src/components/Locations/Scene";
 
 async function Locations() {
    let locationsData: LocationItem[] | undefined;
@@ -13,19 +14,8 @@ async function Locations() {
    } catch (error) {
       console.error("Error fetching character:", error);
    }
-   return (
-      <>
-         <h1>Locations</h1>
-         <ul>
-            {locationsData?.map(({ id, name, type }) => (
-               <li key={id} style={{ display: "flex" }}>
-                  <p> Name: {name}</p>
-                  <p> Type: {type}</p>
-               </li>
-            ))}
-         </ul>
-      </>
-   );
+
+   return <LocationsScene locations={locationsData} />;
 }
 
 export default Locations;

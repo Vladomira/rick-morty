@@ -32,6 +32,7 @@ export type CharacterInstance = {
    species: string;
    type: string;
    gender: string;
+   id: string;
    image: string;
    location: CharacterLocation;
    episode: CharacterEpisode[];

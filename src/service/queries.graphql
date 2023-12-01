@@ -23,6 +23,7 @@ query character($id: ID!) {
       type
       gender
       image
+      id
       location {
          name
       }
@@ -54,6 +55,29 @@ query charactersForStatistics {
 
          location {
             name
+         }
+      }
+   }
+}
+
+query location($id: ID!) {
+   location(id: $id) {
+      name
+      type
+      dimension
+      id
+
+      residents {
+         name
+         id
+         image
+         status
+         species
+         gender
+         episode {
+            name
+            air_date
+            episode
          }
       }
    }

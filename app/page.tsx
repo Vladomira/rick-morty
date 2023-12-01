@@ -1,6 +1,5 @@
 import { getClient } from "@/src/service/apollo";
 import CharactersList from "../src/components/CharactersList";
-import MainContainer from "../src/components/MainContainer";
 import {
    CharactersFullData,
    CharacterListItem,
@@ -27,15 +26,13 @@ async function Home() {
    }
 
    return (
-      <MainContainer title="Main page">
-         <section className={styles.chracters__section}>
-            <div className={styles.container}>
-               {charactersData !== undefined && (
-                  <CharactersList charactersData={charactersData} />
-               )}
-            </div>
-         </section>
-      </MainContainer>
+      <section className={styles.chracters__section}>
+         <div className={styles.container}>
+            {charactersData !== undefined && (
+               <CharactersList charactersData={charactersData} />
+            )}
+         </div>
+      </section>
    );
 }
 

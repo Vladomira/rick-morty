@@ -1,14 +1,13 @@
 "use client";
 import React, { useState } from "react";
 
-import ArrowsList from "./ArrowsList";
-import LocationList from "./LocationList";
-import styles from "../../../styles/statistics/Statistics.module.scss";
+import LocationList from "./components/LocationList";
 import {
    CharactersStatistics,
    LocationForStatistics,
 } from "../../types/CharactersData";
 import { sortLocations } from "../../helpers/sort";
+import Table from "./components/Table";
 
 export default function LocationsTable({
    items,
@@ -56,19 +55,11 @@ export default function LocationsTable({
    };
 
    return (
-      <table className={styles.table__el}>
-         <ArrowsList
-            buttonAction={handleChange}
-            nameTitle={"Location"}
-            numberTitle={"Number of characters"}
-         />
-         <LocationList dataArr={locationsInfo} />
-
-         <tfoot className={styles.table__footer}>
-            <tr>
-               <></>
-            </tr>
-         </tfoot>
-      </table>
+      <Table
+         nameTitle="Locations"
+         numberTitle="Number of characters"
+         handleChange={handleChange}
+         children={<LocationList dataArr={locationsInfo} />}
+      />
    );
 }

@@ -1,11 +1,10 @@
 "use client";
 import { useState } from "react";
 
-import ArrowsList from "./ArrowsList";
-import StatisticsList from "./StatisticsList";
-import styles from "../../../styles/statistics/Statistics.module.scss";
+import StatisticsList from "./components/StatisticsList";
 import { CharactersStatistics } from "../../types/CharactersData";
 import { sortData } from "../../helpers/sort";
+import Table from "./components/Table";
 
 export default function StatisticsTable({
    items,
@@ -29,18 +28,11 @@ export default function StatisticsTable({
    };
 
    return (
-      <table className={styles.table__el}>
-         <ArrowsList
-            buttonAction={handleChange}
-            nameTitle={"Character name"}
-            numberTitle={"Number of episodes"}
-         />
-         <StatisticsList items={itemsData} />
-         <tfoot className={styles.table__footer}>
-            <tr>
-               <></>
-            </tr>
-         </tfoot>
-      </table>
+      <Table
+         nameTitle="Character name"
+         numberTitle="Number of episodes"
+         handleChange={handleChange}
+         children={<StatisticsList items={itemsData} />}
+      />
    );
 }
