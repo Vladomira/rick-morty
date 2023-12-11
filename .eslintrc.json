@@ -6,14 +6,10 @@
     "prettier"
   ],
   "rules": {
+    "react/no-unescaped-entities": "off",
+    "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/no-unused-vars": "error",
-    "@typescript-eslint/no-explicit-any": "error",
-    "prettier/prettier": [
-      "error"
-
-      // {
-      //    "parser": "graphql"
-      // }
-    ]
+    "jsx-a11y/alt-text": "off",
+    "prettier/prettier": ["error"]
   }
 }

@@ -17,10 +17,10 @@ const nextConfig = {
       test: /\.(graphql|gql)/,
       exclude: /node_modules/,
       loader: "graphql-tag/loader",
-    })
+    });
 
-    return config
+    return config;
   },
-}
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

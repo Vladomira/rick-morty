@@ -1,31 +1,31 @@
-import { memo, useRef, useState } from "react"
-import { useFrame } from "@react-three/fiber"
-import { useCursor, Image, PositionalAudio } from "@react-three/drei"
-import { easing } from "maath"
-import { GOLDENRATIO, FrameItemProps } from "@/src/types/Locations"
-import SceneFrameText from "./SceneFrameText"
+import { memo, useRef, useState } from "react";
+import { useFrame } from "@react-three/fiber";
+import { useCursor, Image, PositionalAudio } from "@react-three/drei";
+import { easing } from "maath";
+import { GOLDENRATIO, FrameItemProps } from "@/src/types/Locations";
+import SceneFrameText from "./SceneFrameText";
 
 const Frame = memo(function Frame({
   imageData,
   location,
   objectId,
 }: FrameItemProps) {
-  const [zoomSound, setZoomSound] = useState<boolean>(false)
-  const image = useRef<THREE.Mesh>(null)
+  const [zoomSound, setZoomSound] = useState<boolean>(false);
+  const image = useRef<THREE.Mesh>(null);
   const frame =
-    useRef<THREE.Mesh<THREE.BufferGeometry, THREE.MeshBasicMaterial>>(null)
+    useRef<THREE.Mesh<THREE.BufferGeometry, THREE.MeshBasicMaterial>>(null);
 
-  const [hovered, setHover] = useState(false)
-  const [rnd] = useState(() => Math.random())
-  const name = location.id
+  const [hovered, setHover] = useState(false);
+  const [rnd] = useState(() => Math.random());
+  const name = location.id;
 
-  const isActive = objectId === name
-  useCursor(hovered)
+  const isActive = objectId === name;
+  useCursor(hovered);
 
   useFrame((state, dt) => {
-    if (!image.current) return
-    ;(image.current.material as any).zoom =
-      2 + Math.sin(rnd * 10000 + state.clock.elapsedTime / 3) / 2
+    if (!image.current) return;
+    (image.current.material as any).zoom =
+      2 + Math.sin(rnd * 10000 + state.clock.elapsedTime / 3) / 2;
     easing.damp3(
       image.current.scale,
       [
@@ -35,16 +35,16 @@ const Frame = memo(function Frame({
       ],
       0.1,
       dt
-    )
+    );
     if (frame.current) {
       easing.dampC(
         frame.current.material.color,
         hovered ? "violet" : "white",
         0.1,
         dt
-      )
+      );
     }
-  })
+  });
   return (
     <group position={imageData.position} rotation={imageData.rotation}>
       <mesh
@@ -91,7 +91,7 @@ const Frame = memo(function Frame({
         />
       )}
     </group>
-  )
-})
+  );
+});
 
-export default Frame
+export default Frame;

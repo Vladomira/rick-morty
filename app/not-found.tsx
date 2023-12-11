@@ -1,6 +1,6 @@
-import Link from "next/link"
-import styles from "../styles/Character/CharacterPage.module.scss"
-import style from "../styles/Home.module.scss"
+import Link from "next/link";
+import styles from "../styles/Character/CharacterPage.module.scss";
+import style from "../styles/Home.module.scss";
 
 export default function Error() {
   return (
@@ -12,5 +12,5 @@ export default function Error() {
       </Link>
       <h1 className={style.header__title}>Page doesn't exist</h1>
     </>
-  )
+  );
 }

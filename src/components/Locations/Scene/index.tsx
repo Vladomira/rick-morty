@@ -1,19 +1,20 @@
-"use client"
-import { useState } from "react"
-import { Canvas } from "@react-three/fiber"
-import { MeshReflectorMaterial, Environment } from "@react-three/drei"
-import { LocationItem } from "@/src/types/Locations"
-import Frames from "./Frames/Frames"
-import { LocationDetails } from "../LocationDetails"
-import { AnimatePresence } from "framer-motion"
+"use client";
+import { useState } from "react";
+import { Canvas } from "@react-three/fiber";
+import { MeshReflectorMaterial, Environment } from "@react-three/drei";
+import { LocationItem } from "@/src/types/Locations";
+import Frames from "./Frames/Frames";
+import { LocationDetails } from "../LocationDetails";
+import { AnimatePresence } from "framer-motion";
 
 export const LocationsScene = ({
   locations,
 }: {
-  locations: LocationItem[] | undefined
+  locations: LocationItem[] | undefined;
 }) => {
-  const [openLocationDetails, setOpenLocationDetails] = useState<boolean>(false)
-  const [locationId, setLocationId] = useState<string>("")
+  const [openLocationDetails, setOpenLocationDetails] =
+    useState<boolean>(false);
+  const [locationId, setLocationId] = useState<string>("");
 
   return (
     <div>
@@ -56,5 +57,5 @@ export const LocationsScene = ({
         )}
       </AnimatePresence>
     </div>
-  )
-}
+  );
+};

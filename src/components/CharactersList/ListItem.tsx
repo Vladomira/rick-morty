@@ -1,9 +1,9 @@
-import Image from "next/image"
-import Link from "next/link"
+import Image from "next/image";
+import Link from "next/link";
 
-import styles from "../../../styles//Character/CharactersList.module.scss"
+import styles from "../../../styles//Character/CharactersList.module.scss";
 
-import { CharacterListItem } from "../../types/CharactersData"
+import { CharacterListItem } from "../../types/CharactersData";
 
 export const ListItem = ({ id, name, image }: CharacterListItem) => {
   return (
@@ -21,5 +21,5 @@ export const ListItem = ({ id, name, image }: CharacterListItem) => {
         <p className={styles.characters__text}>{name}</p>
       </Link>
     </li>
-  )
-}
+  );
+};

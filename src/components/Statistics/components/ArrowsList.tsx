@@ -1,11 +1,11 @@
-import React from "react"
+import React from "react";
 
-import styles from "@/styles/statistics/Statistics.module.scss"
+import styles from "@/styles/statistics/Statistics.module.scss";
 
 export interface Props {
-  buttonAction: (e: React.MouseEvent<HTMLButtonElement>) => void
-  nameTitle: string
-  numberTitle: string
+  buttonAction: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  nameTitle: string;
+  numberTitle: string;
 }
 
 export default function ArrowsList({
@@ -47,5 +47,5 @@ export default function ArrowsList({
         </th>
       </tr>
     </thead>
-  )
+  );
 }

@@ -1,10 +1,10 @@
-import styles from "@/styles/statistics/Statistics.module.scss"
-import { CharactersStatistics } from "../../../types/CharactersData"
+import styles from "@/styles/statistics/Statistics.module.scss";
+import { CharactersStatistics } from "../../../types/CharactersData";
 
 export default function StatisticsList({
   items,
 }: {
-  items: CharactersStatistics[] | undefined
+  items: CharactersStatistics[] | undefined;
 }) {
   return (
     <>
@@ -16,8 +16,8 @@ export default function StatisticsList({
               <td className={styles.table__item}>{episode?.length}</td>
             </tr>
           </tbody>
-        )
+        );
       })}
     </>
-  )
+  );
 }

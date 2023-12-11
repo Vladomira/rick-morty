@@ -18,4 +18,4 @@ export const subMenuAnimate = {
       display: "none",
     },
   },
-}
+};

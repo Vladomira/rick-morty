@@ -1,14 +1,14 @@
-import { getClient } from "@/src/service/apollo"
-import CharactersList from "../src/components/CharactersList"
+import { getClient } from "@/src/service/apollo";
+import CharactersList from "../src/components/CharactersList";
 import {
   CharactersFullData,
   CharacterListItem,
-} from "../src/types/CharactersData"
-import styles from "../styles/container.module.scss"
-import { characters } from "@/src/service/queries.graphql"
+} from "../src/types/CharactersData";
+import styles from "../styles/container.module.scss";
+import { characters } from "@/src/service/queries.graphql";
 
 async function Home() {
-  let charactersData: CharacterListItem[] | undefined
+  let charactersData: CharacterListItem[] | undefined;
   try {
     const { data }: CharactersFullData = await getClient().query({
       query: characters,
@@ -18,11 +18,11 @@ async function Home() {
           next: { revalidate: 5 },
         },
       },
-    })
+    });
 
-    charactersData = data.characters.results
+    charactersData = data.characters.results;
   } catch (error) {
-    console.error("Error fetching character:", error)
+    console.error("Error fetching character:", error);
   }
 
   return (
@@ -33,7 +33,7 @@ async function Home() {
         )}
       </div>
     </section>
-  )
+  );
 }
 
-export default Home
+export default Home;

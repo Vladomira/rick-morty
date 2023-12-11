@@ -1,5 +1,5 @@
-import { CloseBtnProps } from "@/src/types/common"
-import Image from "next/image"
+import { CloseBtnProps } from "@/src/types/common";
+import Image from "next/image";
 
 function CloseButton({
   setCloseImg,
@@ -29,7 +29,7 @@ function CloseButton({
         height={55}
       />
     </button>
-  )
+  );
 }
 
-export default CloseButton
+export default CloseButton;

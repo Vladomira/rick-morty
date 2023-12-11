@@ -1,11 +1,11 @@
-import React from "react"
-import Image from "next/image"
-import { CharacterInstance } from "@/src/types/CharactersData"
-import { motion } from "framer-motion"
-import ResidentEpisodes from "./Episodes/ResidentEpisodes"
+import React from "react";
+import Image from "next/image";
+import { CharacterInstance } from "@/src/types/CharactersData";
+import { motion } from "framer-motion";
+import ResidentEpisodes from "./Episodes/ResidentEpisodes";
 
 function LocationDetailsItem({ resident }: { resident: CharacterInstance }) {
-  const { name, image, status, species, gender, episode } = resident
+  const { name, image, status, species, gender, episode } = resident;
 
   return (
     <motion.div
@@ -55,7 +55,7 @@ function LocationDetailsItem({ resident }: { resident: CharacterInstance }) {
         </div>
       </div>
     </motion.div>
-  )
+  );
 }
 
-export default LocationDetailsItem
+export default LocationDetailsItem;

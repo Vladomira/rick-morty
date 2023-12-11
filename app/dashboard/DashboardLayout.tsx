@@ -1,6 +1,6 @@
-"use client"
-import Link from "next/link"
-import btnStyles from "../../styles/Character/CharacterPage.module.scss"
+"use client";
+import Link from "next/link";
+import btnStyles from "../../styles/Character/CharacterPage.module.scss";
 
 export default function DashboardLayout() {
   return (
@@ -27,5 +27,5 @@ export default function DashboardLayout() {
         </div>
       </div>
     </header>
-  )
+  );
 }

@@ -1,11 +1,11 @@
-import styles from "@/styles/statistics/Statistics.module.scss"
-import ArrowsList from "./ArrowsList"
-import { Children } from "@/src/types/common"
+import styles from "@/styles/statistics/Statistics.module.scss";
+import ArrowsList from "./ArrowsList";
+import { Children } from "@/src/types/common";
 
 export interface TableProps {
-  nameTitle: string
-  numberTitle: string
-  handleChange: (e: React.MouseEvent<HTMLButtonElement>) => void
+  nameTitle: string;
+  numberTitle: string;
+  handleChange: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }
 export default function Table({
   handleChange,
@@ -27,5 +27,5 @@ export default function Table({
         </tr>
       </tfoot>
     </table>
-  )
+  );
 }

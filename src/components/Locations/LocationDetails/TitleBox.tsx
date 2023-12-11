@@ -1,5 +1,5 @@
-import { TitleBoxProps } from "@/src/types/common"
-import React from "react"
+import { TitleBoxProps } from "@/src/types/common";
+import React from "react";
 
 function TitleBox({ name, type, dimension }: TitleBoxProps) {
   return (
@@ -8,7 +8,7 @@ function TitleBox({ name, type, dimension }: TitleBoxProps) {
       <p>{type}</p>
       <p>{dimension}</p>
     </div>
-  )
+  );
 }
 
-export default TitleBox
+export default TitleBox;

@@ -1,10 +1,10 @@
-import React, { useState } from "react"
-import { RoundedBox, Text, Text3D, useCursor } from "@react-three/drei"
-import { GOLDENRATIO, FrameTextProps } from "@/src/types/Locations"
+import React, { useState } from "react";
+import { RoundedBox, Text, Text3D, useCursor } from "@react-three/drei";
+import { GOLDENRATIO, FrameTextProps } from "@/src/types/Locations";
 
 function SceneFrameText({ name, type }: FrameTextProps) {
-  const [hovered, setHover] = useState(false)
-  useCursor(hovered)
+  const [hovered, setHover] = useState(false);
+  useCursor(hovered);
   return (
     <group>
       <mesh position={[0.61, 1.52, 0]}>
@@ -64,6 +64,6 @@ function SceneFrameText({ name, type }: FrameTextProps) {
         </Text3D>
       </mesh>
     </group>
-  )
+  );
 }
-export default SceneFrameText
+export default SceneFrameText;

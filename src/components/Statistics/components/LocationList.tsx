@@ -1,5 +1,5 @@
-import { LocationsList } from "@/src/types/common"
-import styles from "@/styles/statistics/Statistics.module.scss"
+import { LocationsList } from "@/src/types/common";
+import styles from "@/styles/statistics/Statistics.module.scss";
 
 export default function LocationList({ dataArr }: LocationsList) {
   return (
@@ -12,8 +12,8 @@ export default function LocationList({ dataArr }: LocationsList) {
               <td className={styles.table__item}>{count}</td>
             </tr>
           </tbody>
-        )
+        );
       })}
     </>
-  )
+  );
 }

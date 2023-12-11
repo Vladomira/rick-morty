@@ -1,26 +1,26 @@
-"use client"
-import React, { useState } from "react"
-import { motion } from "framer-motion"
-import { useSuspenseQuery } from "@apollo/experimental-nextjs-app-support/ssr"
-import { FullLocationData, LocationdetailsProps } from "@/src/types/Locations"
-import { location } from "@/src/service/queries.graphql"
-import LocationDetailsItem from "./LocationDetailsItem"
-import BackgroundPortal from "./Portal"
-import TitleBox from "./TitleBox"
-import CloseButton from "./CloseButton"
+"use client";
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { useSuspenseQuery } from "@apollo/experimental-nextjs-app-support/ssr";
+import { FullLocationData, LocationdetailsProps } from "@/src/types/Locations";
+import { location } from "@/src/service/queries.graphql";
+import LocationDetailsItem from "./LocationDetailsItem";
+import BackgroundPortal from "./Portal";
+import TitleBox from "./TitleBox";
+import CloseButton from "./CloseButton";
 
 const toggleButtonImages = {
   opened: "/assets/tech/opened-eyes.jpg",
   closed: "/assets/tech/closed-eyes1.jpg",
-}
+};
 export function LocationDetails({
   setIsOpen,
   locationId,
 }: LocationdetailsProps) {
   const { data }: FullLocationData = useSuspenseQuery(location, {
     variables: { id: locationId },
-  })
-  const [closeImg, setCloseImg] = useState(toggleButtonImages.opened)
+  });
+  const [closeImg, setCloseImg] = useState(toggleButtonImages.opened);
 
   return (
     <motion.div
@@ -54,12 +54,12 @@ export function LocationDetails({
                       resident={resident}
                       key={resident.id}
                     />
-                  )
+                  );
                 })}
             </div>
           </div>
         </div>
       </div>
     </motion.div>
-  )
+  );
 }

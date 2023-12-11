@@ -1,5 +1,5 @@
-import { LocationImage } from "@/src/types/Locations"
-import { Euler, Vector3 } from "three"
+import { LocationImage } from "@/src/types/Locations";
+import { Euler, Vector3 } from "three";
 
 export const locationImagesArr: LocationImage[] = [
   // Front
@@ -115,4 +115,4 @@ export const locationImagesArr: LocationImage[] = [
     rotation: new Euler(0, -Math.PI / 2.5, 0),
     url: "immortality-field-resort",
   },
-]
+];

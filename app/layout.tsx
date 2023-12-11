@@ -1,13 +1,13 @@
-import DashboardLayout from "./dashboard/DashboardLayout"
-import { Children } from "../src/types/common"
+import DashboardLayout from "./dashboard/DashboardLayout";
+import { Children } from "../src/types/common";
 
-import "../styles/globals.css"
-import { ApolloWrapper } from "@/src/service/apollo-provider"
+import "../styles/globals.css";
+import { ApolloWrapper } from "@/src/service/apollo-provider";
 
 export const metadata = {
   title: "Rick and Morty",
   description: "App for people who love cartoons",
-}
+};
 
 export default function RootLayout({ children }: Children) {
   return (
@@ -21,5 +21,5 @@ export default function RootLayout({ children }: Children) {
         </body>
       </ApolloWrapper>
     </html>
-  )
+  );
 }

@@ -1,16 +1,16 @@
-import React, { useState } from "react"
+import React, { useState } from "react";
 
-import { motion } from "framer-motion"
-import { subMenuAnimate } from "@/src/constants/menu-animation"
-import { CharacterEpisode } from "@/src/types/CharactersData"
-import { formattedDate } from "@/src/helpers/formattedData"
+import { motion } from "framer-motion";
+import { subMenuAnimate } from "@/src/constants/menu-animation";
+import { CharacterEpisode } from "@/src/types/CharactersData";
+import { formattedDate } from "@/src/helpers/formattedData";
 
 export default function ResidentEpisodes({
   episode,
 }: {
-  episode: CharacterEpisode[]
+  episode: CharacterEpisode[];
 }) {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <motion.div className="menu" onClick={() => setIsOpen(!isOpen)}>
@@ -31,5 +31,5 @@ export default function ResidentEpisodes({
         </div>
       </motion.div>
     </motion.div>
-  )
+  );
 }
