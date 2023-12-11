@@ -1,0 +1,8 @@
+.header__section {
+   @apply h-[250px] m-0  flex items-end justify-center pb-[30px]
+   bg-[url(/assets/background/home-page-header.jpg)] bg-cover bg-no-repeat bg-center;
+}
+
+.header__title {
+   @apply flex justify-center py-[10px] px-3 text-xl font-bold rounded-[10px] bg-black text-yellow-200;
+}

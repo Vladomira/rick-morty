@@ -39,7 +39,6 @@ function SceneFrameText({ name, type }: FrameTextProps) {
             position={[0.53, 1.3, 0]}
          >
             <RoundedBox
-               // position={[0, 0.299, 0.1]}
                rotation={[0.2, -0.2, 0]}
                args={[0.67, 0.15, 0.009]}
                radius={0.014}
@@ -51,7 +50,6 @@ function SceneFrameText({ name, type }: FrameTextProps) {
                font="/Inter_Bold.json"
                size={0.03}
                scale={hovered ? 1.1 : 1}
-               // position={[-0.26, 0.3, 0.2]}
                curveSegments={28}
                height={0.03}
                lineHeight={3}

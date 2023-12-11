@@ -11,6 +11,7 @@ const nextConfig = {
       ],
    },
    transpilePackages: ["three"],
+
    webpack: (config, options) => {
       config.module.rules.push({
          test: /\.(graphql|gql)/,

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import styles from "../../../styles/CharactersList.module.scss";
+import styles from "../../../styles//Character/CharactersList.module.scss";
 
 import { CharacterListItem } from "../../types/CharactersData";
 

@@ -14,7 +14,7 @@ export default function RootLayout({ children }: Children) {
       <html lang="en">
          <ApolloWrapper>
             <body>
-               <main>
+               <main className="w-screen sm:min-w-min  md:min-w-min lg:min-w-min">
                   <DashboardLayout />
                   {children}
                </main>

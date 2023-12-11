@@ -1,0 +1,72 @@
+.scene {
+   @apply w-screen  h-screen m-0 p-0;
+}
+
+.backdrop {
+   @apply fixed z-10 left-0 top-0 flex w-full h-screen bg-black bg-opacity-40;
+}
+
+.modal {
+   @apply h-[500px] m-auto inline-block  border-[17px] border-black bg-black;
+}
+
+.content-outer-box {
+   @apply relative  border-8 h-full  border-white overflow-hidden
+   sm:w-[300px] md:w-[420px] lg:w-[500px];
+}
+.content-outer-box::after {
+   content: "";
+   @apply absolute w-[100%] inset-x-0 bottom-[-10px] h-10 bg-gradient-to-t from-black via-black opacity-90 blur-sm;
+}
+
+/*  */
+.title-box {
+   @apply absolute top-5 left-[11px] flex flex-col min-w-[260px]
+    sm:w-[260px] md:w-[380px] lg:w-[453px] bg-black items-center text-base text-yellow-300 p-4 font-semibold shadow-sideShadow;
+}
+
+/*  */
+.list-wrapper {
+   @apply absolute top-36 left-[11px] h-full overflow-y-scroll overflow-x-hidden right-[-28px]
+      min-w-[260px] sm:w-[260px] md:w-[385px] lg:w-[495px];
+}
+.residents__list {
+   @apply flex flex-col gap-1 pb-8;
+}
+.residents__item {
+   @apply flex overflow-hidden rounded-t-md md:rounded-l-md md:rounded-tr-none last:mb-0 mb-4;
+}
+
+.residents__item--small {
+   @apply flex-col max-w-[260px] superSmall:bg-black sm:bg-black;
+}
+.residents__item--medium {
+   @apply md:max-w-[453px] md:flex-row w-[100%]  md:bg-gradient-to-b from-black to-green-800 md:shadow-listItem;
+}
+/*  */
+
+.residents__img {
+   @apply shadow-bottomGreen rounded-t-md md:rounded-l-md md:rounded-t-none  sm:w-[260px] md:mb-0 lg:mb-0 mb-3
+   md:max-w-[200px] md:shadow-imgGreenShadow;
+}
+
+.residents__info {
+   @apply px-3 py-4 text-green-400 md:flex md:flex-col md:justify-between;
+}
+
+/* menu */
+.menu {
+   @apply relative cursor-pointer  bg-yellow-300 text-black rounded-md font-medium py-1 px-2;
+}
+
+.sub-menu {
+   @apply absolute bottom-[42px]  right-0 bg-green-600  h-52   bg-gradient-to-br  rounded-md
+   md:right-[-60px] md:h-[130px] lg:right-[-100px] md:w-[310px] lg:w-[370px] md:bg-gradient-to-br md:from-black md:to-yellow-300 overflow-hidden;
+   transform-origin: 50% -30px;
+}
+.sub-menu-container {
+   @apply flex flex-col min-w-[200px] pl-1 h-48 mt-2 md:h-[114px] md:w-[320px] lg:w-[385px] overflow-y-scroll right-[-30px] box-content;
+}
+.sub-menu-item {
+   @apply px-3 py-1 text-yellow-100 first:border-t-0 border-t-[1px] border-l-green-50 md:flex md:justify-between;
+}

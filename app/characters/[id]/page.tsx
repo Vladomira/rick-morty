@@ -5,7 +5,7 @@ import {
    CharacterFullData,
    CharacterInstance,
 } from "../../../src/types/CharactersData";
-import styles from "../../../styles/CharacterPage.module.scss";
+import styles from "../../../styles/Character/CharacterPage.module.scss";
 import { getClient } from "@/src/service/apollo";
 import { character } from "@/src/service/queries.graphql";
 

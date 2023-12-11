@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 
-import styles from "../../../styles/CharacterPage.module.scss";
+import styles from "../../../styles/Character/CharacterPage.module.scss";
 import { CharacterInstance } from "../../types/CharactersData";
 
 const CharacterDetail = ({

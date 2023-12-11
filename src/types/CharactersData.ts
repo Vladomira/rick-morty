@@ -30,7 +30,6 @@ export type CharacterInstance = {
    name: string;
    status: string;
    species: string;
-   type: string;
    gender: string;
    id: string;
    image: string;

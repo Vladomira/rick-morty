@@ -15,9 +15,10 @@ export type LocationItem = {
    type: string;
    dimension: string;
    id: string;
-};
-export type FullLocationData = LocationItem & {
    residents: CharacterInstance[];
+};
+export type FullLocationData = {
+   data: { location: LocationItem };
 };
 
 export type LocationImage = {

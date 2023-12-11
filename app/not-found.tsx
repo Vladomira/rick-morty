@@ -1,5 +1,5 @@
 import Link from "next/link";
-import styles from "../styles/CharacterPage.module.scss";
+import styles from "../styles/Character/CharacterPage.module.scss";
 import style from "../styles/Home.module.scss";
 
 export default function Error() {

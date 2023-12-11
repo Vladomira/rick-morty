@@ -1,6 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import "./location/style.module.css";
+@import "./header.module.css";
+
 html,
 body {
    padding: 0;
