@@ -1,5 +1,5 @@
-import { ListItem } from './ListItem';
-import { CharactersListProps } from '../types/CharactersData';
+import { ListItem } from "./ListItem";
+import { CharactersListProps } from "../types/CharactersData";
 
 export const List = ({ items }: CharactersListProps) => {
   return (

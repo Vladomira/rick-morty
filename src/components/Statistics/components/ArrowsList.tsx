@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 
-import styles from '../../../styles/statistics/Statistics.module.scss';
+import styles from "@/styles/statistics/Statistics.module.scss";
 
 export interface Props {
   buttonAction: (e: React.MouseEvent<HTMLButtonElement>) => void;

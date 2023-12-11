@@ -1,7 +1,7 @@
 .character {
   &__section {
     padding: 60px 0;
-    content: ' ';
+    content: " ";
     display: block;
     // position: absolute;
     left: 0;
@@ -11,7 +11,7 @@
     z-index: 1;
     opacity: 0.9;
     // background-image: url(../src/assets/images/background.jpg);
-    background-image:  url(../src/assets/images/rick-and-morty.jpg);
+    background-image: url(/assets/background/rick-and-morty.jpg);
     // background-image:  url(../src/assets/space/space.jpg);
     background-repeat: no-repeat;
     background-position: 50% 0;

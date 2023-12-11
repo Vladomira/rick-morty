@@ -2,16 +2,16 @@
   padding: 0 60px;
 }
 .section {
-  padding: 60px 0;
-  content: ' ';
-  display: block;
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  z-index: 1;
-  opacity: 0.9;
-  background-image: url(../../src/assets/images/background.jpg);
+  padding: 90px 0;
+  //  content: " ";
+  //  display: block;
+  // position: absolute;
+  //  left: 0;
+  //  top: 0;
+  //  width: 100%;
+  //  z-index: -1;
+  //  opacity: 0.6;
+  background-image: url(/assets/background/rick-and-morty.jpg);
 
   background-attachment: fixed;
   background-size: cover;

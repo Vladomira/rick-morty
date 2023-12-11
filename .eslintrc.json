@@ -1,12 +1,15 @@
 {
-   "plugins": ["prettier"],
-   "extends": ["next/core-web-vitals", "plugin:prettier/recommended"],
-   "rules": {
-      "prettier/prettier": [
-         "error",
-         {
-            "parser": "graphql"
-         }
-      ]
-   }
+  "plugins": ["prettier", "@typescript-eslint"],
+  "extends": [
+    "next/core-web-vitals",
+    "plugin:@typescript-eslint/recommended",
+    "prettier"
+  ],
+  "rules": {
+    "react/no-unescaped-entities": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-unused-vars": "error",
+    "jsx-a11y/alt-text": "off",
+    "prettier/prettier": ["error"]
+  }
 }

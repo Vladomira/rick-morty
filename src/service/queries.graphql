@@ -1,60 +1,84 @@
 query characters($page: Int!) {
-   characters(page: $page) {
-      results {
-         name
-         id
-         image
-      }
-   }
+  characters(page: $page) {
+    results {
+      name
+      id
+      image
+    }
+  }
 }
 
 fragment episodeFields on Character {
-   episode {
-      name
-      air_date
-      episode
-   }
+  episode {
+    name
+    air_date
+    episode
+  }
 }
 query character($id: ID!) {
-   character(id: $id) {
+  character(id: $id) {
+    name
+    status
+    species
+    type
+    gender
+    image
+    id
+    location {
       name
-      status
-      species
-      type
-      gender
-      image
-      location {
-         name
-      }
+    }
 
-      ...episodeFields
-   }
+    ...episodeFields
+  }
 }
 
 query locations {
-   locations {
-      results {
-         name
-         type
-         dimension
-         id
-      }
-   }
+  locations {
+    results {
+      name
+      type
+      dimension
+      id
+    }
+  }
 }
 
 query charactersForStatistics {
-   characters {
-      results {
-         name
-         id
+  characters {
+    results {
+      name
+      id
 
-         episode {
-            name
-         }
-
-         location {
-            name
-         }
+      episode {
+        name
       }
-   }
+
+      location {
+        name
+      }
+    }
+  }
+}
+
+query location($id: ID!) {
+  location(id: $id) {
+    name
+    type
+    dimension
+    id
+
+    residents {
+      name
+      id
+      image
+      status
+      species
+      gender
+      episode {
+        name
+        air_date
+        episode
+      }
+    }
+  }
 }

@@ -1,13 +1,5 @@
-import styles from '../../../styles/statistics/Statistics.module.scss';
-
-export interface LocationsList {
-  dataArr: LocationItem[];
-}
-type LocationItem = {
-  name?: string;
-  count?: number;
-  id?: string | number;
-};
+import { LocationsList } from "@/src/types/common";
+import styles from "@/styles/statistics/Statistics.module.scss";
 
 export default function LocationList({ dataArr }: LocationsList) {
   return (
