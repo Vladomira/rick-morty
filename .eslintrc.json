@@ -1,12 +1,19 @@
 {
-   "plugins": ["prettier"],
-   "extends": ["next/core-web-vitals"],
-   "rules": {
-      "prettier/prettier": [
-         "error",
-         {
-            "parser": "graphql"
-         }
-      ]
-   }
+  "plugins": ["prettier", "@typescript-eslint"],
+  "extends": [
+    "next/core-web-vitals",
+    "plugin:@typescript-eslint/recommended",
+    "prettier"
+  ],
+  "rules": {
+    "@typescript-eslint/no-unused-vars": "error",
+    "@typescript-eslint/no-explicit-any": "error",
+    "prettier/prettier": [
+      "error"
+
+      // {
+      //    "parser": "graphql"
+      // }
+    ]
+  }
 }
