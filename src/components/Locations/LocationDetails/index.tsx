@@ -10,8 +10,8 @@ import TitleBox from "./TitleBox";
 import CloseButton from "./CloseButton";
 
 const toggleButtonImages = {
-  opened: "/assets/tech/opened-eyes.jpg",
-  closed: "/assets/tech/closed-eyes1.jpg",
+  opened: "/assets/tech/green.jpeg",
+  closed: "/assets/tech/red.jpeg",
 };
 export function LocationDetails({
   setIsOpen,

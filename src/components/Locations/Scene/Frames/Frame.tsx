@@ -39,7 +39,7 @@ const Frame = memo(function Frame({
     if (frame.current) {
       easing.dampC(
         frame.current.material.color,
-        hovered ? "violet" : "white",
+        hovered ? "#E0ACF9" : "#ECCFFB",
         0.1,
         dt
       );
