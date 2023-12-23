@@ -1,24 +1,20 @@
 import { Suspense } from "react";
 
-import CharacterDetail from "../../../src/components/CharacterDetail";
 import {
   CharacterFullData,
   CharacterInstance,
 } from "../../../src/types/CharactersData";
-import styles from "../../../styles/Character/CharacterPage.module.scss";
 import { getClient } from "@/src/service/apollo";
 import { character } from "@/src/service/queries.graphql";
+import { CharacterInfoBox } from "@/src/components/CharacterDetail/CharacterInfoBox";
 
-type CharacterEpisode = { name: string; air_date: string; episode: string };
-type CharacterLocation = { name: string; type: string };
 export default async function CharacterPage({
   params,
 }: {
   params: { id: string };
 }) {
   let characterData: CharacterInstance | undefined;
-  let location: CharacterLocation = { name: "", type: "" };
-  const episodes: CharacterEpisode[] = [];
+
   const { id } = params;
   try {
     const { data }: CharacterFullData = await getClient().query({
@@ -31,26 +27,39 @@ export default async function CharacterPage({
       },
     });
     characterData = data.character;
-
-    const { name, type } = data.character.location;
-    location = { name: name, type: type };
   } catch (error) {
     console.error("Error fetching character:", error);
   }
 
   return (
-    <section className={styles.character__section}>
-      <div className={styles.character__container}>
+    <section className="character__section">
+      <div className="container">
         <Suspense fallback={<div>Loading...</div>}>
-          <div style={{ display: "flex" }}>
-            {" "}
-            <CharacterDetail character={characterData} />
-            <div style={{ backgroundColor: "GrayText" }}>
-              <p>
-                Location: {location.name}, type:{location.type}
-              </p>
-              <p>Episodes quantity: {episodes.length}</p>
-            </div>
+          <div className="flex md:flex-col md:items-center gap-5 lg:flex-row lg:justify-around sm:flex-col maxMedium:flex-col maxMedium:items-center ">
+            {characterData && (
+              <>
+                <CharacterInfoBox
+                  src={characterData.image}
+                  imgName={characterData.name}
+                  props={[
+                    characterData.name,
+                    characterData.gender,
+                    characterData.species,
+                    characterData.status,
+                  ]}
+                />
+                <CharacterInfoBox
+                  imgName={characterData.location.name}
+                  props={[
+                    characterData.location.name,
+                    characterData.location.type,
+                  ]}
+                  bg={characterData.location.name}
+                  id={characterData.location.id}
+                  episode={characterData.episode}
+                />
+              </>
+            )}
           </div>
         </Suspense>
       </div>

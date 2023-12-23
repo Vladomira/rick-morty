@@ -1,10 +1,10 @@
 import {
-  CharactersStatistics,
   SortOrder,
   LocationForStatistics,
+  CharacterInstance,
 } from "../types/CharactersData";
 
-export function sortData(items: CharactersStatistics[], order: SortOrder) {
+export function sortData(items: CharacterInstance[], order: SortOrder) {
   return [...items].sort((a, b) =>
     order === "asc"
       ? a.episode?.length - b.episode?.length

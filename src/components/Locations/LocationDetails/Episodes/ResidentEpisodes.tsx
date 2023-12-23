@@ -1,3 +1,4 @@
+"use client";
 import React, { useState } from "react";
 
 import { motion } from "framer-motion";
@@ -7,16 +8,21 @@ import { formattedDate } from "@/src/helpers/formattedData";
 
 export default function ResidentEpisodes({
   episode,
+  rounded,
 }: {
   episode: CharacterEpisode[];
+  rounded?: string;
 }) {
   const [isOpen, setIsOpen] = useState(false);
-
+  const roundedConf = ` ${rounded || "rounded-sm"}`;
   return (
-    <motion.div className="menu" onClick={() => setIsOpen(!isOpen)}>
-      Episodes
+    <motion.div
+      className={`menu ${roundedConf}`}
+      onClick={() => setIsOpen(!isOpen)}
+    >
+      Open episodes ({episode.length})
       <motion.div
-        className="sub-menu "
+        className={`sub-menu ${roundedConf}`}
         initial="exit"
         animate={isOpen ? "enter" : "exit"}
         variants={subMenuAnimate}

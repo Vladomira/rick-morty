@@ -1,0 +1,59 @@
+.statistics__section {
+  @apply pt-16  pb-24  bg-[url(/assets/background/rick-and-morty.jpg)] bg-no-repeat bg-center bg-cover bg-fixed;
+}
+
+/* table header */
+.table__header--item {
+  @apply font-bold text-lg  px-4 pt-4 pb-3
+ superSmall:px-0 superSmall:w-max superSmall:h-max superSmall:py-2 superSmall:text-base superSmall:font-semibold;
+}
+.table__button {
+  @apply py-1 px-2 font-bold text-2xl ml-2  maxLarge:ml-0 superSmall:text-xl 
+  hover:scale-125  transform transition duration-300;
+}
+
+/* body */
+.table {
+  @apply border-collapse text-primaryYellow rounded-[30px] overflow-hidden bg-blackTransparent;
+}
+.table__item {
+  @apply text-center  sm:shadow-table pt-5 px-7 pb-3 maxLarge:px-3;
+}
+.table__item--small {
+  @apply superSmall:p-0 superSmall:w-max superSmall:text-sm superSmall:break-all;
+}
+.table__footer {
+  @apply h-12 shadow-table;
+}
+
+/* input */
+.input__wrapper {
+  @apply relative  w-full min-w-[200px] max-w-max rounded-[11px]  focus-within:border-green-600 focus-within:border-4;
+}
+.input {
+  @apply w-full px-3 py-3 pr-20 rounded-[7px] border-[3px]  bg-black  text-xl font-normal text-primaryYellow  outline-0 transition-all 
+  focus:border-[3px] focus:border-primaryYellow capitalize;
+}
+.input__button {
+  @apply absolute right-[7px] top-2 px-6 py-2 font-medium uppercase rounded-[3px] bg-gradient-to-b from-green-600 to-green-800;
+}
+
+/* filters */
+.filters__wrapper {
+  @apply flex justify-evenly mt-6 superSmall:justify-center superSmall:gap-5 superSmall:flex-wrap;
+}
+
+.filters__item {
+  /* min-w-[160px] */
+  @apply flex flex-col w-[160px] superSmall:max-w-max;
+}
+
+.filters__item-name {
+  @apply mb-2 max-w-max font-semibold text-lg text-black bg-primaryYellow py-1 px-2 rounded-md capitalize drop-shadow-first;
+}
+.filter__option-wraper {
+  @apply absolute w-[160px] top-[36px] left-[-2px] z-10 bg-black  py-3 border-x-[3px] border-b-[3px] rounded-b-[7px]  shadow-table;
+}
+.filter__opotion-item {
+  @apply w-full px-3 hover:bg-primaryYellow hover:text-black;
+}

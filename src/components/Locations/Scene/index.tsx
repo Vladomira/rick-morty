@@ -17,7 +17,7 @@ export const LocationsScene = ({
   const [locationId, setLocationId] = useState<string>("");
 
   return (
-    <div>
+    <>
       <div className={"scene"}>
         <Canvas dpr={[1, 1.5]} camera={{ fov: 90, position: [0, 2, 15] }}>
           <color attach="background" args={["#191920"]} />
@@ -56,6 +56,6 @@ export const LocationsScene = ({
           />
         )}
       </AnimatePresence>
-    </div>
+    </>
   );
 };

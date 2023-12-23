@@ -14,9 +14,10 @@ function Frames({
   setLocationId,
   setOpenLocationDetails,
 }: FramesProps) {
+  const id = localStorage.getItem("id");
   const ref: Ref<GroupProps> | undefined = useRef(null);
   const clicked = useRef<THREE.Object3D>();
-  const [objectId, setObjectId] = useState<string>("");
+  const [objectId, setObjectId] = useState<string>(id || "");
 
   useEffect(() => {
     if (!ref.current) return;
@@ -32,6 +33,7 @@ function Frames({
       p.set(0, 0, 5.5);
       q.identity();
     }
+    localStorage.clear();
   });
 
   useFrame((state, dt) => {

@@ -9,7 +9,6 @@ import {
   CharactersFullData,
   CharacterListItem,
 } from "../../types/CharactersData";
-// import { Condition } from "../../types/common"
 import { useSuspenseQuery } from "@apollo/experimental-nextjs-app-support/ssr";
 import { characters } from "@/src/service/queries.graphql";
 
@@ -23,10 +22,8 @@ const CharactersList = ({ charactersData }: CharactersListProps) => {
   const { data }: CharactersFullData = useSuspenseQuery(characters, {
     variables: { page },
   });
-  // const [condition, setCondition] = useState<Condition>('idle');
 
   const getMoreCharacters = async () => {
-    // setCondition('pending');
     if (page < 41) {
       setPage((prev) => {
         return prev + 1;
@@ -37,13 +34,11 @@ const CharactersList = ({ charactersData }: CharactersListProps) => {
 
     const results = data.characters.results;
     if (!data) {
-      // setCondition('rejected');
       return console.error("something went wrong");
     }
     setTimeout(() => {
       setItems((prev: CharacterListItem[]) => [...prev, ...results]);
     }, 1000);
-    // setCondition('resolved');
   };
   return (
     <InfiniteScroll
