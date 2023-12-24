@@ -1,3 +1,5 @@
+import { ApolloError } from "@apollo/client";
+
 export type CharacterListItem = {
   __typename?: string;
   name: string;
@@ -18,6 +20,7 @@ export type CharacterLocation = {
   name: string;
   type: string;
   dimension: string;
+  id: string;
 };
 export type CharacterEpisode = {
   __typename: string;
@@ -65,3 +68,39 @@ export type CharactersStatisticsData = {
 export interface CharactersListProps {
   items: CharacterListItem[];
 }
+
+// table
+export interface TableHeaderProps {
+  buttonAction: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  items: CharacterInstance[];
+}
+//character
+
+export type characterKeys =
+  | "name"
+  | "status"
+  | "species"
+  | "gender"
+  | "location"
+  | "episode";
+
+export const validCharacterKeys: characterKeys[] = [
+  "name",
+  "status",
+  "species",
+  "gender",
+  "location",
+  "episode",
+];
+
+export type FilteredCharactersData = {
+  characters: {
+    info: { count: number };
+    results: CharacterInstance[];
+  };
+};
+export type UseQueryResult = {
+  data: FilteredCharactersData | null | undefined;
+  loading: boolean;
+  error?: ApolloError | undefined;
+};

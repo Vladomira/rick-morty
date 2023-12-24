@@ -1,5 +1,5 @@
 .scene {
-  @apply w-screen  h-screen m-0 p-0;
+  @apply w-screen h-screen m-0 p-0;
 }
 
 .backdrop {
@@ -11,7 +11,8 @@
 }
 
 .content-outer-box {
-  @apply relative  border-8 h-full  border-white overflow-hidden
+  @apply relative  border-8 h-full  border-white 
+  /* overflow-hidden */
    sm:w-[300px] md:w-[420px] lg:w-[500px];
 }
 .content-outer-box::after {
@@ -22,7 +23,7 @@
 /*  */
 .title-box {
   @apply absolute top-5 left-[11px] flex flex-col min-w-[260px]
-    sm:w-[260px] md:w-[380px] lg:w-[453px] bg-black items-center text-base text-yellow-300 p-4 font-semibold shadow-sideShadow;
+    sm:w-[260px] md:w-[380px] lg:w-[453px] bg-black items-center text-base text-primaryYellow p-4 font-semibold shadow-sideShadow;
 }
 
 /*  */
@@ -34,7 +35,7 @@
   @apply flex flex-col gap-1 pb-8;
 }
 .residents__item {
-  @apply flex overflow-hidden rounded-t-md md:rounded-l-md md:rounded-tr-none last:mb-0 mb-4;
+  @apply flex overflow-hidden rounded-t-md md:rounded-l-md md:rounded-tr-none last:mb-0 mb-4 border-black border-[3px];
 }
 
 .residents__item--small {
@@ -56,17 +57,17 @@
 
 /* menu */
 .menu {
-  @apply relative cursor-pointer  bg-yellow-300 text-black rounded-md font-medium py-1 px-2;
+  @apply relative cursor-pointer  bg-primaryYellow text-black text-lg border-[3px] border-black  font-medium py-1 px-2;
 }
 
 .sub-menu {
-  @apply absolute bottom-[42px]  right-0 bg-green-600  h-52   bg-gradient-to-br  rounded-md
-   md:right-[-60px] md:h-[130px] lg:right-[-100px] md:w-[310px] lg:w-[370px] md:bg-gradient-to-br md:from-black md:to-yellow-300 overflow-hidden;
+  @apply absolute bottom-[42px]  right-0 bg-green-600  h-52   bg-gradient-to-br border-2 border-black
+   md:right-[-60px] md:h-[130px] lg:right-[-100px] md:w-[310px] lg:w-[370px] md:bg-gradient-to-br md:from-black md:to-primaryYellow overflow-hidden;
   transform-origin: 50% -30px;
 }
 .sub-menu-container {
   @apply flex flex-col min-w-[200px] pl-1 h-48 mt-2 md:h-[114px] md:w-[320px] lg:w-[385px] overflow-y-scroll right-[-30px] box-content;
 }
 .sub-menu-item {
-  @apply px-3 py-1 text-yellow-100 first:border-t-0 border-t-[1px] border-l-green-50 md:flex md:justify-between;
+  @apply px-3 py-1 text-primaryYellow first:border-t-0 border-t-[1px] border-l-green-50 md:flex md:justify-between;
 }

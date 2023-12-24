@@ -1,12 +1,7 @@
-export type Condition = "idle" | "pending" | "rejected" | "resolved";
-
 export interface Children {
   children: React.ReactNode;
 }
 
-export interface LocationsList {
-  dataArr: LocationItem[];
-}
 export type LocationItem = {
   name?: string;
   count?: number;
@@ -25,3 +20,12 @@ export interface CloseBtnProps {
   setIsOpen: () => void;
   toggleButtonImages: { opened: string; closed: string };
 }
+export type FiltersProps = {
+  values: string[];
+  name: string;
+};
+export type FiltersItemProps = FiltersProps & {
+  setSelected: (prop: string) => void;
+  selected: string;
+  setOpenOptions: (prop: boolean) => void;
+};

@@ -15,19 +15,26 @@ fragment episodeFields on Character {
     episode
   }
 }
+fragment locationFields on Character {
+  location {
+    name
+    type
+    dimension
+    id
+  }
+}
+fragment characterInfo on Character {
+  name
+  status
+  species
+  gender
+  image
+  id
+}
 query character($id: ID!) {
   character(id: $id) {
-    name
-    status
-    species
-    type
-    gender
-    image
-    id
-    location {
-      name
-    }
-
+    ...characterInfo
+    ...locationFields
     ...episodeFields
   }
 }
@@ -74,11 +81,31 @@ query location($id: ID!) {
       status
       species
       gender
-      episode {
-        name
-        air_date
-        episode
-      }
+      ...episodeFields
+    }
+  }
+}
+
+fragment unitedResults on Character {
+  ...characterInfo
+  ...locationFields
+  ...episodeFields
+}
+
+query characterByFilter(
+  $name: String
+  $status: String
+  $species: String
+  $gender: String
+) {
+  characters(
+    filter: { name: $name, status: $status, species: $species, gender: $gender }
+  ) {
+    info {
+      count
+    }
+    results {
+      ...unitedResults
     }
   }
 }

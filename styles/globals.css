@@ -2,8 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
-@import "./location/style.module.css";
+@import "./location/style.css";
 @import "./header.module.css";
+@import "./search/search.css";
+
+/* character */
+@import "./Character/characterPage.css";
+
+.container {
+  @apply py-0 px-6;
+}
 
 html,
 body {

@@ -1,0 +1,38 @@
+.character__section {
+  @apply w-[100%] pt-24 px-0 pb-32 opacity-90 bg-[url(/assets/background/rick-and-morty.jpg)] bg-no-repeat bg-cover;
+}
+
+.character__infobox {
+  @apply relative overflow-hidden  flex flex-col justify-between p-11 rounded-3xl superSmall:flex-col superSmall:max-w-[450px] w-[100%] md:max-w-[540px] lg:max-w-[560px]
+    
+   bg-blackTransparent border-[3px] border-primaryYellow;
+}
+.character__infobox--bg {
+  @apply absolute top-0 right-0 left-0 bottom-0 bg-no-repeat bg-cover bg-center opacity-80;
+}
+
+.character__imgthumb {
+  @apply flex items-center justify-center w-[100%] maxMedium:max-w-xs h-auto md:w-[250px] md:h-[250px] overflow-hidden
+   shadow-yellowShadow rounded-lg transform transition duration-500 hover:scale-110 focus:scale-110;
+}
+.character__img {
+  @apply w-[100%] h-[100%];
+}
+
+.character__infolist {
+  @apply text-primaryYellow;
+}
+
+.character__infoitem {
+  @apply last:mb-0 mb-5 transform transition duration-500 hover:scale-110 focus:scale-110;
+}
+.character__infotext {
+  @apply bg-black text-primaryYellow font-medium text-xl;
+}
+.character__infotext--biggest {
+  @apply bg-primaryYellow text-black font-bold text-2xl;
+}
+
+.character__btn {
+  @apply bg-primaryYellow text-black font-medium py-1 px-2 text-lg rounded-lg border-[3px] border-black;
+}

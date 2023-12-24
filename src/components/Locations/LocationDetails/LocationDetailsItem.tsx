@@ -3,9 +3,10 @@ import Image from "next/image";
 import { CharacterInstance } from "@/src/types/CharactersData";
 import { motion } from "framer-motion";
 import ResidentEpisodes from "./Episodes/ResidentEpisodes";
+import Link from "next/link";
 
 function LocationDetailsItem({ resident }: { resident: CharacterInstance }) {
-  const { name, image, status, species, gender, episode } = resident;
+  const { name, image, status, species, gender, episode, id } = resident;
 
   return (
     <motion.div
@@ -26,7 +27,9 @@ function LocationDetailsItem({ resident }: { resident: CharacterInstance }) {
 
       <div className="residents__info text-base">
         <div className="flex justify-between">
-          <p className="font-semibold text-lg"> {name}</p>
+          <Link href={`/characters/${id}`} className="underline">
+            <p className="font-semibold text-lg"> {name}</p>
+          </Link>
 
           {/* small screen */}
           <div className="md:hidden lg:hidden">
