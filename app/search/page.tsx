@@ -54,11 +54,13 @@ export default function Search() {
                 {resultsLength > 0 && data && (
                   <CharactersTable items={data?.characters?.results} />
                 )}
-                <TablePagination
-                  pageCount={Math.ceil(pageCount / itemsPerPage)}
-                  setPage={setCurrentPage}
-                  page={currentPage}
-                />
+                {pageCount > 0 && (
+                  <TablePagination
+                    pageCount={Math.ceil(pageCount / itemsPerPage)}
+                    setPage={setCurrentPage}
+                    page={currentPage}
+                  />
+                )}
               </>
             )}
           </div>
