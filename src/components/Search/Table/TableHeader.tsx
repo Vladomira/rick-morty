@@ -1,29 +1,21 @@
-import {
-  CharacterInstance,
-  characterKeys,
-  validCharacterKeys,
-} from "@/src/types/CharactersData";
+import { tableHeaders } from "@/src/constants/table/table-headers";
+import { characterKeys, validCharacterKeys } from "@/src/types/CharactersData";
 import { TableHeaderProps } from "@/src/types/CharactersData";
 
-export default function TableHeader({ buttonAction, items }: TableHeaderProps) {
+export default function TableHeader({ buttonAction }: TableHeaderProps) {
   return (
     <thead>
       <tr className="bg-black">
-        <CharacterHeaders items={items} buttonAction={buttonAction} />
+        <CharacterHeaders buttonAction={buttonAction} />
       </tr>
     </thead>
   );
 }
-function CharacterHeaders({
-  items,
-  buttonAction,
-}: {
-  items: CharacterInstance[];
-  buttonAction: (e: React.MouseEvent<HTMLButtonElement>) => void;
-}) {
+
+function CharacterHeaders({ buttonAction }: TableHeaderProps) {
   return (
     <>
-      {Object.keys(items[0]).map((el) => {
+      {tableHeaders.map((el: string) => {
         if (validCharacterKeys.includes(el as characterKeys)) {
           return (
             <th

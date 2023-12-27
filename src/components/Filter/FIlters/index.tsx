@@ -42,7 +42,7 @@ function Filters({ name, values }: FiltersProps) {
           className="absolute top-[7px] right-2 pr-1 pl-4 py-1"
         >
           <Image
-            src={"/assets/tech/arrows/arrow-bottom-down.svg"}
+            src={"/assets/tech/arrows/arrow-down.svg"}
             alt={"arrow"}
             width={20}
             height={20}

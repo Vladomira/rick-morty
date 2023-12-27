@@ -14,7 +14,7 @@
 
 /* body */
 .table {
-  @apply border-collapse text-primaryYellow rounded-[30px] overflow-hidden bg-blackTransparent;
+  @apply border-collapse text-primaryYellow rounded-[30px] overflow-hidden bg-blackTransparent max-w-max;
 }
 .table__item {
   @apply text-center  sm:shadow-table pt-5 px-7 pb-3 maxLarge:px-3;
@@ -49,7 +49,7 @@
 }
 
 .filters__item-name {
-  @apply mb-2 max-w-max font-semibold text-lg text-black bg-primaryYellow py-1 px-2 rounded-md capitalize drop-shadow-first;
+  @apply mb-2 max-w-max font-semibold text-lg text-black bg-primaryYellow py-1 px-2 rounded-md capitalize drop-shadow-shiny;
 }
 .filter__option-wraper {
   @apply absolute w-[160px] top-[36px] left-[-2px] z-10 bg-black  py-3 border-x-[3px] border-b-[3px] rounded-b-[7px]  shadow-table;

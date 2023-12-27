@@ -1,14 +1,3 @@
-// export type FiltersVariants = {
-//   gender: GenderValue;
-//   status: StatusValue;
-//   species: SpeciesValue;
-// };
-// export const initFilters: FiltersVariants = {
-//   gender: "Male",
-//   status: "Alive",
-//   species: "Human",
-// };
-
 export type FilterName = "gender" | "status" | "species";
 export type GenderValue = "Male" | "Female" | "genderless" | "unknown";
 export type StatusValue = "Alive" | "Dead" | "unknown";

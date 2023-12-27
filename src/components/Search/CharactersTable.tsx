@@ -27,7 +27,7 @@ export default function CharactersTable({
   };
 
   return (
-    <Table buttonAction={handleChange} items={itemsData}>
+    <Table buttonAction={handleChange}>
       <TableInfoList items={itemsData} />
     </Table>
   );

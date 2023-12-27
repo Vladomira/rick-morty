@@ -5,7 +5,7 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 function FilterItem({
   values,
   setSelected,
-  selected,
+  // selected,
   name,
   setOpenOptions,
 }: FiltersItemProps) {
@@ -48,7 +48,8 @@ function FilterItem({
             className="filter__opotion-item  "
             onClick={() => onClickHandle(el)}
           >
-            {el !== selected && el}
+            {el}
+            {/* {el !== selected && el} */}
           </motion.div>
         </AnimatePresence>
       ))}

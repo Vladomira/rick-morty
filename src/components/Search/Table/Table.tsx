@@ -8,18 +8,14 @@ export interface TableProps {
 export default function Table({
   buttonAction,
   children,
-  items,
-
   style,
 }: TableProps & Children & TableHeaderProps) {
   return (
     <table className={`table ${style || ""} `}>
-      <TableHeader buttonAction={buttonAction} items={items} />
+      <TableHeader buttonAction={buttonAction} />
       {children}
       <tfoot className="table__footer">
-        <tr>
-          <></>
-        </tr>
+        <tr>{/* <td>qweqwe</td> */}</tr>
       </tfoot>
     </table>
   );
