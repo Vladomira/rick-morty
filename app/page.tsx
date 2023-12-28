@@ -4,7 +4,6 @@ import {
   CharactersFullData,
   CharacterListItem,
 } from "../src/types/CharactersData";
-import styles from "../styles/container.module.scss";
 import { characters } from "@/src/service/queries.graphql";
 
 async function Home() {
@@ -26,8 +25,14 @@ async function Home() {
   }
 
   return (
-    <section className={styles.chracters__section}>
-      <div className={styles.container}>
+    <section
+      className="chracters__section"
+      style={{
+        backgroundImage:
+          " linear-gradient(rgba(47, 48, 58, 0.6), rgba(47, 48, 58, 0.6)),  url(/assets/background/home-back2.jpg)",
+      }}
+    >
+      <div className={"container"}>
         {charactersData !== undefined && (
           <CharactersList charactersData={charactersData} />
         )}

@@ -60,13 +60,13 @@
 }
 
 .sub-menu {
-  @apply absolute bottom-[42px]  right-0 bg-green-600  h-52   bg-gradient-to-br border-2 border-black
-   md:right-[-60px] md:h-[130px] lg:right-[-58px] md:w-[310px] lg:w-[370px] md:bg-gradient-to-br md:from-black md:to-primaryYellow overflow-hidden;
+  @apply absolute bottom-[42px]  right-0 bg-green-600  h-52   bg-gradient-to-br border-2 border-black shadow-table  overflow-hidden
+   md:right-[-60px] md:h-[130px] lg:right-[-58px] md:w-[310px] lg:w-[370px] md:bg-gradient-to-br md:from-black md:to-primaryYellow;
   transform-origin: 50% -30px;
 }
 .sub-menu-container {
-  @apply flex flex-col min-w-[200px] h-48 mt-2 md:h-[114px] md:w-[320px] lg:w-[385px] overflow-y-scroll right-[-30px] box-content;
+  @apply flex flex-col  min-w-[200px] h-48 mt-2 md:h-[114px] md:w-[320px] lg:w-[385px] overflow-y-scroll right-[-30px] box-content;
 }
 .sub-menu-item {
-  @apply px-3 py-1 text-primaryYellow first:border-t-0 border-t-[1px] border-l-green-50 md:flex md:justify-between;
+  @apply flex items-center pl-3 pr-5 py-1 text-primaryYellow first:border-t-0 border-t-[1px] border-l-green-50 md:flex md:justify-between;
 }

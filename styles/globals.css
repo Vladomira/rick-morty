@@ -3,11 +3,12 @@
 @tailwind utilities;
 
 @import "./location/style.css";
-@import "./header.module.css";
+@import "./header.css";
 @import "./search/search.css";
 
 /* character */
 @import "./Character/characterPage.css";
+@import "./Character/charactersList.css";
 
 .container {
   @apply py-0 px-6;

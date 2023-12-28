@@ -16,6 +16,7 @@ module.exports = {
       listItem: " 10px 10px 5px 0px rgba(0,0,0,0.75)",
       yellowShadow: " 0px 5px 10px 2px rgba(231, 235, 13, 0.6)",
       table: "0px 5px 10px 2px rgba(34, 60, 80, 1) inset",
+      pinkBack: "0px 5px 10px 2px rgba(128, 12, 112, 0.6)",
     },
     colors: {
       primaryYellow: "rgb(252, 252, 6)",

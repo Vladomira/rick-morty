@@ -67,15 +67,13 @@ export default function Search() {
         )}
 
         {resultsLength === 0 && data && !loading && (
-          <div className="flex justify-center mt-12">
-            <p className="p-4 rounded-md bg-black text-primaryYellow font-bold text-2xl">
-              No results
-            </p>
+          <div className="inform__text-box mt-12">
+            <p className="inform__text-box--text ">No results</p>
           </div>
         )}
         {error && (
-          <div className="flex justify-center mt-12">
-            <p className="p-4 rounded-md bg-black text-primaryYellow font-bold text-2xl">
+          <div className="inform__text-box mt-12;">
+            <p className="inform__text-box--text ">
               {"Something went wrong :("}
             </p>
           </div>
