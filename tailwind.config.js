@@ -31,7 +31,8 @@ module.exports = {
 
     extend: {
       dropShadow: {
-        first: "-1px 4px 6px rgba(248,255,24,1)",
+        shiny: "-1px 4px 6px rgba(248,255,24,1)",
+        nav: "2px -1px 2px rgba(0,0,0,0.6)",
       },
       screens: {
         superSmall: { raw: "(max-width: 640px)" },

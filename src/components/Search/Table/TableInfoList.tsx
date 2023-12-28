@@ -2,6 +2,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { CharacterInstance } from "../../../types/CharactersData";
 
+import "react-loading-skeleton/dist/skeleton.css";
+
 export default function TableInfoList({
   items,
 }: {
@@ -9,7 +11,7 @@ export default function TableInfoList({
 }) {
   return (
     <tbody>
-      {items?.map(
+      {items.map(
         ({
           name,
           episode,

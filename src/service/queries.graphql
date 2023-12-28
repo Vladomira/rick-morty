@@ -1,5 +1,8 @@
 query characters($page: Int!) {
   characters(page: $page) {
+    info {
+      count
+    }
     results {
       name
       id
@@ -50,23 +53,6 @@ query locations {
   }
 }
 
-query charactersForStatistics {
-  characters {
-    results {
-      name
-      id
-
-      episode {
-        name
-      }
-
-      location {
-        name
-      }
-    }
-  }
-}
-
 query location($id: ID!) {
   location(id: $id) {
     name
@@ -97,8 +83,10 @@ query characterByFilter(
   $status: String
   $species: String
   $gender: String
+  $page: Int
 ) {
   characters(
+    page: $page
     filter: { name: $name, status: $status, species: $species, gender: $gender }
   ) {
     info {

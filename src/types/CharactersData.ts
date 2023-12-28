@@ -10,7 +10,7 @@ export type CharacterListItem = {
 export type CharactersFullData = {
   data: {
     characters: {
-      __typename: "Characters";
+      info: { count: number };
       results: CharacterListItem[];
     };
   };
@@ -71,8 +71,7 @@ export interface CharactersListProps {
 
 // table
 export interface TableHeaderProps {
-  buttonAction: (e: React.MouseEvent<HTMLButtonElement>) => void;
-  items: CharacterInstance[];
+  buttonAction?: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }
 //character
 

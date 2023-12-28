@@ -7,9 +7,10 @@
   @apply flex justify-center py-[10px] px-3 text-xl font-bold rounded-[10px] bg-black text-primaryYellow;
 }
 .nav {
-  @apply inline-block py-[5px] px-2 font-semibold text-lg text-primaryYellow mr-3 last:mt-0 rounded-[10px]  drop-shadow-first
-  hover:bg-primaryYellow hover:text-black hover:scale-110  focus:bg-primaryYellow focus:text-black focus:scale-110 transition-all  transform  duration-300;
+  @apply inline-block py-[5px] px-2 font-semibold  text-[19px] text-primaryYellow mr-3 last:mt-0 rounded-[10px]  
+hover:shadow-table transition-all  transform  duration-200
+  /* hover:bg-fuchsia-300   hover:scale-110  focus:bg-fuchsia-300 focus:shadow-table focus:scale-110 ; */;
 }
 .nav--active {
-  @apply bg-fuchsia-300 text-black;
+  @apply bg-fuchsia-300 text-primaryYellow shadow-table;
 }

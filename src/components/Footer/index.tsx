@@ -5,7 +5,7 @@ import { socialLinks } from "@/src/constants/social-links";
 
 function Footer() {
   return (
-    <footer className="fixed bottom-0 left-0 right-0  bg-black pb-4">
+    <footer className="fixed bottom-0 left-0 right-0  bg-black pb-4 z-10">
       <div className="w-[100%] h-[1px] bg-primaryYellow" />
       <div className="flex justify-center pt-5 px-[30px] m-auto">
         <ul className="flex  ">
