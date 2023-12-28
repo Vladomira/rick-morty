@@ -4,7 +4,6 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import { BallTriangle } from "react-loader-spinner";
 
 import { List } from "./List";
-import style from "../../../styles/Home.module.scss";
 import {
   CharactersFullData,
   CharacterListItem,
@@ -47,11 +46,13 @@ const CharactersList = ({ charactersData }: CharactersListProps) => {
       scrollThreshold={"100%"}
       hasMore={true}
       loader={
-        <div className={style.preloader}>
+        <div className="flex justify-center">
           <BallTriangle color="yellow" height={100} width={90} />
         </div>
       }
-      endMessage={<h4 className={style.header__title}>Nothing more to show</h4>}
+      endMessage={
+        <h4 className="inform__text-box--text">Nothing more to show</h4>
+      }
     >
       <List items={items} />
     </InfiniteScroll>

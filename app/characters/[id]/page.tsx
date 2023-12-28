@@ -33,7 +33,7 @@ export default async function CharacterPage({
 
   return (
     <section className="character__section">
-      <div className="container">
+      <div className="container m-auto">
         <Suspense fallback={<div>Loading...</div>}>
           <div className="flex md:flex-col md:items-center gap-5 lg:flex-row lg:justify-around sm:flex-col maxMedium:flex-col maxMedium:items-center ">
             {characterData && (

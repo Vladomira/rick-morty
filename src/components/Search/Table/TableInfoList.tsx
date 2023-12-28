@@ -1,8 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { CharacterInstance } from "../../../types/CharactersData";
-
-import "react-loading-skeleton/dist/skeleton.css";
+import { EpisodeDropDown } from "./EpisodeDropDown";
 
 export default function TableInfoList({
   items,
@@ -47,7 +46,7 @@ export default function TableInfoList({
                 {location.name}
               </td>
               <td className="table__item table__item--small ">
-                {episode?.length}
+                <EpisodeDropDown episode={episode} text={episode?.length} />
               </td>
             </tr>
           );
