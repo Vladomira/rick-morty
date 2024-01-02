@@ -1,14 +1,15 @@
 "use client";
 import { useRouter } from "next/navigation";
 
-function CharacterButton({ id }: { id: string }) {
+function CharacterLocationButton({ id }: { id: string }) {
   const router = useRouter();
+
   return (
     <button
       type="button"
-      className="character__btn bg-primaryYellow mr-2"
+      className="character__btn bg-primaryYellow mr-2 "
       onClick={() => {
-        localStorage.setItem("id", id);
+        id && localStorage.setItem("id", id);
         router.push("/locations");
       }}
     >
@@ -17,4 +18,4 @@ function CharacterButton({ id }: { id: string }) {
   );
 }
 
-export default CharacterButton;
+export default CharacterLocationButton;

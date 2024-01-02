@@ -1,22 +1,23 @@
-import { getClient } from "@/src/service/apollo";
-import { LocationData, LocationItem } from "../../src/types/Locations";
-import { locations } from "@/src/service/queries.graphql";
+import { Suspense } from "react";
+import Fallback from "@/src/components/Fallback";
+import { LocationItem } from "../../src/types/Locations";
 import { LocationsScene } from "@/src/components/Locations/Scene";
-import "../../styles/globals.css";
+import { fetchLocations } from "@/src/service/api/fetchLocations";
 
 async function Locations() {
   let locationsData: LocationItem[] | undefined;
   try {
-    const { data }: LocationData = await getClient().query({
-      query: locations,
-    });
-
+    const { data } = await fetchLocations();
     locationsData = data.locations.results;
   } catch (error) {
     console.error("Error fetching character:", error);
   }
 
-  return <LocationsScene locations={locationsData} />;
+  return (
+    <Suspense fallback={<Fallback />}>
+      <LocationsScene locations={locationsData} />
+    </Suspense>
+  );
 }
 
 export default Locations;

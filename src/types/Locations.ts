@@ -1,16 +1,17 @@
 import { Euler, Vector3 } from "three";
 import { CharacterInstance } from "./CharactersData";
+import { ApolloError } from "@apollo/client";
 
 export type LocationData = {
   data: {
     locations: {
-      __typename: "Locations";
       results: LocationItem[];
     };
   };
+  loading: boolean;
+  error?: ApolloError | undefined;
 };
 export type LocationItem = {
-  __typename?: string;
   name: string;
   type: string;
   dimension: string;

@@ -15,7 +15,7 @@ export default function Table({
       <TableHeader buttonAction={buttonAction} />
       {children}
       <tfoot className="table__footer">
-        <tr>{/* <td>qweqwe</td> */}</tr>
+        <tr></tr>
       </tfoot>
     </table>
   );

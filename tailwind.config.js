@@ -39,6 +39,7 @@ module.exports = {
         superSmall: { raw: "(max-width: 640px)" },
         maxMedium: { raw: "(max-width: 767px)" },
         maxLarge: { raw: "(max-width: 900px)" },
+        beforeXl: { raw: "(min-width:640px) and (max-width: 1280px)" },
       },
       scale: ["focus"],
     },
