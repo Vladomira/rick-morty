@@ -8,7 +8,6 @@ const navigationList = [
   { name: "Locations", link: "/locations" },
   { name: "Search", link: "/search" },
 ];
-
 export default function DashboardLayout() {
   const pathname = usePathname();
 

@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { useSuspenseQuery } from "@apollo/experimental-nextjs-app-support/ssr";
 import { FullLocationData, LocationdetailsProps } from "@/src/types/Locations";
-import { location } from "@/src/service/queries.graphql";
+import { location } from "@/src/service/queries/queries.graphql";
 import LocationDetailsItem from "./LocationDetailsItem";
 import BackgroundPortal from "./Portal";
 import TitleBox from "./TitleBox";
@@ -17,6 +17,7 @@ export function LocationDetails({
   setIsOpen,
   locationId,
 }: LocationdetailsProps) {
+  // loading, error
   const { data }: FullLocationData = useSuspenseQuery(location, {
     variables: { id: locationId },
   });

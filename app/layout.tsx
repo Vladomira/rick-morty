@@ -4,6 +4,8 @@ import { Children } from "../src/types/components";
 import "../styles/globals.css";
 import { ApolloWrapper } from "@/src/service/apollo-provider";
 import Footer from "@/src/components/Footer";
+import { ErrorBoundary } from "react-error-boundary";
+import Error from "./dashboard/error";
 
 export const metadata = {
   title: "Rick and Morty",
@@ -17,8 +19,7 @@ export default function RootLayout({ children }: Children) {
         <body>
           <main className="w-screen h-full sm:min-w-min  md:min-w-min lg:min-w-min">
             <DashboardLayout />
-            {children}
-
+            <ErrorBoundary FallbackComponent={Error}>{children}</ErrorBoundary>
             <Footer />
           </main>
         </body>

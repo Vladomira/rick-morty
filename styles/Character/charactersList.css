@@ -1,6 +1,6 @@
 /* section */
 .chracters__section {
-  @apply pt-20 pb-16  w-screen bg-fixed bg-cover bg-no-repeat bg-center;
+  @apply pt-20 pb-28  w-screen bg-fixed bg-cover bg-no-repeat bg-center;
 }
 
 .characters__list {

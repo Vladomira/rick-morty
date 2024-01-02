@@ -1,6 +1,8 @@
 .header__section {
   @apply h-[250px] m-0  flex items-end justify-center pb-[30px] border-b-[1px] border-primaryYellow
-   bg-[url(/assets/background/home-page-header.jpg)] bg-cover bg-no-repeat bg-center;
+   bg-[url(/assets/gifs/rick-and-morty-rtj.gif)]  bg-cover bg-no-repeat bg-center;
+
+  /* /assets/background/home-page-header.jpg */
 }
 
 .header__title {
@@ -8,8 +10,7 @@
 }
 .nav {
   @apply inline-block py-[5px] px-2 font-semibold  text-[19px] text-primaryYellow mr-3 last:mt-0 rounded-[10px]  
-hover:shadow-table transition-all  transform  duration-200
-  /* hover:bg-fuchsia-300   hover:scale-110  focus:bg-fuchsia-300 focus:shadow-table focus:scale-110 ; */;
+hover:shadow-table transition-all  transform  duration-200;
 }
 .nav--active {
   @apply bg-fuchsia-300 text-primaryYellow shadow-table;

@@ -6,36 +6,37 @@ import { gradientShaderMaterial } from "@/src/constants/bg-scene-text";
 function SceneFrameText({ name, type }: FrameTextProps) {
   const [hovered, setHover] = useState(false);
   useCursor(hovered);
+  const isNameShort = name.length <= 22;
   return (
     <group>
-      <mesh position={[0.8, 1.45, 0]}>
-        <planeGeometry attach="geometry" args={[0.6, 0.37]} />{" "}
+      <mesh position={isNameShort ? [0, 0.2, 0.17] : [-0.003, 0.18, 0.17]}>
+        <planeGeometry
+          attach="geometry"
+          args={isNameShort ? [0.7, 0.25] : [0.75, 0.29]}
+        />{" "}
         <primitive attach="material" object={gradientShaderMaterial} />
       </mesh>
-
       <Text
         maxWidth={0.4}
         anchorX="left"
         anchorY="top"
-        position={[0.53, 1.58, 0]}
+        position={name.length <= 22 ? [-0.28, 0.27, 0.17] : [-0.35, 0.27, 0.17]}
         fontSize={0.06}
-        color={"#feff26"}
+        color={"rgb(255,24,240) "}
       >
         {type}
       </Text>
-
       <Text
-        maxWidth={0.4}
+        maxWidth={0.8}
         anchorX="left"
         anchorY="top"
-        position={[0.53, 1.44, 0]}
-        fontSize={0.05}
+        position={name.length <= 22 ? [-0.28, 0.18, 0.17] : [-0.35, 0.18, 0.17]}
+        fontSize={0.058}
         castShadow={true}
-        color={"#FEF08A"}
+        color="#feff26"
       >
         {name}
       </Text>
-
       <mesh
         onPointerOver={() => setHover(true)}
         onPointerOut={() => setHover(false)}

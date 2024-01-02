@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import { useQuery } from "@apollo/client";
 import CharactersTable from "@/src/components/Search/CharactersTable";
-import { characterByFilter } from "@/src/service/queries.graphql";
+import { characterByFilter } from "@/src/service/queries/queries.graphql";
 import CharacterInput from "@/src/components/Filter/CharacterInput";
 import { filtersArray } from "@/src/constants/filters";
 import Filters from "@/src/components/Filter/FIlters";
@@ -11,6 +11,12 @@ import { useGetParams } from "@/src/hooks/useGetParams";
 import TableSkeleton from "@/src/components/Search/TableSkeleton";
 import TablePagination from "@/src/components/Search/TablePagination";
 
+interface Filters {
+  name: string;
+  gender: string;
+  status: string;
+  species: string;
+}
 const defaultPageCount = 2;
 
 export default function Search() {
@@ -18,13 +24,17 @@ export default function Search() {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 20;
   const [pageCount, setPageCount] = useState(defaultPageCount);
+  const filters = {
+    name: useGetParams("query") || "Rick",
+    gender: useGetParams("gender") || "",
+    status: useGetParams("status") || "",
+    species: useGetParams("species") || "",
+  };
+
   const { data, loading, error }: UseQueryResult = useQuery(characterByFilter, {
     variables: {
       page: currentPage,
-      name: useGetParams("query") || "Rick",
-      gender: useGetParams("gender") || "",
-      status: useGetParams("status") || "",
-      species: useGetParams("species") || "",
+      ...filters,
     },
     fetchPolicy: "network-only",
   });
@@ -37,7 +47,10 @@ export default function Search() {
   }, [data]);
 
   return (
-    <section className="statistics__section ">
+    <section
+      className="statistics__section "
+      style={{ minHeight: "calc(100vh - 65px)" }}
+    >
       <div className={"px-6"}>
         <CharacterInput setValue={setValue} value={value} />
         <div className="filters__wrapper">
@@ -72,9 +85,9 @@ export default function Search() {
           </div>
         )}
         {error && (
-          <div className="inform__text-box mt-12;">
+          <div className="inform__text-box mt-12">
             <p className="inform__text-box--text ">
-              {"Something went wrong :("}
+              {JSON.stringify(error.message)}
             </p>
           </div>
         )}

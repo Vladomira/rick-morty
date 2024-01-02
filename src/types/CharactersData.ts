@@ -1,7 +1,6 @@
 import { ApolloError } from "@apollo/client";
 
 export type CharacterListItem = {
-  __typename?: string;
   name: string;
   id: string;
   image: string;
@@ -16,20 +15,17 @@ export type CharactersFullData = {
   };
 };
 export type CharacterLocation = {
-  __typename: string;
   name: string;
   type: string;
   dimension: string;
   id: string;
 };
 export type CharacterEpisode = {
-  __typename: string;
   name: string;
   air_date: string;
   episode: string;
 };
 export type CharacterInstance = {
-  __typename?: "Character";
   name: string;
   status: string;
   species: string;
@@ -57,7 +53,6 @@ export type CharactersStatistics = {
 };
 export type CharactersStatisticsData = {
   data: {
-    __typename: string;
     characters: {
       results: CharactersStatistics[];
     };
@@ -65,9 +60,10 @@ export type CharactersStatisticsData = {
 };
 
 // components
-export interface CharactersListProps {
-  items: CharacterListItem[];
-}
+export type CharactersListProps = {
+  charactersData: CharacterListItem[];
+  charactersCount: number;
+};
 
 // table
 export interface TableHeaderProps {
