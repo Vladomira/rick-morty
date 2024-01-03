@@ -10,6 +10,7 @@ import {
 } from "../../types/CharactersData";
 import { useSuspenseQuery } from "@apollo/experimental-nextjs-app-support/ssr";
 import { characters } from "@/src/service/queries/queries.graphql";
+import ScrollButtons from "../ScrollButtons.tsx";
 
 const CharactersList = ({
   charactersData,
@@ -33,6 +34,7 @@ const CharactersList = ({
       return;
     }
   };
+
   const getMoreCharacters = async () => {
     changePage();
     const results = data.characters.results;
@@ -54,11 +56,12 @@ const CharactersList = ({
           </div>
         }
         endMessage={
-          <h4 className="inform__text-box--text">Nothing more to show</h4>
+          <h4 className="inform__text-box--text ">Nothing more to show</h4>
         }
       >
         <List items={items} />
       </InfiniteScroll>
+      {items.length > 20 && <ScrollButtons />}
     </div>
   );
 };
