@@ -24,7 +24,7 @@ async function Home() {
 
   return (
     <section
-      className="chracters__section"
+      className="chracters__section "
       style={{
         minHeight: "calc(100vh - 65px)",
         backgroundImage:
