@@ -29,3 +29,10 @@ export type FiltersItemProps = FiltersProps & {
   selected: string;
   setOpenOptions: (prop: boolean) => void;
 };
+
+export interface FiltersInstance {
+  name: string;
+  gender: string;
+  status: string;
+  species: string;
+}

@@ -13,6 +13,7 @@ export type CharactersFullData = {
       results: CharacterListItem[];
     };
   };
+  error?: ApolloError | undefined;
 };
 export type CharacterLocation = {
   name: string;
@@ -39,6 +40,7 @@ export interface CharacterFullData {
   data: {
     character: CharacterInstance;
   };
+  error?: ApolloError | undefined;
 }
 
 export type LocationForStatistics = { name: string; count: number; id: string };

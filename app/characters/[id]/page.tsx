@@ -3,6 +3,7 @@ import { CharacterInstance } from "../../../src/types/CharactersData";
 import { CharacterInfoBox } from "@/src/components/CharacterDetail/CharacterInfoBox";
 import { fetchCharacterById } from "@/src/service/api/fetchCharacterById";
 import Fallback from "@/src/components/Fallback";
+import { handleDataError } from "@/src/helpers/handleDataError";
 
 export default async function CharacterPage({
   params,
@@ -10,12 +11,20 @@ export default async function CharacterPage({
   params: { id: string };
 }) {
   let characterData: CharacterInstance | undefined;
+  let dataError: undefined | string;
   const { id } = params;
   try {
-    const { data } = await fetchCharacterById(id);
-    characterData = data.character;
+    const { data, error } = await fetchCharacterById(id);
+
+    if (error) {
+      const { handledError } = handleDataError(error);
+      dataError = handledError;
+    } else {
+      characterData = data.character;
+    }
   } catch (error) {
     console.error("Error fetching character:", error);
+    dataError = "An unexpected error occurred. Please try again later.";
   }
 
   return (
@@ -49,6 +58,7 @@ export default async function CharacterPage({
               />
             </div>
           )}
+          {dataError && <h2 className="inform__text-box--text">{dataError}</h2>}
         </div>
       </section>
     </Suspense>

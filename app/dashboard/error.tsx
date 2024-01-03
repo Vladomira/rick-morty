@@ -9,7 +9,7 @@ export default function Error({
   resetErrorBoundary: () => void;
 }) {
   useEffect(() => {
-    console.error(error);
+    console.error("error", error);
   }, [error]);
 
   return (
@@ -21,7 +21,7 @@ export default function Error({
           " linear-gradient(rgba(47, 48, 58, 0.6), rgba(47, 48, 58, 0.6)),  url(/assets/background/home-back2.jpg)",
       }}
     >
-      <div className="container flex flex-col justify-start ">
+      <div className="container flex flex-col items-center ">
         <h2 className="inform__text-box--text max-w-max">{error.message}</h2>
         <button
           onClick={() => resetErrorBoundary()}

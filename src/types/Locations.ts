@@ -8,7 +8,6 @@ export type LocationData = {
       results: LocationItem[];
     };
   };
-  loading: boolean;
   error?: ApolloError | undefined;
 };
 export type LocationItem = {
