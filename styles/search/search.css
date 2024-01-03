@@ -62,5 +62,5 @@
   @apply flex justify-center;
 }
 .inform__text-box--text {
-  @apply p-4 rounded-md bg-black text-primaryYellow font-bold text-2xl;
+  @apply text-primaryYellow font-bold text-2xl drop-shadow-nav  text-center;
 }

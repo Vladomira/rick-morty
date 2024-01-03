@@ -14,7 +14,7 @@ export default function DashboardLayout() {
   return (
     <header className="header__section">
       <div>
-        <h1 className="header__title">Rick and Morty</h1>
+        <h1 className="header__title shadow-table">Rick and Morty</h1>
         <nav className="mt-3">
           {navigationList.map(({ name, link }) => (
             <Link href={link} className={linkStyles(link, pathname)} key={name}>

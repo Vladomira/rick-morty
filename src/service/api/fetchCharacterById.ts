@@ -3,10 +3,10 @@ import { getClient } from "../apollo";
 import { character } from "../queries/queries.graphql";
 
 export const fetchCharacterById = async (id: string) => {
-  const { data }: CharacterFullData = await getClient().query({
+  const { data, error }: CharacterFullData = await getClient().query({
     query: character,
     variables: { id },
   });
 
-  return { data };
+  return { data, error };
 };

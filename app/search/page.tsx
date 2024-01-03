@@ -10,13 +10,8 @@ import { UseQueryResult } from "@/src/types/CharactersData";
 import { useGetParams } from "@/src/hooks/useGetParams";
 import TableSkeleton from "@/src/components/Search/TableSkeleton";
 import TablePagination from "@/src/components/Search/TablePagination";
+import { FiltersInstance } from "@/src/types/components";
 
-interface Filters {
-  name: string;
-  gender: string;
-  status: string;
-  species: string;
-}
 const defaultPageCount = 2;
 
 export default function Search() {
@@ -24,7 +19,7 @@ export default function Search() {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 20;
   const [pageCount, setPageCount] = useState(defaultPageCount);
-  const filters = {
+  const filters: FiltersInstance = {
     name: useGetParams("query") || "Rick",
     gender: useGetParams("gender") || "",
     status: useGetParams("status") || "",
@@ -52,12 +47,17 @@ export default function Search() {
       style={{ minHeight: "calc(100vh - 65px)" }}
     >
       <div className={"px-6"}>
-        <CharacterInput setValue={setValue} value={value} />
-        <div className="filters__wrapper">
-          {filtersArray.map(({ name, values }) => (
-            <Filters name={name} values={values} key={name} />
-          ))}
-        </div>
+        {!error && (
+          <>
+            <CharacterInput setValue={setValue} value={value} />
+            <div className="filters__wrapper">
+              {filtersArray.map(({ name, values }) => (
+                <Filters name={name} values={values} key={name} />
+              ))}
+            </div>
+          </>
+        )}
+
         {!error && (
           <div className="mt-5 flex items-center flex-col">
             {loading ? (
@@ -80,17 +80,9 @@ export default function Search() {
         )}
 
         {resultsLength === 0 && data && !loading && (
-          <div className="inform__text-box mt-12">
-            <p className="inform__text-box--text ">No results</p>
-          </div>
+          <p className="inform__text-box--text ">"No results"</p>
         )}
-        {error && (
-          <div className="inform__text-box mt-12">
-            <p className="inform__text-box--text ">
-              {JSON.stringify(error.message)}
-            </p>
-          </div>
-        )}
+        {error && <p className="inform__text-box--text ">{error.message}</p>}
       </div>
     </section>
   );
