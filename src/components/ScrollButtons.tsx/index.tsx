@@ -40,9 +40,8 @@ function ScrollButtons() {
           <button
             type="button"
             key={el}
-            className={`first:mb-4 
-             ${isTop && el == "top" ? "hidden" : ""}
-            rounded-2xl shadow-listItem hover:scale-105 focus:cale-105 transition-all duration-200`}
+            className={`first:mb-4 rounded-2xl shadow-listItem hover:scale-105 focus:cale-105 transition-all duration-200
+             ${isTop && el == "top" ? "hidden" : ""} `}
             onClick={() => (el === "top" ? scrollToTop() : scrollToBottom())}
           >
             <Image
@@ -50,7 +49,7 @@ function ScrollButtons() {
               width={55}
               height={55}
               alt={"scroll button"}
-              className={`bg-green-600 rounded-2xl shadow-table  superSmall:w-[45px] 
+              className={`bg-green-600 shadow-table  superSmall:w-[45px] rounded-md
                 ${el === "top" ? "rotate-180 " : ""}`}
             />
           </button>
