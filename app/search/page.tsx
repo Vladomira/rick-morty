@@ -44,7 +44,7 @@ export default function Search() {
   return (
     <section
       className="statistics__section "
-      style={{ minHeight: "calc(100vh - 65px)" }}
+      style={{ minHeight: "calc(100vh - 53px)" }}
     >
       <div className={"px-6"}>
         {!error && (

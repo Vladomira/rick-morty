@@ -31,7 +31,7 @@ export default async function CharacterPage({
     <Suspense fallback={<Fallback />}>
       <section
         className="character__section"
-        style={{ minHeight: "calc(100vh - 65px)" }}
+        style={{ minHeight: "calc(100vh - 53px)" }}
       >
         <div className="container m-auto">
           {characterData && (

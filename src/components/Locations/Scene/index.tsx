@@ -18,7 +18,7 @@ export const LocationsScene = ({
 
   return (
     <>
-      <div className={"scene"}>
+      <div className={"scene superSmall:pt-6 bg-black"}>
         <Canvas dpr={[1, 1.5]} camera={{ fov: 90, position: [0, 2, 15] }}>
           <color attach="background" args={["#191920"]} />
           <fog attach="fog" args={["#191920", 0, 15]} />
@@ -48,6 +48,12 @@ export const LocationsScene = ({
           <Environment preset="city" />
         </Canvas>
       </div>
+      <div
+        className="sm:hidden bg-black"
+        style={{
+          minHeight: "calc(100vh - 53px)",
+        }}
+      />
       <AnimatePresence>
         {openLocationDetails && (
           <LocationDetails

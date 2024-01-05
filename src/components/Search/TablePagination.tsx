@@ -7,6 +7,10 @@ import {
   arrows,
   paginationItemStyles,
 } from "@/src/constants/table/table-pagination";
+import {
+  getButtonStyles,
+  isButtonDisabled,
+} from "@/src/constants/table/pagination-styles";
 
 export default function TablePagination({
   pageCount,
@@ -15,8 +19,18 @@ export default function TablePagination({
 }: {
   pageCount: number;
   page: number;
-  setPage: (prop: number) => void;
+  setPage: React.Dispatch<React.SetStateAction<number>>;
 }) {
+  const changePage = (event: React.ChangeEvent<unknown>, value: number) => {
+    const target = event.currentTarget as HTMLButtonElement;
+
+    if (target.getAttribute("aria-label") === "Go to next page") {
+      setPage((prev: number) => prev + 1);
+    } else if (target.getAttribute("aria-label") === "Go to previous page") {
+      setPage((prev: number) => prev - 1);
+    } else setPage(value);
+  };
+
   return (
     <Stack sx={{ display: "flex", alignItems: "end", marginTop: "25px" }}>
       <Pagination
@@ -27,10 +41,14 @@ export default function TablePagination({
             slots={{ previous: arrows.left, next: arrows.right }}
             {...item}
             selected={item.page === page}
-            sx={paginationItemStyles(page, pageCount)}
+            sx={paginationItemStyles}
+            disabled={isButtonDisabled(item.type, page, pageCount)}
+            style={getButtonStyles(item.type, page, pageCount)}
           />
         )}
-        onChange={(_, value: number) => setPage(value)}
+        onChange={(event: React.ChangeEvent<unknown>, value: number) => {
+          changePage(event, value);
+        }}
       />
     </Stack>
   );

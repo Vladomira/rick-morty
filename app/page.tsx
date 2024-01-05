@@ -27,7 +27,7 @@ async function Home() {
     <section
       className="chracters__section"
       style={{
-        minHeight: "calc(100vh - 65px)",
+        minHeight: "calc(100vh - 53px)",
         backgroundImage:
           " linear-gradient(rgba(47, 48, 58, 0.6), rgba(47, 48, 58, 0.6)),  url(/assets/background/home-back2.jpg)",
       }}
