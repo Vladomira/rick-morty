@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 
 import { motion } from "framer-motion";
-import { subMenuAnimate } from "@/src/constants/menu-animation";
+import { subMenuAnimate } from "@/src/constants/animation-settings";
 import { CharacterEpisode } from "@/src/types/CharactersData";
 import { formattedDate } from "@/src/helpers/formattedData";
 

@@ -7,6 +7,7 @@ async function Home() {
   let charactersData: CharacterListItem[] | undefined;
   let charactersCount: number = 0;
   let dataError: undefined | string;
+
   try {
     const { data, error } = await fetchAllCharacters();
 
@@ -24,7 +25,7 @@ async function Home() {
 
   return (
     <section
-      className="chracters__section "
+      className="chracters__section"
       style={{
         minHeight: "calc(100vh - 65px)",
         backgroundImage:

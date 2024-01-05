@@ -16,7 +16,7 @@ function CloseButton({
       onClick={setIsOpen}
     >
       {closeImg === toggleButtonImages.closed && (
-        <p className="absolute text-black font-extrabold top-[1px] left-[-50px]">
+        <p className="absolute text-green-400 drop-shadow-nav  font-bold -bottom-6 left-0">
           Close
         </p>
       )}

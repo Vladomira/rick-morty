@@ -12,6 +12,7 @@ export interface TitleBoxProps {
   type: string;
   name: string;
   dimension: string;
+  residentsQuantity: number;
 }
 
 export interface CloseBtnProps {
