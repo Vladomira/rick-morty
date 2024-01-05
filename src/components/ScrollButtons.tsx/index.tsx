@@ -35,7 +35,7 @@ function ScrollButtons({
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [sectionRef]);
 
   return (
     <motion.div {...btnsAnimation} className="scroll-btns__div ">
