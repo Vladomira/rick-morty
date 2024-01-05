@@ -1,61 +1,53 @@
 "use client";
-import React, { useState } from "react";
+import React, { RefObject, useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import Image from "next/image";
+import { btnsAnimation } from "@/src/constants/animation-settings";
+import ScrollButtonItem from "./ScrollButtonItem";
 
-const btns = ["top", "bottom"];
 const isBrowser = () => typeof window !== "undefined";
 
-function ScrollButtons() {
+function ScrollButtons({
+  sectionRef,
+}: {
+  sectionRef: RefObject<HTMLDivElement | null>;
+}) {
   const [isTop, setIsTop] = useState<boolean>(false);
-
   function scrollToTop() {
     if (!isBrowser()) return;
     window.scrollTo({ top: 0, behavior: "smooth" });
-
-    setTimeout(() => {
-      setIsTop(true);
-    }, 1000);
   }
   function scrollToBottom() {
     if (!isBrowser()) return;
 
     window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
-    setIsTop(false);
   }
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!sectionRef?.current) return;
+      const sectionTop =
+        sectionRef.current.getBoundingClientRect().top + window.scrollY;
+
+      setIsTop(window.scrollY <= sectionTop);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <AnimatePresence>
-      <motion.div
-        initial={{ opacity: 0, x: 30 }}
-        animate={{ opacity: 1, x: 0 }}
-        exit={{ opacity: 0, x: 30 }}
-        transition={{
-          ease: "linear",
-          x: { duration: 1 },
-        }}
-        className="fixed bottom-[35%] right-14 maxMedium:right-2 beforeXl:right-4 flex flex-col "
-      >
-        {btns.map((el) => (
-          <button
-            type="button"
-            key={el}
-            className={`first:mb-4 rounded-2xl shadow-listItem hover:scale-105 focus:cale-105 transition-all duration-200
-             ${isTop && el == "top" ? "hidden" : ""} `}
-            onClick={() => (el === "top" ? scrollToTop() : scrollToBottom())}
-          >
-            <Image
-              src={"/assets/tech/arrows/arrow-down.svg"}
-              width={55}
-              height={55}
-              alt={"scroll button"}
-              className={`bg-green-600 shadow-table  superSmall:w-[45px] rounded-md
-                ${el === "top" ? "rotate-180 " : ""}`}
-            />
-          </button>
-        ))}
-      </motion.div>
-    </AnimatePresence>
+    <motion.div {...btnsAnimation} className="scroll-btns__div ">
+      <AnimatePresence>
+        {!isTop && (
+          <ScrollButtonItem scrollTo={scrollToTop} imgStyles={"rotate-180 "} />
+        )}
+      </AnimatePresence>
+      <AnimatePresence>
+        <ScrollButtonItem scrollTo={scrollToBottom} />
+      </AnimatePresence>
+    </motion.div>
   );
 }
 

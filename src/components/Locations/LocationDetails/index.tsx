@@ -5,7 +5,6 @@ import { useSuspenseQuery } from "@apollo/experimental-nextjs-app-support/ssr";
 import { FullLocationData, LocationdetailsProps } from "@/src/types/Locations";
 import { location } from "@/src/service/queries/queries.graphql";
 import LocationDetailsItem from "./LocationDetailsItem";
-import BackgroundPortal from "./Portal";
 import TitleBox from "./TitleBox";
 import CloseButton from "./CloseButton";
 
@@ -17,7 +16,6 @@ export function LocationDetails({
   setIsOpen,
   locationId,
 }: LocationdetailsProps) {
-  // loading, error
   const { data }: FullLocationData = useSuspenseQuery(location, {
     variables: { id: locationId },
   });
@@ -25,39 +23,40 @@ export function LocationDetails({
 
   return (
     <motion.div
-      className={"backdrop"}
+      className={`backdrop`}
       initial={{ y: -300, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       exit={{ y: -300, opacity: 0 }}
-      transition={{ ease: "linear", duration: 2, y: { duration: 0.9 } }}
+      transition={{ ease: "linear", duration: 2, y: { duration: 2.5 } }}
     >
-      <div className={"modal"}>
-        <div className="content-outer-box">
-          <BackgroundPortal />
+      <div className={"modal "}>
+        <div className="content-outer-box ">
+          {" "}
+          <div className="bg-portal" />
           <CloseButton
             setCloseImg={setCloseImg}
             closeImg={closeImg}
             setIsOpen={setIsOpen}
             toggleButtonImages={toggleButtonImages}
           />
-
           <TitleBox
             type={data.location.type}
             name={data.location.name}
             dimension={data.location.dimension}
+            residentsQuantity={data.location?.residents?.length}
           />
           <div className="list-wrapper ">
-            <div className=" residents__list">
-              {data.location?.residents?.length > 0 &&
-                data.location?.residents?.map((resident) => {
-                  return (
-                    <LocationDetailsItem
-                      resident={resident}
-                      key={resident.id}
-                    />
-                  );
-                })}
-            </div>
+            {data.location?.residents?.length > 0 ? (
+              <ul className=" residents__list">
+                {data.location?.residents?.map((resident) => (
+                  <LocationDetailsItem resident={resident} key={resident.id} />
+                ))}
+              </ul>
+            ) : (
+              <p className="font-bold text-2xl drop-shadow-nav text-center ">
+                No residents
+              </p>
+            )}
           </div>
         </div>
       </div>

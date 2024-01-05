@@ -9,7 +9,7 @@ function LocationDetailsItem({ resident }: { resident: CharacterInstance }) {
   const { name, image, status, species, gender, episode, id } = resident;
 
   return (
-    <motion.div
+    <motion.li
       initial={{ opacity: 0.5 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: false }}
@@ -57,7 +57,7 @@ function LocationDetailsItem({ resident }: { resident: CharacterInstance }) {
           <ResidentEpisodes episode={episode} />
         </div>
       </div>
-    </motion.div>
+    </motion.li>
   );
 }
 

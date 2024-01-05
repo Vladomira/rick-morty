@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { BallTriangle } from "react-loader-spinner";
 import { List } from "./List";
@@ -11,6 +11,7 @@ import {
 import { useSuspenseQuery } from "@apollo/experimental-nextjs-app-support/ssr";
 import { characters } from "@/src/service/queries/queries.graphql";
 import ScrollButtons from "../ScrollButtons.tsx";
+import { AnimatePresence } from "framer-motion";
 
 const CharactersList = ({
   charactersData,
@@ -21,6 +22,7 @@ const CharactersList = ({
     variables: { page },
   });
   const [items, setItems] = useState<CharacterListItem[]>(charactersData);
+  const sectionRef = useRef<HTMLDivElement | null>(null);
 
   const itemsPerPage = 20;
   const pagesCount = Math.floor(charactersCount / itemsPerPage);
@@ -44,7 +46,7 @@ const CharactersList = ({
     setItems((prev: CharacterListItem[]) => [...prev, ...results]);
   };
   return (
-    <div className={"container m-auto"}>
+    <div className={"container m-auto"} ref={sectionRef}>
       <InfiniteScroll
         dataLength={items?.length}
         next={getMoreCharacters}
@@ -61,7 +63,9 @@ const CharactersList = ({
       >
         <List items={items} />
       </InfiniteScroll>
-      {items.length > 20 && <ScrollButtons />}
+      <AnimatePresence>
+        {items.length > 20 && <ScrollButtons sectionRef={sectionRef} />}
+      </AnimatePresence>
     </div>
   );
 };
