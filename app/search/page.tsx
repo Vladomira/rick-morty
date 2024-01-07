@@ -52,7 +52,12 @@ export default function Search() {
             <CharacterInput setValue={setValue} value={value} />
             <div className="filters__wrapper">
               {filtersArray.map(({ name, values }) => (
-                <Filters name={name} values={values} key={name} />
+                <Filters
+                  name={name}
+                  values={values}
+                  key={name}
+                  setCurrentPage={setCurrentPage}
+                />
               ))}
             </div>
           </>
@@ -80,7 +85,7 @@ export default function Search() {
         )}
 
         {resultsLength === 0 && data && !loading && (
-          <p className="inform__text-box--text ">"No results"</p>
+          <p className="inform__text-box--text ">No results</p>
         )}
         {error && <p className="inform__text-box--text ">{error.message}</p>}
       </div>

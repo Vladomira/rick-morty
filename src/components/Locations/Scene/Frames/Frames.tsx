@@ -6,6 +6,7 @@ import { FramesProps, GOLDENRATIO } from "@/src/types/Locations";
 import { motion } from "framer-motion-3d";
 import { locationImagesArr } from "@/src/constants/locations-imgs";
 import Frame from "./Frame";
+import { useWindowSize } from "@/src/hooks/useWindowSize";
 
 function Frames({
   q = new THREE.Quaternion(),
@@ -50,11 +51,11 @@ function Frames({
       setObjectId((prev) => (prev === e.object.name ? "" : e.object.name));
     }
   };
-
+  const windowWidth = useWindowSize();
   return (
     <motion.group ref={ref} onClick={onHandleClick}>
       {locations?.map((location) => {
-        const image = locationImagesArr.find(
+        const image = locationImagesArr(windowWidth || 1920).find(
           (el) => el.url === location.name.replace(/ /g, "-").toLowerCase()
         );
 

@@ -5,12 +5,10 @@ import { AnimatePresence, motion } from "framer-motion";
 
 import { FiltersProps } from "@/src/types/components";
 import FilterItem from "./FilterItem";
-import { useSearchParams } from "next/navigation";
 
-function Filters({ name, values }: FiltersProps) {
+function Filters({ name, values, setCurrentPage }: FiltersProps) {
   const [openOptions, setOpenOptions] = useState(false);
-  const [selected, setSelected] = useState(values[0]);
-  const searchParams = useSearchParams();
+  const [selected, setSelected] = useState("");
 
   return (
     <div className="filters__item ">
@@ -21,13 +19,15 @@ function Filters({ name, values }: FiltersProps) {
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: 50 }}
         transition={{ ease: "linear", duration: 2, y: { duration: 0.9 } }}
-        className="input pt-1 pb-2 relative"
+        className="input pt-1 pb-2 relative h-[44px]"
+        onClick={() => setOpenOptions(!openOptions)}
       >
-        {searchParams.get(name)?.toString() || selected}
+        {selected !== "None" ? selected : ""}
 
         <AnimatePresence>
           {openOptions && (
             <FilterItem
+              setCurrentPage={setCurrentPage}
               values={values}
               setSelected={setSelected}
               selected={selected}
@@ -38,7 +38,6 @@ function Filters({ name, values }: FiltersProps) {
         </AnimatePresence>
         <button
           type="button"
-          onClick={() => setOpenOptions(!openOptions)}
           className="absolute top-[7px] right-2 pr-1 pl-4 py-1"
         >
           <Image

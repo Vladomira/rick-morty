@@ -3,6 +3,7 @@ import { createBackground } from "@/src/helpers/createBackground";
 import CharacterLocationButton from "./CharacterLocationButton";
 import ResidentEpisodes from "../Locations/LocationDetails/Episodes/ResidentEpisodes";
 import { CharacterEpisode } from "@/src/types/CharactersData";
+import { useWindowSize } from "@/src/hooks/useWindowSize";
 
 export function CharacterInfoBox({
   src,
@@ -19,9 +20,10 @@ export function CharacterInfoBox({
   id?: string;
   episode?: CharacterEpisode[];
 }) {
+  const windowWidth = useWindowSize();
   const bgImg = bg?.toLowerCase().replace(/\s+/g, "-");
   const isCustomImg =
-    createBackground(bgImg) === "url(/assets/space/space2.jpg)";
+    createBackground(bgImg, windowWidth) === "url(/assets/space/space2.jpg)";
 
   return (
     <div className="character__infobox min-h-[364px] ">
@@ -29,7 +31,7 @@ export function CharacterInfoBox({
         <div
           className="character__infobox--bg"
           style={{
-            backgroundImage: bg ? createBackground(bgImg) : "none",
+            backgroundImage: bg ? createBackground(bgImg, windowWidth) : "none",
           }}
         />
       )}

@@ -8,15 +8,19 @@ function FilterItem({
   selected,
   name,
   setOpenOptions,
+  setCurrentPage,
 }: FiltersItemProps) {
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const { replace } = useRouter();
-  const onClickHandle = (el: string) => {
-    const params = new URLSearchParams(searchParams);
+  const params = new URLSearchParams(searchParams);
 
-    params.set(`${[name]}`, el.toLowerCase());
+  const onClickHandle = (el: string) => {
+    const queryValue = el !== "None" ? el.toLowerCase() : "";
+    params.set(`${[name]}`, queryValue);
     replace(`${pathname}?${params.toString()}`);
+
+    setCurrentPage(1);
     setSelected(el);
     setOpenOptions(false);
   };
@@ -45,7 +49,9 @@ function FilterItem({
               y: { duration: 0.09 + idx },
             }}
             whileHover={{ scale: 1.03 }}
-            className="filter__opotion-item  "
+            className={`filter__option-item  ${
+              el === "None" ? "shadow-table" : ""
+            }`}
             onClick={() => onClickHandle(el)}
           >
             {el !== selected && el}

@@ -24,6 +24,7 @@ export interface CloseBtnProps {
 export type FiltersProps = {
   values: string[];
   name: string;
+  setCurrentPage: (prop: number) => void;
 };
 export type FiltersItemProps = FiltersProps & {
   setSelected: (prop: string) => void;
