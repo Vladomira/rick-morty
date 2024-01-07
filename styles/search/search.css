@@ -54,7 +54,7 @@
 .filter__option-wraper {
   @apply absolute w-[160px] top-[36px] left-[-2px] z-10 bg-black  py-3 border-x-[3px] border-b-[3px] rounded-b-[7px]  shadow-table;
 }
-.filter__opotion-item {
+.filter__option-item {
   @apply w-full px-3 hover:bg-primaryYellow hover:text-black;
 }
 
