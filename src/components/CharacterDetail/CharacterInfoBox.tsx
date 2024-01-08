@@ -1,44 +1,24 @@
 import Image from "next/image";
-import { createBackground } from "@/src/helpers/createBackground";
-import CharacterLocationButton from "./CharacterLocationButton";
-import ResidentEpisodes from "../Locations/LocationDetails/Episodes/ResidentEpisodes";
-import { CharacterEpisode } from "@/src/types/CharactersData";
-import { useWindowSize } from "@/src/hooks/useWindowSize";
+import CharacterBackground from "./CharacterBackground";
+import CharacterButtons from "./CharacterButtons";
+import { CharacterInfoBoxProps } from "@/src/types/components";
 
 export function CharacterInfoBox({
   src,
   imgName,
-  props,
+  infoItems,
   bg,
   id,
   episode,
-}: {
-  src?: string;
-  imgName: string;
-  props: string[];
-  bg?: string;
-  id?: string;
-  episode?: CharacterEpisode[];
-}) {
-  const windowWidth = useWindowSize();
+}: CharacterInfoBoxProps) {
   const bgImg = bg?.toLowerCase().replace(/\s+/g, "-");
-  const isCustomImg =
-    createBackground(bgImg, windowWidth) === "url(/assets/space/space2.jpg)";
-
   return (
     <div className="character__infobox min-h-[364px] ">
-      {bg && (
-        <div
-          className="character__infobox--bg"
-          style={{
-            backgroundImage: bg ? createBackground(bgImg, windowWidth) : "none",
-          }}
-        />
-      )}
+      {bgImg && <CharacterBackground bgImg={bgImg} />}
       <div
         className={`flex justify-between ${src ? "superSmall:flex-col" : ""}`}
       >
-        {src && (
+        {src && src.trim() !== "" && (
           <div className="character__imgthumb">
             <Image
               className="character__img"
@@ -49,8 +29,8 @@ export function CharacterInfoBox({
             />
           </div>
         )}
-        <ul className="character__infolist  ">
-          {props.map(
+        <ul className="character__infolist">
+          {infoItems.map(
             (el, idx) =>
               el !== "unknown" &&
               el !== null && (
@@ -69,17 +49,7 @@ export function CharacterInfoBox({
           )}
         </ul>
       </div>
-
-      <div
-        className={`flex "items-center"  relative ${
-          isCustomImg ? "justify-end" : ""
-        }`}
-      >
-        {id && !isCustomImg && <CharacterLocationButton id={id} />}
-        {bg && episode && (
-          <ResidentEpisodes episode={episode} rounded="rounded-lg" />
-        )}
-      </div>
+      <CharacterButtons id={id} bgImg={bgImg} episode={episode} />
     </div>
   );
 }

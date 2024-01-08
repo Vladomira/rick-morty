@@ -19,7 +19,7 @@ function Filters({ name, values, setCurrentPage }: FiltersProps) {
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: 50 }}
         transition={{ ease: "linear", duration: 2, y: { duration: 0.9 } }}
-        className="input pt-1 pb-2 relative h-[44px]"
+        className="input pt-1 pb-2 relative min-h-[44px] "
         onClick={() => setOpenOptions(!openOptions)}
       >
         {selected !== "None" ? selected : ""}
@@ -36,10 +36,7 @@ function Filters({ name, values, setCurrentPage }: FiltersProps) {
             />
           )}
         </AnimatePresence>
-        <button
-          type="button"
-          className="absolute top-[7px] right-2 pr-1 pl-4 py-1"
-        >
+        <button type="button" className="absolute top-[7px] right-2 pt-1">
           <Image
             src={"/assets/tech/arrows/arrow-down.svg"}
             alt={"arrow"}

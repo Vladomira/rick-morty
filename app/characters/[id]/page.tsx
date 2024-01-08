@@ -39,7 +39,7 @@ export default async function CharacterPage({
               <CharacterInfoBox
                 src={characterData.image}
                 imgName={characterData.name}
-                props={[
+                infoItems={[
                   characterData.name,
                   characterData.gender,
                   characterData.species,
@@ -48,7 +48,7 @@ export default async function CharacterPage({
               />
               <CharacterInfoBox
                 imgName={characterData.location.name}
-                props={[
+                infoItems={[
                   characterData.location.name,
                   characterData.location.type,
                 ]}

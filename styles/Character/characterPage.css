@@ -3,12 +3,12 @@
 }
 
 .character__infobox {
-  @apply relative overflow-hidden  flex flex-col justify-between p-11 rounded-3xl superSmall:flex-col superSmall:max-w-[450px] w-[100%] md:max-w-[540px] lg:max-w-[560px]
+  @apply relative  flex flex-col justify-between p-11 rounded-3xl superSmall:flex-col superSmall:max-w-[450px] w-[100%] md:max-w-[540px] lg:max-w-[560px]
     
    bg-blackTransparent border-[3px] border-primaryYellow;
 }
 .character__infobox--bg {
-  @apply absolute top-0 right-0 left-0 bottom-0 bg-no-repeat bg-cover bg-center opacity-80;
+  @apply absolute top-0 right-0 left-0 bottom-0 rounded-3xl bg-no-repeat bg-cover bg-center opacity-80;
 }
 
 .character__imgthumb {

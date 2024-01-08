@@ -35,7 +35,7 @@ function FilterItem({
         opacity: { duration: 0.6 },
         y: { duration: 1 },
       }}
-      className="filter__option-wraper "
+      className="filter__option-wraper"
     >
       {values.map((el, idx) => (
         <AnimatePresence key={el}>
