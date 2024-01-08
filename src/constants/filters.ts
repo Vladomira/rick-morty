@@ -6,6 +6,8 @@ export type SpeciesValue =
   | "Alien"
   | "Humanoid"
   | "Cronenberg"
+  | "Robot"
+  | "Mythological Creature"
   | "None";
 
 export type FiltersSet = {
@@ -21,6 +23,14 @@ export const filtersArray: FiltersSet[] = [
   { name: "status", values: ["Alive", "Dead", "unknown", "None"] },
   {
     name: "species",
-    values: ["Human", "Alien", "Humanoid", "Cronenberg", "None"],
+    values: [
+      "Human",
+      "Alien",
+      "Humanoid",
+      "Cronenberg",
+      "Robot",
+      "Mythological Creature",
+      "None",
+    ],
   },
 ];
