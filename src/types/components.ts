@@ -1,3 +1,5 @@
+import { CharacterEpisode } from "./CharactersData";
+
 export interface Children {
   children: React.ReactNode;
 }
@@ -38,3 +40,11 @@ export interface FiltersInstance {
   status: string;
   species: string;
 }
+export type CharacterInfoBoxProps = {
+  src?: string;
+  imgName: string;
+  infoItems: string[];
+  bg?: string;
+  id?: string;
+  episode?: CharacterEpisode[];
+};
