@@ -6,7 +6,6 @@ import { FramesProps, GOLDENRATIO } from "@/src/types/Locations";
 import { motion } from "framer-motion-3d";
 import { locationImagesArr } from "@/src/constants/locations-imgs";
 import Frame from "./Frame";
-import { useWindowSize } from "@/src/hooks/useWindowSize";
 
 function Frames({
   q = new THREE.Quaternion(),
@@ -14,7 +13,7 @@ function Frames({
   locations,
   setLocationId,
   setOpenLocationDetails,
-}: FramesProps) {
+}: FramesProps & { isMousePressed?: boolean }) {
   const id = localStorage.getItem("id");
   const ref: Ref<GroupProps> | undefined = useRef(null);
   const clicked = useRef<THREE.Object3D>();
@@ -36,11 +35,23 @@ function Frames({
     }
     localStorage.clear();
   });
-
   useFrame((state, dt) => {
     easing.damp3(state.camera.position, p, 0.4, dt);
     easing.dampQ(state.camera.quaternion, q, 0.4, dt);
+
+    // if (objectId === "") {
+    //   state.camera.position.x = state.pointer.x * 2;
+    // } //best
+    if (objectId === "") {
+      const targetX = state.pointer.x * 2.3;
+      state.camera.position.x = THREE.MathUtils.lerp(
+        state.camera.position.x,
+        targetX,
+        0.36
+      );
+    }
   });
+
   const onHandleClick = (e: ThreeEvent<MouseEvent>) => {
     e.stopPropagation();
 
@@ -51,11 +62,11 @@ function Frames({
       setObjectId((prev) => (prev === e.object.name ? "" : e.object.name));
     }
   };
-  const windowWidth = useWindowSize();
+
   return (
     <motion.group ref={ref} onClick={onHandleClick}>
       {locations?.map((location) => {
-        const image = locationImagesArr(windowWidth || 1920).find(
+        const image = locationImagesArr.find(
           (el) => el.url === location.name.replace(/ /g, "-").toLowerCase()
         );
 

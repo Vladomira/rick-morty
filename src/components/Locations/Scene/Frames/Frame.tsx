@@ -4,8 +4,6 @@ import { useCursor, Image, PositionalAudio } from "@react-three/drei";
 import { easing } from "maath";
 import { GOLDENRATIO, FrameItemProps } from "@/src/types/Locations";
 import SceneFrameText from "./SceneFrameText";
-import { useWindowSize } from "@/src/hooks/useWindowSize";
-import { scaleParameters } from "@/src/helpers/scaleParameters";
 
 const Frame = memo(function Frame({
   imageData,
@@ -20,7 +18,6 @@ const Frame = memo(function Frame({
   const [hovered, setHover] = useState(false);
   const [rnd] = useState(() => Math.random());
   const name = location.id;
-  const windowWidth = useWindowSize();
 
   const isActive = objectId === name;
   useCursor(hovered);
@@ -55,9 +52,7 @@ const Frame = memo(function Frame({
         onPointerOver={() => setHover(true)}
         onClick={() => setZoomSound(!zoomSound)}
         onPointerOut={() => setHover(false)}
-        scale={
-          windowWidth ? scaleParameters(windowWidth) : [1, GOLDENRATIO, 0.05]
-        }
+        scale={[1, GOLDENRATIO, 0.05]}
         position={[0, GOLDENRATIO / 2, 0]}
       >
         <boxGeometry />
