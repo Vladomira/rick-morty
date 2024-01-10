@@ -53,7 +53,7 @@ function Frames({
   };
 
   return (
-    <ScrollControls horizontal damping={0.2} pages={1.6} distance={1}>
+    <ScrollControls horizontal damping={0.6} pages={1.2}>
       {" "}
       <Scroll>
         <motion.group ref={ref} onClick={onHandleClick}>
