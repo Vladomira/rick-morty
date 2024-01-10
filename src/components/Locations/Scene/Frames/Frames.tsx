@@ -40,18 +40,7 @@ function Frames({
   useFrame((state, dt) => {
     easing.damp3(state.camera.position, p, 0.4, dt);
     easing.dampQ(state.camera.quaternion, q, 0.4, dt);
-
-    //best
-    // if (objectId === "") {
-    //   const targetX = state.pointer.x * 2.3;
-    //   state.camera.position.x = THREE.MathUtils.lerp(
-    //     state.camera.position.x,
-    //     targetX,
-    //     0.4
-    //   );
-    // }
   });
-
   const onHandleClick = (e: ThreeEvent<MouseEvent>) => {
     e.stopPropagation();
 
@@ -63,20 +52,8 @@ function Frames({
     }
   };
 
-  // const w = 3;
-  // const gap = 3;
-  // const windowWidth = useWindowSize();
-  // const xW = w + gap;
-  // const length = 20;
-
   return (
-    <ScrollControls
-      horizontal
-      damping={0.2}
-      // pages={windowWidth && (windowWidth - xW + length * xW) / windowWidth}
-      pages={8}
-      distance={5}
-    >
+    <ScrollControls horizontal damping={0.2} pages={1.6} distance={1}>
       {" "}
       <Scroll>
         <motion.group ref={ref} onClick={onHandleClick}>
