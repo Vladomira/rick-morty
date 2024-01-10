@@ -6,6 +6,7 @@ import { FramesProps, GOLDENRATIO } from "@/src/types/Locations";
 import { motion } from "framer-motion-3d";
 import { locationImagesArr } from "@/src/constants/locations-imgs";
 import Frame from "./Frame";
+import { Scroll, ScrollControls } from "@react-three/drei";
 
 function Frames({
   q = new THREE.Quaternion(),
@@ -35,21 +36,20 @@ function Frames({
     }
     localStorage.clear();
   });
+
   useFrame((state, dt) => {
     easing.damp3(state.camera.position, p, 0.4, dt);
     easing.dampQ(state.camera.quaternion, q, 0.4, dt);
 
+    //best
     // if (objectId === "") {
-    //   state.camera.position.x = state.pointer.x * 2;
-    // } //best
-    if (objectId === "") {
-      const targetX = state.pointer.x * 2.3;
-      state.camera.position.x = THREE.MathUtils.lerp(
-        state.camera.position.x,
-        targetX,
-        0.36
-      );
-    }
+    //   const targetX = state.pointer.x * 2.3;
+    //   state.camera.position.x = THREE.MathUtils.lerp(
+    //     state.camera.position.x,
+    //     targetX,
+    //     0.4
+    //   );
+    // }
   });
 
   const onHandleClick = (e: ThreeEvent<MouseEvent>) => {
@@ -63,25 +63,42 @@ function Frames({
     }
   };
 
-  return (
-    <motion.group ref={ref} onClick={onHandleClick}>
-      {locations?.map((location) => {
-        const image = locationImagesArr.find(
-          (el) => el.url === location.name.replace(/ /g, "-").toLowerCase()
-        );
+  // const w = 3;
+  // const gap = 3;
+  // const windowWidth = useWindowSize();
+  // const xW = w + gap;
+  // const length = 20;
 
-        if (image) {
-          return (
-            <Frame
-              key={image.url}
-              imageData={image}
-              location={location}
-              objectId={objectId}
-            />
-          );
-        }
-      })}
-    </motion.group>
+  return (
+    <ScrollControls
+      horizontal
+      damping={0.2}
+      // pages={windowWidth && (windowWidth - xW + length * xW) / windowWidth}
+      pages={8}
+      distance={5}
+    >
+      {" "}
+      <Scroll>
+        <motion.group ref={ref} onClick={onHandleClick}>
+          {locations?.map((location) => {
+            const image = locationImagesArr.find(
+              (el) => el.url === location.name.replace(/ /g, "-").toLowerCase()
+            );
+
+            if (image) {
+              return (
+                <Frame
+                  key={image.url}
+                  imageData={image}
+                  location={location}
+                  objectId={objectId}
+                />
+              );
+            }
+          })}
+        </motion.group>{" "}
+      </Scroll>
+    </ScrollControls>
   );
 }
 

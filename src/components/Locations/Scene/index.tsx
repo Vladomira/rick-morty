@@ -18,11 +18,11 @@ export const LocationsScene = ({
 
   return (
     <>
-      <div className={"scene "}>
+      <div className={"scene"}>
         <Canvas dpr={[1, 1.5]} camera={{ fov: 90, position: [0, 2, 15] }}>
           <color attach="background" args={["#191920"]} />
           <fog attach="fog" args={["#191920", 0, 15]} />
-          <group position={[0, -0.5, 0]}>
+          <group position={[1.6, -0.5, 0]}>
             <Frames
               locations={locations}
               setOpenLocationDetails={setOpenLocationDetails}
