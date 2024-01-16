@@ -5,7 +5,7 @@ import { easing } from "maath";
 import { GOLDENRATIO, FrameItemProps } from "@/src/types/Locations";
 import SceneFrameText from "./SceneFrameText";
 import { useWindowSize } from "@/src/hooks/useWindowSize";
-import { scaleParameters } from "@/src/helpers/scaleParameters";
+import { makeFrameSize } from "@/src/helpers/scaleParameters";
 
 const Frame = memo(function Frame({
   imageData,
@@ -27,6 +27,7 @@ const Frame = memo(function Frame({
 
   useFrame((state, dt) => {
     if (!image.current) return;
+
     (image.current.material as any).zoom =
       2 + Math.sin(rnd * 10000 + state.clock.elapsedTime / 3) / 2;
     easing.damp3(
@@ -55,9 +56,7 @@ const Frame = memo(function Frame({
         onPointerOver={() => setHover(true)}
         onClick={() => setZoomSound(!zoomSound)}
         onPointerOut={() => setHover(false)}
-        scale={
-          windowWidth ? scaleParameters(windowWidth) : [1, GOLDENRATIO, 0.05]
-        }
+        scale={makeFrameSize({ isActive, windowWidth })}
         position={[0, GOLDENRATIO / 2, 0]}
       >
         <boxGeometry />
