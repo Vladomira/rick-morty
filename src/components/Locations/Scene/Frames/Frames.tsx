@@ -19,6 +19,7 @@ function Frames({
   const ref: Ref<GroupProps> | undefined = useRef(null);
   const clicked = useRef<THREE.Object3D>();
   const [objectId, setObjectId] = useState<string>(id || "");
+  const windowWidth = useWindowSize();
 
   useEffect(() => {
     if (!ref.current) return;
@@ -27,7 +28,7 @@ function Frames({
       clicked.current = ref.current.getObjectByName(objectId);
       if (clicked.current?.parent) {
         clicked.current.parent.updateWorldMatrix(true, true);
-        clicked.current.parent.localToWorld(p.set(0, GOLDENRATIO / 2, 1.25));
+        clicked.current.parent.localToWorld(p.set(0, GOLDENRATIO / 2, 1.05));
         clicked.current.parent.getWorldQuaternion(q);
       }
     } else {
@@ -41,6 +42,7 @@ function Frames({
     easing.damp3(state.camera.position, p, 0.4, dt);
     easing.dampQ(state.camera.quaternion, q, 0.4, dt);
   });
+
   const onHandleClick = (e: ThreeEvent<MouseEvent>) => {
     e.stopPropagation();
 
@@ -51,7 +53,7 @@ function Frames({
       setObjectId((prev) => (prev === e.object.name ? "" : e.object.name));
     }
   };
-  const windowWidth = useWindowSize();
+
   return (
     <motion.group ref={ref} onClick={onHandleClick}>
       {locations?.map((location) => {

@@ -9,20 +9,20 @@ function SceneFrameText({ name, type }: FrameTextProps) {
   const isNameShort = name.length <= 22;
   return (
     <group>
-      <mesh position={isNameShort ? [0, 0.2, 0.17] : [-0.003, 0.18, 0.17]}>
+      <mesh position={isNameShort ? [0, 0.3, 0.17] : [-0.003, 0.3, 0.17]}>
         <planeGeometry
           attach="geometry"
           args={isNameShort ? [0.7, 0.25] : [0.75, 0.29]}
-        />{" "}
+        />
         <primitive attach="material" object={gradientShaderMaterial} />
       </mesh>
       <Text
         maxWidth={0.4}
         anchorX="left"
         anchorY="top"
-        position={name.length <= 22 ? [-0.28, 0.27, 0.17] : [-0.35, 0.27, 0.17]}
+        position={name.length <= 22 ? [-0.28, 0.4, 0.17] : [-0.35, 0.4, 0.17]}
         fontSize={0.06}
-        color={"rgb(255,24,240) "}
+        color={"rgb(255,24,240)"}
       >
         {type}
       </Text>
@@ -30,7 +30,7 @@ function SceneFrameText({ name, type }: FrameTextProps) {
         maxWidth={0.8}
         anchorX="left"
         anchorY="top"
-        position={name.length <= 22 ? [-0.28, 0.18, 0.17] : [-0.35, 0.18, 0.17]}
+        position={name.length <= 22 ? [-0.28, 0.3, 0.17] : [-0.35, 0.3, 0.17]}
         fontSize={0.058}
         castShadow={true}
         color="#feff26"
