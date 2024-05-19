@@ -55,7 +55,11 @@ function Frames({
   };
 
   return (
-    <motion.group ref={ref} onClick={onHandleClick}>
+    <motion.group
+      ref={ref}
+      onClick={onHandleClick}
+      onPointerMove={() => (document.body.style.cursor = "pointer")}
+    >
       {locations?.map((location) => {
         const image = locationImagesArr(windowWidth || 1920).find(
           (el) => el.url === location.name.replace(/ /g, "-").toLowerCase()
