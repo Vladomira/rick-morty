@@ -26,7 +26,23 @@ export const btnsAnimation = {
 
   transition: {
     ease: "linear",
-    duration: 1,
+    opacity: { duration: 1 },
     x: { duration: 1 },
+  },
+};
+export const btnScrollAnimation = {
+  show: { opacity: 1, x: 0 },
+  animate: { opacity: 1, x: 0 },
+  exit: { opacity: 0, x: 60 },
+
+  transition: {
+    ease: "linear",
+    opacity: { duration: 0.6 },
+    x: { duration: 1.3 },
+  },
+
+  whileHover: {
+    scale: 1.1,
+    transition: { duration: 1, scale: { duration: 1, ease: "linear" } },
   },
 };
