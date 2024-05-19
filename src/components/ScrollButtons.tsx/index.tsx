@@ -38,13 +38,18 @@ function ScrollButtons({
   }, [sectionRef]);
 
   return (
-    <motion.div {...btnsAnimation} className="scroll-btns__div ">
-      <AnimatePresence>
+    <motion.div
+      {...btnsAnimation}
+      key="btns-container"
+      className="scroll-btns__div "
+    >
+      <AnimatePresence key={"btn-top"}>
         {!isTop && (
-          <ScrollButtonItem scrollTo={scrollToTop} imgStyles={"rotate-180 "} />
+          <ScrollButtonItem scrollTo={scrollToTop} imgStyles="rotate-180" />
         )}
       </AnimatePresence>
-      <AnimatePresence>
+
+      <AnimatePresence key={"btn-bottom"}>
         <ScrollButtonItem scrollTo={scrollToBottom} />
       </AnimatePresence>
     </motion.div>

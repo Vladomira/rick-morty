@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { btnsAnimation } from "@/src/constants/animation-settings";
+import { btnScrollAnimation } from "@/src/constants/animation-settings";
 
 function ScrollButtonItem({
   scrollTo,
@@ -11,15 +11,10 @@ function ScrollButtonItem({
 }) {
   return (
     <motion.button
-      {...btnsAnimation}
-      whileHover={{
-        scale: 1.1,
-        transition: { duration: 1 },
-      }}
-      whileFocus={{ scale: 1.1, transition: { duration: 1, easings: 1 } }}
+      {...btnScrollAnimation}
       type="button"
       className={`scroll-btns__button ${imgStyles ? "mb-4" : ""}`}
-      onClick={() => scrollTo()}
+      onClick={scrollTo}
     >
       <Image
         src={"/assets/tech/arrows/arrow-down.svg"}
