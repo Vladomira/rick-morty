@@ -11,7 +11,7 @@ function CharacterInput({
   const pathname = usePathname();
   const { replace } = useRouter();
 
-  function handleSearch(value: string) {
+  function handleSearch() {
     const params = new URLSearchParams(searchParams);
     if (value) {
       params.set("query", value);
@@ -22,6 +22,12 @@ function CharacterInput({
     setValue("");
   }
 
+  const onKeyDownEvent = (e: { key: string }) => {
+    if (e.key === "Enter") {
+      handleSearch();
+    }
+  };
+
   return (
     <div className="input__wrapper mx-auto ">
       <input
@@ -29,9 +35,12 @@ function CharacterInput({
         type="text"
         value={value}
         placeholder="Rick"
-        onChange={(e) => setValue(e.target.value)}
+        onChange={(e: { target: { value: string } }) =>
+          setValue(e.target.value)
+        }
+        onKeyDown={onKeyDownEvent}
       />
-      <button className="input__button" onClick={() => handleSearch(value)}>
+      <button className="input__button" onClick={handleSearch}>
         Show
       </button>
     </div>
