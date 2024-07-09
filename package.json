@@ -24,7 +24,7 @@
     "graphql": "^16.8.1",
     "graphql-tag": "^2.12.6",
     "install": "^0.13.0",
-    "next": "14.0.3",
+    "next": "^14.2.4",
     "npm": "^10.2.4",
     "popmotion": "^11.0.5",
     "postcss-preset-env": "^9.3.0",
