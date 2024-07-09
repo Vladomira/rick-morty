@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { useSuspenseQuery } from "@apollo/experimental-nextjs-app-support/ssr";
+import { useSuspenseQuery } from "@apollo/client";
 import { FullLocationData, LocationdetailsProps } from "@/src/types/Locations";
 import { location } from "@/src/service/queries/queries.graphql";
 import LocationDetailsItem from "./LocationDetailsItem";

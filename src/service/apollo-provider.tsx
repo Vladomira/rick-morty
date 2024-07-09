@@ -1,29 +1,23 @@
 "use client";
 
-import { ApolloLink, HttpLink } from "@apollo/client";
+import { HttpLink } from "@apollo/client";
 import {
-  NextSSRApolloClient,
   ApolloNextAppProvider,
-  NextSSRInMemoryCache,
-  SSRMultipartLink,
-} from "@apollo/experimental-nextjs-app-support/ssr";
+  ApolloClient,
+  InMemoryCache,
+} from "@apollo/experimental-nextjs-app-support";
+import { BASE_URL } from "./config";
 
 function makeClient() {
   const httpLink = new HttpLink({
-    uri: "https://rickandmortyapi.com/graphql",
+    uri: BASE_URL,
+
+    fetchOptions: { cache: "no-store" },
   });
 
-  return new NextSSRApolloClient({
-    cache: new NextSSRInMemoryCache(),
-    link:
-      typeof window === "undefined"
-        ? ApolloLink.from([
-            new SSRMultipartLink({
-              stripDefer: true,
-            }),
-            httpLink,
-          ])
-        : httpLink,
+  return new ApolloClient({
+    cache: new InMemoryCache(),
+    link: httpLink,
   });
 }
 

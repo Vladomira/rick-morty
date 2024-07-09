@@ -8,7 +8,7 @@ import {
   CharacterListItem,
   CharactersListProps,
 } from "../../types/CharactersData";
-import { useSuspenseQuery } from "@apollo/experimental-nextjs-app-support/ssr";
+import { useSuspenseQuery } from "@apollo/client";
 import { characters } from "@/src/service/queries/queries.graphql";
 import ScrollButtons from "../ScrollButtons.tsx";
 import { AnimatePresence } from "framer-motion";
