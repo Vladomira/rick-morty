@@ -11,8 +11,6 @@ import { BASE_URL } from "./config";
 function makeClient() {
   const httpLink = new HttpLink({
     uri: BASE_URL,
-
-    fetchOptions: { cache: "no-store" },
   });
 
   return new ApolloClient({
