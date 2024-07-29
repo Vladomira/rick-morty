@@ -9,7 +9,8 @@
     "lint": "next lint",
     "tsc": "tsc",
     "eslint": "eslint",
-    "prettier": "prettier --write ."
+    "prettier": "prettier --write .",
+     "format": "prettier --write src --ext .ts,.tsx"
   },
   "dependencies": {
     "@apollo/client": "^3.10.8",

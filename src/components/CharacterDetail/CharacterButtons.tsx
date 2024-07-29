@@ -2,7 +2,7 @@
 import React from "react";
 import CharacterLocationButton from "./CharacterLocationButton";
 import ResidentEpisodes from "../Locations/LocationDetails/Episodes/ResidentEpisodes";
-import { CharacterEpisode } from "@/src/types/CharactersData";
+import { CharacterEpisode } from "@/src/@types/CharactersData";
 import { useWindowSize } from "@/src/hooks/useWindowSize";
 import { createBackground } from "@/src/helpers/createBackground";
 
@@ -11,12 +11,11 @@ function CharacterButtons({
   bgImg,
   episode,
 }: {
-  id: string | undefined;
-  bgImg: string | undefined;
+  id?: string;
+  bgImg?: string;
   episode?: CharacterEpisode[];
 }) {
   const windowWidth = useWindowSize();
-  //   const bgImg = bg?.toLowerCase().replace(/\s+/g, "-");
   const isCustomImg =
     createBackground(bgImg, windowWidth) === "url(/assets/space/space2.jpg)";
   return (

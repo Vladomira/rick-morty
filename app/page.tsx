@@ -1,26 +1,25 @@
 import { handleDataError } from "@/src/helpers/handleDataError";
 import CharactersList from "../src/components/CharactersList";
-import { CharacterListItem } from "../src/types/CharactersData";
+import { CharacterListItem } from "../src/@types/CharactersData";
 import { fetchAllCharacters } from "@/src/service/api/fetchAllCharacters";
+import { ApolloError } from "@apollo/client";
+import { DataError } from "@/src/@types/source";
 
 async function Home() {
   let charactersData: CharacterListItem[] | undefined;
   let charactersCount: number = 0;
-  let dataError: undefined | string;
+  let dataError: DataError;
 
   try {
     const { data, error } = await fetchAllCharacters();
 
     if (error) {
-      const { handledError } = handleDataError(error);
-      dataError = handledError;
-    } else {
-      charactersData = data.characters.results;
-      charactersCount = data.characters.info.count;
+      throw error;
     }
+    charactersData = data.characters.results;
+    charactersCount = data.characters.info.count;
   } catch (error) {
-    console.error("Error fetching character:", error);
-    dataError = "An unexpected error occurred. Please try again later.";
+    dataError = handleDataError(error as ApolloError);
   }
 
   return (
@@ -29,7 +28,7 @@ async function Home() {
       style={{
         minHeight: "calc(100vh - 53px)",
         backgroundImage:
-          " linear-gradient(rgba(47, 48, 58, 0.6), rgba(47, 48, 58, 0.6)),  url(/assets/background/home-back2.jpg)",
+          "linear-gradient(rgba(47, 48, 58, 0.6), rgba(47, 48, 58, 0.6)),  url(/assets/background/home-back2.jpg)",
       }}
     >
       {dataError && (
@@ -38,7 +37,7 @@ async function Home() {
       {charactersData !== undefined && (
         <CharactersList
           charactersData={charactersData}
-          charactersCount={charactersCount}
+          count={charactersCount}
         />
       )}
     </section>

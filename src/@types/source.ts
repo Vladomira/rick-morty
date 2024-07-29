@@ -1,0 +1,19 @@
+import { ApolloError } from "@apollo/client";
+
+export type CoreData = {
+  id: string;
+  name: string;
+};
+
+export type Count = { count: number };
+export type HandleApolloError = ApolloError;
+// | undefined;
+export type DataError = string | undefined;
+
+export type CharacterProfile = {
+  gender: string;
+  status: string;
+  species: string;
+};
+
+export type FetchApolloError = { error?: ApolloError };

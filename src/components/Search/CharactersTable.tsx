@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { CharacterInstance } from "../../types/CharactersData";
+import { CharacterInstance } from "../../@types/CharactersData";
 import { sortData } from "../../helpers/sort";
 import Table from "./Table/Table";
 import TableInfoList from "./Table/TableInfoList";

@@ -3,7 +3,7 @@ import { createBackground } from "@/src/helpers/createBackground";
 import { useWindowSize } from "@/src/hooks/useWindowSize";
 import React from "react";
 
-function CharacterBackground({ bgImg }: { bgImg: string | undefined }) {
+function CharacterBackground({ bgImg }: { bgImg: string }) {
   const windowWidth = useWindowSize();
   return (
     <div

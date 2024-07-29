@@ -1,6 +1,6 @@
 import { tableHeaders } from "@/src/constants/table/table-headers";
-import { characterKeys, validCharacterKeys } from "@/src/types/CharactersData";
-import { TableHeaderProps } from "@/src/types/CharactersData";
+import { characterKeys, validCharacterKeys } from "@/src/@types/CharactersData";
+import { TableHeaderProps } from "@/src/@types/CharactersData";
 
 export default function TableHeader({ buttonAction }: TableHeaderProps) {
   return (

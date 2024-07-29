@@ -1,23 +1,23 @@
 import { Euler, Vector3 } from "three";
 import { CharacterInstance } from "./CharactersData";
-import { ApolloError } from "@apollo/client";
+import { CoreData, FetchApolloError } from "./source";
 
-export type LocationData = {
+/**fetch**/
+export type LocationsFetchData = FetchApolloError & {
   data: {
     locations: {
       results: LocationItem[];
     };
   };
-  error?: ApolloError | undefined;
 };
-export type LocationItem = {
-  name: string;
+
+/**components**/
+export type LocationItem = CoreData & {
   type: string;
   dimension: string;
-  id: string;
   residents: CharacterInstance[];
 };
-export type FullLocationData = {
+export type LocationData = {
   data: { location: LocationItem };
 };
 
@@ -48,5 +48,3 @@ export interface LocationdetailsProps {
   setIsOpen: () => void;
   locationId: string;
 }
-
-export const GOLDENRATIO = 1.61803398875;

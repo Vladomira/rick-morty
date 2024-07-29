@@ -1,25 +1,23 @@
 import { Suspense } from "react";
 import Fallback from "@/src/components/Fallback";
-import { LocationItem } from "../../src/types/Locations";
+import { LocationItem } from "../../src/@types/Locations";
 import { LocationsScene } from "@/src/components/Locations/Scene";
 import { fetchLocations } from "@/src/service/api/fetchLocations";
 import { handleDataError } from "@/src/helpers/handleDataError";
+import { ApolloError } from "@apollo/client";
+import { DataError } from "@/src/@types/source";
 
 async function Locations() {
   let locationsData: LocationItem[] | undefined;
-  let dataError: undefined | string;
+  let dataError: DataError;
   try {
     const { data, error } = await fetchLocations();
-
     if (error) {
-      const { handledError } = handleDataError(error);
-      dataError = handledError;
-    } else {
-      locationsData = data.locations.results;
+      throw error;
     }
+    locationsData = data.locations.results;
   } catch (error) {
-    console.error("Error fetching character:", error);
-    dataError = "An unexpected error occurred. Please try again later.";
+    dataError = handleDataError(error as ApolloError);
   }
 
   return (

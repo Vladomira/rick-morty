@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import { MeshReflectorMaterial, Environment } from "@react-three/drei";
-import { LocationItem } from "@/src/types/Locations";
+import { LocationItem } from "@/src/@types/Locations";
 import Frames from "./Frames/Frames";
 import { LocationDetails } from "../LocationDetails";
 import { AnimatePresence } from "framer-motion";

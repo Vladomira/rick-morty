@@ -12,15 +12,16 @@ import {
   isButtonDisabled,
 } from "@/src/constants/table/pagination-styles";
 
+type TableProps = {
+  pageCount: number;
+  page: number;
+  setPage: React.Dispatch<React.SetStateAction<number>>;
+};
 export default function TablePagination({
   pageCount,
   setPage,
   page,
-}: {
-  pageCount: number;
-  page: number;
-  setPage: React.Dispatch<React.SetStateAction<number>>;
-}) {
+}: TableProps) {
   const changePage = (event: React.ChangeEvent<unknown>, value: number) => {
     const target = event.currentTarget as HTMLButtonElement;
 

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { CharacterInstance } from "../../../types/CharactersData";
+import { CharacterInstance } from "../../../@types/CharactersData";
 import { EpisodeDropDown } from "./EpisodeDropDown";
 
 export default function TableInfoList({
@@ -46,7 +46,10 @@ export default function TableInfoList({
                 {location.name}
               </td>
               <td className="table__item table__item--small ">
-                <EpisodeDropDown episode={episode} text={episode?.length} />
+                <EpisodeDropDown
+                  episode={episode}
+                  episodeLength={episode?.length}
+                />
               </td>
             </tr>
           );
