@@ -7,7 +7,6 @@ export type CoreData = {
 
 export type Count = { count: number };
 export type HandleApolloError = ApolloError;
-// | undefined;
 export type DataError = string | undefined;
 
 export type CharacterProfile = {

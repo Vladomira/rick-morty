@@ -12,10 +12,11 @@ import { useSuspenseQuery } from "@apollo/client";
 import { characters } from "@/src/service/queries/queries.graphql";
 import ScrollButtons from "../ScrollButtons.tsx";
 import { AnimatePresence } from "framer-motion";
+import { handleDataError } from "@/src/helpers/handleDataError";
 
 const CharactersList = ({ charactersData, count }: CharactersListProps) => {
   const [page, setPage] = useState<number>(2);
-  const { data }: CharactersFetchData = useSuspenseQuery(characters, {
+  const { data, error }: CharactersFetchData = useSuspenseQuery(characters, {
     variables: { page },
   });
   const [items, setItems] = useState<CharacterListItem[]>(charactersData);
@@ -36,6 +37,8 @@ const CharactersList = ({ charactersData, count }: CharactersListProps) => {
 
   const getMoreCharacters = async () => {
     changePage();
+
+    if (error) handleDataError(error);
     const results = data.characters.results;
 
     setItems((prev: CharacterListItem[]) => [...prev, ...results]);
