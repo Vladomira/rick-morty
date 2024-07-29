@@ -1,5 +1,5 @@
 import { ListItem } from "./ListItem";
-import { CharacterListItem } from "../../types/CharactersData";
+import { CharacterListItem } from "../../@types/CharactersData";
 
 export const List = ({ items }: { items: CharacterListItem[] }) => {
   return (

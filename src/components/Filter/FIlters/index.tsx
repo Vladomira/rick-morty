@@ -3,7 +3,7 @@ import { useState } from "react";
 
 import { AnimatePresence, motion } from "framer-motion";
 
-import { FiltersProps } from "@/src/types/components";
+import { FiltersProps } from "@/src/@types/components";
 import FilterItem from "./FilterItem";
 
 function Filters({ name, values, setCurrentPage }: FiltersProps) {

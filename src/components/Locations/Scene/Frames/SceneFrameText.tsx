@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { RoundedBox, Text, Text3D, useCursor } from "@react-three/drei";
-import { FrameTextProps } from "@/src/types/Locations";
+import { FrameTextProps } from "@/src/@types/Locations";
 import { gradientShaderMaterial } from "@/src/constants/bg-scene-text";
 
 function SceneFrameText({ name, type }: FrameTextProps) {

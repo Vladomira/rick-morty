@@ -1,15 +1,12 @@
-import { TableHeaderProps } from "@/src/types/CharactersData";
+import { TableHeaderProps } from "@/src/@types/CharactersData";
 import TableHeader from "./TableHeader";
-import { Children } from "@/src/types/components";
+import { Children } from "@/src/@types/components";
 
-export interface TableProps {
-  style?: string;
-}
-export default function Table({
-  buttonAction,
-  children,
-  style,
-}: TableProps & Children & TableHeaderProps) {
+export type TableProps = Children &
+  TableHeaderProps & {
+    style?: string;
+  };
+export default function Table({ buttonAction, children, style }: TableProps) {
   return (
     <table className={`table ${style || ""} `}>
       <TableHeader buttonAction={buttonAction} />

@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import { CharacterInstance } from "@/src/types/CharactersData";
+import { CharacterInstance } from "@/src/@types/CharactersData";
 import { motion } from "framer-motion";
 import ResidentEpisodes from "./Episodes/ResidentEpisodes";
 import Link from "next/link";
@@ -47,7 +47,6 @@ function LocationDetailsItem({ resident }: { resident: CharacterInstance }) {
           <p className="italic">
             Gender:
             <span className="not-italic">
-              {" "}
               {gender === "unknown" ? "none" : gender}
             </span>
           </p>

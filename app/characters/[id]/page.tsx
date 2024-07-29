@@ -1,9 +1,11 @@
 import { Suspense } from "react";
-import { CharacterInstance } from "../../../src/types/CharactersData";
+import { CharacterInstance } from "../../../src/@types/CharactersData";
 import { CharacterInfoBox } from "@/src/components/CharacterDetail/CharacterInfoBox";
 import { fetchCharacterById } from "@/src/service/api/fetchCharacterById";
 import Fallback from "@/src/components/Fallback";
 import { handleDataError } from "@/src/helpers/handleDataError";
+import { ApolloError } from "@apollo/client";
+import { DataError } from "@/src/@types/source";
 
 export default async function CharacterPage({
   params,
@@ -11,20 +13,18 @@ export default async function CharacterPage({
   params: { id: string };
 }) {
   let characterData: CharacterInstance | undefined;
-  let dataError: undefined | string;
+  let dataError: DataError;
+
   const { id } = params;
   try {
     const { data, error } = await fetchCharacterById(id);
 
     if (error) {
-      const { handledError } = handleDataError(error);
-      dataError = handledError;
-    } else {
-      characterData = data.character;
+      throw error;
     }
+    characterData = data.character;
   } catch (error) {
-    console.error("Error fetching character:", error);
-    dataError = "An unexpected error occurred. Please try again later.";
+    dataError = handleDataError(error as ApolloError);
   }
 
   return (

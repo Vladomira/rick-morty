@@ -1,18 +1,12 @@
 import { CharacterEpisode } from "./CharactersData";
+import { CharacterProfile, CoreData } from "./source";
 
 export interface Children {
   children: React.ReactNode;
 }
 
-export type LocationItem = {
-  name?: string;
-  count?: number;
-  id?: string | number;
-};
-
-export interface TitleBoxProps {
+export interface TitleBoxProps extends Pick<CoreData, "name"> {
   type: string;
-  name: string;
   dimension: string;
   residentsQuantity: number;
 }
@@ -23,9 +17,10 @@ export interface CloseBtnProps {
   setIsOpen: () => void;
   toggleButtonImages: { opened: string; closed: string };
 }
-export type FiltersProps = {
+
+/**filter**/
+export type FiltersProps = Omit<CoreData, "id"> & {
   values: string[];
-  name: string;
   setCurrentPage: (prop: number) => void;
 };
 export type FiltersItemProps = FiltersProps & {
@@ -34,12 +29,9 @@ export type FiltersItemProps = FiltersProps & {
   setOpenOptions: (prop: boolean) => void;
 };
 
-export interface FiltersInstance {
-  name: string;
-  gender: string;
-  status: string;
-  species: string;
-}
+export type FiltersInstance = CharacterProfile & Pick<CoreData, "name">;
+/******/
+
 export type CharacterInfoBoxProps = {
   src?: string;
   imgName: string;

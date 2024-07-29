@@ -2,7 +2,7 @@ import React from "react";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import Table from "./Table/Table";
-import { Children } from "@/src/types/components";
+import { Children } from "@/src/@types/components";
 
 function TableSkeleton() {
   return (

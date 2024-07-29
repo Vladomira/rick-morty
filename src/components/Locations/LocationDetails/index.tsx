@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { useSuspenseQuery } from "@apollo/client";
-import { FullLocationData, LocationdetailsProps } from "@/src/types/Locations";
+import { LocationData, LocationdetailsProps } from "@/src/@types/Locations";
 import { location } from "@/src/service/queries/queries.graphql";
 import LocationDetailsItem from "./LocationDetailsItem";
 import TitleBox from "./TitleBox";
@@ -16,7 +16,7 @@ export function LocationDetails({
   setIsOpen,
   locationId,
 }: LocationdetailsProps) {
-  const { data }: FullLocationData = useSuspenseQuery(location, {
+  const { data }: LocationData = useSuspenseQuery(location, {
     variables: { id: locationId },
   });
   const [closeImg, setCloseImg] = useState(toggleButtonImages.opened);
@@ -31,7 +31,6 @@ export function LocationDetails({
     >
       <div className={"modal "}>
         <div className="content-outer-box ">
-          {" "}
           <div className="bg-portal" />
           <CloseButton
             setCloseImg={setCloseImg}

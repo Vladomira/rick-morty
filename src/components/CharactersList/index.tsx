@@ -4,28 +4,26 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import { BallTriangle } from "react-loader-spinner";
 import { List } from "./List";
 import {
-  CharactersFullData,
+  CharactersFetchData,
   CharacterListItem,
   CharactersListProps,
-} from "../../types/CharactersData";
+} from "../../@types/CharactersData";
 import { useSuspenseQuery } from "@apollo/client";
 import { characters } from "@/src/service/queries/queries.graphql";
 import ScrollButtons from "../ScrollButtons.tsx";
 import { AnimatePresence } from "framer-motion";
+import { handleDataError } from "@/src/helpers/handleDataError";
 
-const CharactersList = ({
-  charactersData,
-  charactersCount,
-}: CharactersListProps) => {
+const CharactersList = ({ charactersData, count }: CharactersListProps) => {
   const [page, setPage] = useState<number>(2);
-  const { data }: CharactersFullData = useSuspenseQuery(characters, {
+  const { data, error }: CharactersFetchData = useSuspenseQuery(characters, {
     variables: { page },
   });
   const [items, setItems] = useState<CharacterListItem[]>(charactersData);
   const sectionRef = useRef<HTMLDivElement | null>(null);
 
   const itemsPerPage = 20;
-  const pagesCount = Math.floor(charactersCount / itemsPerPage);
+  const pagesCount = Math.floor(count / itemsPerPage);
 
   const changePage = () => {
     if (page < pagesCount) {
@@ -39,10 +37,10 @@ const CharactersList = ({
 
   const getMoreCharacters = async () => {
     changePage();
+
+    if (error) handleDataError(error);
     const results = data.characters.results;
-    if (!data) {
-      return console.error("something went wrong");
-    }
+
     setItems((prev: CharacterListItem[]) => [...prev, ...results]);
   };
   return (
