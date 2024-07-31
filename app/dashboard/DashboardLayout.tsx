@@ -15,11 +15,11 @@ export default function DashboardLayout() {
     <header className="header__section">
       <div>
         <h1 className="header__title shadow-table">Rick and Morty</h1>
-        <nav className="mt-3">
+        <nav className="mt-3" data-testid="navigation">
           {navigationList.map(({ name, link }) => (
             <Link href={link} className={linkStyles(link, pathname)} key={name}>
               <p
-                className={` hover:drop-shadow-nav ${
+                className={`hover:drop-shadow-nav ${
                   isMatch(link, pathname) ? "drop-shadow-nav" : ""
                 }`}
               >

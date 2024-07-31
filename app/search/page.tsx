@@ -1,9 +1,8 @@
-"use client";
 import { Suspense } from "react";
 import Fallback from "@/src/components/Fallback";
 import { SearchPanel } from "@/src/components/Search";
 
-export default function Search() {
+async function Search() {
   return (
     <Suspense fallback={<Fallback />}>
       <section
@@ -15,3 +14,4 @@ export default function Search() {
     </Suspense>
   );
 }
+export default Search;
