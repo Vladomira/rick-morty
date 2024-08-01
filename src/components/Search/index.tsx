@@ -1,3 +1,4 @@
+"use client";
 import React, { useState, useEffect } from "react";
 import { useQuery } from "@apollo/client";
 import CharactersTable from "@/src/components/Search/CharactersTable";
