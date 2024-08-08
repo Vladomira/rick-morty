@@ -1,5 +1,5 @@
 import { CharacterEpisode } from "./CharactersData";
-import { CharacterProfile, CoreData } from "./source";
+import { CharacterProfile, CoreData } from "./domain";
 
 export interface Children {
   children: React.ReactNode;

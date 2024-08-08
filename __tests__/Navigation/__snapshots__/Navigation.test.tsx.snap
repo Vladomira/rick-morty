@@ -1,56 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Navigation a heading should have proper classes 1`] = `
-<div>
-  <header
-    class="header__section"
-  >
-    <div>
-      <h1
-        class="header__title shadow-table"
-      >
-        Rick and Morty
-      </h1>
-      <nav
-        class="mt-3"
-        data-testid="navigation"
-      >
-        <a
-          class="nav  "
-          href="/"
-        >
-          <p
-            class="hover:drop-shadow-nav "
-          >
-            Home
-          </p>
-        </a>
-        <a
-          class="nav  "
-          href="/locations"
-        >
-          <p
-            class="hover:drop-shadow-nav "
-          >
-            Locations
-          </p>
-        </a>
-        <a
-          class="nav  "
-          href="/search"
-        >
-          <p
-            class="hover:drop-shadow-nav "
-          >
-            Search
-          </p>
-        </a>
-      </nav>
-    </div>
-  </header>
-</div>
-`;
-
 exports[`Navigation links should have attrgibute href 1`] = `
 <div>
   <header
@@ -68,6 +17,7 @@ exports[`Navigation links should have attrgibute href 1`] = `
       >
         <a
           class="nav  "
+          data-testid="Home"
           href="/"
         >
           <p
@@ -78,6 +28,7 @@ exports[`Navigation links should have attrgibute href 1`] = `
         </a>
         <a
           class="nav  "
+          data-testid="Locations"
           href="/locations"
         >
           <p
@@ -88,108 +39,7 @@ exports[`Navigation links should have attrgibute href 1`] = `
         </a>
         <a
           class="nav  "
-          href="/search"
-        >
-          <p
-            class="hover:drop-shadow-nav "
-          >
-            Search
-          </p>
-        </a>
-      </nav>
-    </div>
-  </header>
-</div>
-`;
-
-exports[`Navigation nav has 3 child 1`] = `
-<div>
-  <header
-    class="header__section"
-  >
-    <div>
-      <h1
-        class="header__title shadow-table"
-      >
-        Rick and Morty
-      </h1>
-      <nav
-        class="mt-3"
-        data-testid="navigation"
-      >
-        <a
-          class="nav  "
-          href="/"
-        >
-          <p
-            class="hover:drop-shadow-nav "
-          >
-            Home
-          </p>
-        </a>
-        <a
-          class="nav  "
-          href="/locations"
-        >
-          <p
-            class="hover:drop-shadow-nav "
-          >
-            Locations
-          </p>
-        </a>
-        <a
-          class="nav  "
-          href="/search"
-        >
-          <p
-            class="hover:drop-shadow-nav "
-          >
-            Search
-          </p>
-        </a>
-      </nav>
-    </div>
-  </header>
-</div>
-`;
-
-exports[`Navigation should highlight the active link 1`] = `
-<div>
-  <header
-    class="header__section"
-  >
-    <div>
-      <h1
-        class="header__title shadow-table"
-      >
-        Rick and Morty
-      </h1>
-      <nav
-        class="mt-3"
-        data-testid="navigation"
-      >
-        <a
-          class="nav  "
-          href="/"
-        >
-          <p
-            class="hover:drop-shadow-nav "
-          >
-            Home
-          </p>
-        </a>
-        <a
-          class="nav  "
-          href="/locations"
-        >
-          <p
-            class="hover:drop-shadow-nav "
-          >
-            Locations
-          </p>
-        </a>
-        <a
-          class="nav  "
+          data-testid="Search"
           href="/search"
         >
           <p

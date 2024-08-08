@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { useSuspenseQuery } from "@apollo/client";
-import { LocationData, LocationdetailsProps } from "@/src/@types/Locations";
+import { LocationData, LocationdetailsProps } from "@/src/types/Locations";
 import { location } from "@/src/service/queries/queries.graphql";
 import LocationDetailsItem from "./LocationDetailsItem";
 import TitleBox from "./TitleBox";

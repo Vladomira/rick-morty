@@ -1,4 +1,4 @@
-import { LocationsFetchData } from "@/src/@types/Locations";
+import { LocationsFetchData } from "@/src/types/Locations";
 import { getClient } from "../apollo";
 import { locations } from "../queries/queries.graphql";
 

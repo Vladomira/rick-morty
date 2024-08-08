@@ -1,4 +1,4 @@
-import { CloseBtnProps } from "@/src/@types/components";
+import { CloseBtnProps } from "@/src/types/components";
 import Image from "next/image";
 
 function CloseButton({
