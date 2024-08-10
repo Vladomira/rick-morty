@@ -1,4 +1,4 @@
-import { HandleApolloError } from "../@types/source";
+import { HandleApolloError } from "../types/domain";
 
 export function handleDataError(error?: HandleApolloError): string {
   let errorMessage = "An unknown error occurred";

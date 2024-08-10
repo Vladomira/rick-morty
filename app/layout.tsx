@@ -1,5 +1,5 @@
 import DashboardLayout from "./dashboard/DashboardLayout";
-import { Children } from "../src/@types/components";
+import { Children } from "../src/types/components";
 
 import "../styles/globals.css";
 import { ApolloWrapper } from "@/src/service/apollo-provider";

@@ -1,9 +1,9 @@
 import { handleDataError } from "@/src/helpers/handleDataError";
-import CharactersList from "../src/components/CharactersList";
-import { CharacterListItem } from "../src/@types/CharactersData";
+import CharactersList from "@/src/components/CharactersList";
+import { CharacterListItem } from "@/src/types/CharactersData";
 import { fetchAllCharacters } from "@/src/service/api/fetchAllCharacters";
 import { ApolloError } from "@apollo/client";
-import { DataError } from "@/src/@types/source";
+import { DataError } from "@/src/types/domain";
 
 async function Home() {
   let charactersData: CharacterListItem[] | undefined;

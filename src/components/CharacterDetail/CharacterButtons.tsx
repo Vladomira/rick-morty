@@ -2,7 +2,7 @@
 import React from "react";
 import CharacterLocationButton from "./CharacterLocationButton";
 import ResidentEpisodes from "../Locations/LocationDetails/Episodes/ResidentEpisodes";
-import { CharacterEpisode } from "@/src/@types/CharactersData";
+import { CharacterEpisode } from "@/src/types/CharactersData";
 import { useWindowSize } from "@/src/hooks/useWindowSize";
 import { createBackground } from "@/src/helpers/createBackground";
 

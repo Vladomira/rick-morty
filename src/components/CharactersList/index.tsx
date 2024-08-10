@@ -4,10 +4,10 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import { BallTriangle } from "react-loader-spinner";
 import { List } from "./List";
 import {
-  CharactersFetchData,
   CharacterListItem,
+  CharactersFetchData,
   CharactersListProps,
-} from "../../@types/CharactersData";
+} from "@/src/types/CharactersData";
 import { useSuspenseQuery } from "@apollo/client";
 import { characters } from "@/src/service/queries/queries.graphql";
 import ScrollButtons from "../ScrollButtons.tsx";

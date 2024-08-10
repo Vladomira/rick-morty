@@ -1,4 +1,4 @@
-import { FiltersItemProps } from "@/src/@types/components";
+import { FiltersItemProps } from "@/src/types/components";
 import { AnimatePresence, motion } from "framer-motion";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 

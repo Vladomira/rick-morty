@@ -6,11 +6,11 @@ import { characterByFilter } from "@/src/service/queries/queries.graphql";
 import CharacterInput from "@/src/components/Filter/CharacterInput";
 import { filtersArray } from "@/src/constants/filters";
 import Filters from "@/src/components/Filter/FIlters";
-import { SearchResult } from "@/src/@types/CharactersData";
+import { SearchResult } from "@/src/types/CharactersData";
 import { useGetParams } from "@/src/hooks/useGetParams";
 import TableSkeleton from "@/src/components/Search/TableSkeleton";
 import TablePagination from "@/src/components/Search/TablePagination";
-import { FiltersInstance } from "@/src/@types/components";
+import { FiltersInstance } from "@/src/types/components";
 
 const defaultPageCount = 2;
 

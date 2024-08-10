@@ -1,4 +1,4 @@
-import { CharactersFetchData } from "@/src/@types/CharactersData";
+import { CharactersFetchData } from "@/src/types/CharactersData";
 import { getClient } from "../apollo";
 import { characters } from "../queries/queries.graphql";
 

@@ -2,7 +2,7 @@ import {
   SortOrder,
   LocationForStatistics,
   CharacterInstance,
-} from "../@types/CharactersData";
+} from "../types/CharactersData";
 
 export function sortData(items: CharacterInstance[], order: SortOrder) {
   return [...items].sort((a, b) =>

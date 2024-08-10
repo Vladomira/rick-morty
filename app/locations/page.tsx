@@ -1,11 +1,12 @@
 import { Suspense } from "react";
 import Fallback from "@/src/components/Fallback";
-import { LocationItem } from "../../src/@types/Locations";
+
 import { LocationsScene } from "@/src/components/Locations/Scene";
 import { fetchLocations } from "@/src/service/api/fetchLocations";
 import { handleDataError } from "@/src/helpers/handleDataError";
 import { ApolloError } from "@apollo/client";
-import { DataError } from "@/src/@types/source";
+import { DataError } from "@/src/types/domain";
+import { LocationItem } from "@/src/types/Locations";
 
 async function Locations() {
   let locationsData: LocationItem[] | undefined;

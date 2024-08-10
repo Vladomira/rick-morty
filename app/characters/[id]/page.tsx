@@ -1,11 +1,11 @@
 import { Suspense } from "react";
-import { CharacterInstance } from "../../../src/@types/CharactersData";
 import { CharacterInfoBox } from "@/src/components/CharacterDetail/CharacterInfoBox";
 import { fetchCharacterById } from "@/src/service/api/fetchCharacterById";
 import Fallback from "@/src/components/Fallback";
 import { handleDataError } from "@/src/helpers/handleDataError";
 import { ApolloError } from "@apollo/client";
-import { DataError } from "@/src/@types/source";
+import { CharacterInstance } from "@/src/types/CharactersData";
+import { DataError } from "@/src/types/domain";
 
 export default async function CharacterPage({
   params,

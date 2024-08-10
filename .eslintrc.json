@@ -1,11 +1,13 @@
 {
-  "plugins": ["prettier", "@typescript-eslint"],
+  "plugins": ["prettier", "@typescript-eslint", "jest"],
   "parser": "@typescript-eslint/parser",
   "extends": [
     "next/core-web-vitals",
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
-    "prettier"
+    "prettier",
+    "plugin:jest/recommended",
+    "plugin:jest/style"
   ],
 
   "rules": {
@@ -13,6 +15,30 @@
     "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/no-unused-vars": "error",
     "jsx-a11y/alt-text": "off",
-    "prettier/prettier": ["error"]
-  }
+    "prettier/prettier": ["error", { "endOfLine": "auto" }],
+
+    "jest/no-disabled-tests": "warn", //Prevents the use of test.skip or it.skip
+    "jest/no-focused-tests": "error", // Prevents the use of test.only or it.only, which can cause the test suite to run only a subset of tests.
+    "jest/no-identical-title": "error",
+    "jest/prefer-to-have-length": "warn",
+    "jest/valid-expect": "error"
+  },
+  // for jest
+  "overrides": [
+    {
+      "parserOptions": {
+        "ecmaVersion": 2015
+      },
+      "files": ["__tests__/**/__snapshots__/*.snap"],
+      "plugins": ["jest"],
+      "extends": ["plugin:jest/recommended"],
+      "rules": {
+        "jest/prefer-expect-assertions": "off", //the correct number of assertions is made in a test
+        "jest/no-large-snapshots": [
+          "warn",
+          { "maxSize": 12, "inlineMaxSize": 6 }
+        ]
+      }
+    }
+  ]
 }
