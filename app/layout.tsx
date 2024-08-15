@@ -1,11 +1,14 @@
-import DashboardLayout from "./dashboard/DashboardLayout";
-import { Children } from "../src/types/components";
-
-import "../styles/globals.css";
-import { ApolloWrapper } from "@/src/service/apollo-provider";
-import Footer from "@/src/components/Footer";
-import { ErrorBoundary } from "react-error-boundary";
 import Error from "./dashboard/error";
+import { ApolloWrapper } from "@/src/service/apollo-provider";
+import dynamic from "next/dynamic";
+import { ErrorBoundary } from "react-error-boundary";
+
+import Footer from "@/src/components/Footer";
+
+import { Children } from "../src/types/components";
+import "../styles/globals.css";
+
+const DynamicNavigation = dynamic(() => import("./dashboard/Navigation"));
 
 export const metadata = {
   title: "Rick and Morty",
@@ -18,7 +21,8 @@ export default function RootLayout({ children }: Children) {
       <ApolloWrapper>
         <body>
           <main className="w-screen h-full sm:min-w-min  md:min-w-min lg:min-w-min">
-            <DashboardLayout />
+            {/* <Navigation /> */}
+            <DynamicNavigation />
             <ErrorBoundary FallbackComponent={Error}>{children}</ErrorBoundary>
             <Footer />
           </main>

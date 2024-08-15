@@ -1,12 +1,14 @@
 import { memo, useRef, useState } from "react";
-import { useFrame } from "@react-three/fiber";
-import { useCursor, Image, PositionalAudio } from "@react-three/drei";
-import { easing } from "maath";
-import { FrameItemProps } from "@/src/types/Locations";
+
 import SceneFrameText from "./SceneFrameText";
-import { useWindowSize } from "@/src/hooks/useWindowSize";
-import { makeFrameSize } from "@/src/helpers/scaleParameters";
 import { GOLDENRATIO } from "@/src/constants/goldenratio";
+import { makeFrameSize } from "@/src/helpers/scaleParameters";
+import { FrameItemProps } from "@/src/types/Locations";
+import { Image, PositionalAudio, useCursor } from "@react-three/drei";
+import { useFrame } from "@react-three/fiber";
+import { easing } from "maath";
+
+import { useWindowSize } from "@/src/hooks/useWindowSize";
 
 const Frame = memo(function Frame({
   imageData,

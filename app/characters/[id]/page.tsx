@@ -1,31 +1,24 @@
 import { Suspense } from "react";
+
+import { isCharacterInstance } from "@/src/helpers/checkTypeOfData";
+import { QueryType } from "@/src/types/domain";
+
+import { fetchQueries } from "@/src/service/api/fetchQueries";
+
 import { CharacterInfoBox } from "@/src/components/CharacterDetail/CharacterInfoBox";
-import { fetchCharacterById } from "@/src/service/api/fetchCharacterById";
 import Fallback from "@/src/components/Fallback";
-import { handleDataError } from "@/src/helpers/handleDataError";
-import { ApolloError } from "@apollo/client";
-import { CharacterInstance } from "@/src/types/CharactersData";
-import { DataError } from "@/src/types/domain";
 
 export default async function CharacterPage({
   params,
 }: {
   params: { id: string };
 }) {
-  let characterData: CharacterInstance | undefined;
-  let dataError: DataError;
-
   const { id } = params;
-  try {
-    const { data, error } = await fetchCharacterById(id);
-
-    if (error) {
-      throw error;
-    }
-    characterData = data.character;
-  } catch (error) {
-    dataError = handleDataError(error as ApolloError);
-  }
+  const { resData, dataError } = await fetchQueries({
+    queryType: QueryType.CharactersById,
+    id,
+  });
+  const characterData = resData.data.character;
 
   return (
     <Suspense fallback={<Fallback />}>
@@ -34,7 +27,7 @@ export default async function CharacterPage({
         style={{ minHeight: "calc(100vh - 53px)" }}
       >
         <div className="container m-auto">
-          {characterData && (
+          {characterData && isCharacterInstance(characterData) && (
             <div className="flex md:flex-col md:items-center gap-5 lg:flex-row lg:justify-around sm:flex-col maxMedium:flex-col maxMedium:items-center ">
               <CharacterInfoBox
                 src={characterData.image}

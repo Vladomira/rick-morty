@@ -1,4 +1,5 @@
 import { Vector3 } from "three";
+
 import { GOLDENRATIO } from "../constants/goldenratio";
 
 const originalScreenWidth = 1920;

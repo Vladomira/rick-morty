@@ -1,4 +1,5 @@
 import { Suspense } from "react";
+
 import Fallback from "@/src/components/Fallback";
 import { SearchPanel } from "@/src/components/Search";
 

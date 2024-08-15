@@ -1,4 +1,5 @@
 "use client";
+
 import { isMatch, linkStyles } from "@/src/helpers/makeLinkStyles";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -8,7 +9,7 @@ const navigationList = [
   { name: "Locations", link: "/locations" },
   { name: "Search", link: "/search" },
 ];
-export default function DashboardLayout() {
+export default function Navigation() {
   const pathname = usePathname();
 
   return (

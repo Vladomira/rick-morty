@@ -1,4 +1,5 @@
 import Image from "next/image";
+
 const yellow = "rgb(252, 252, 6)";
 
 export const paginationItemStyles = {

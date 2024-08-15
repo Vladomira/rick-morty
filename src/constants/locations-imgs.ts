@@ -1,4 +1,5 @@
 import { Euler, Vector3 } from "three";
+
 function scaleValue1(originalValue: number, newWidth: number) {
   return originalValue * (newWidth / 1920);
 }

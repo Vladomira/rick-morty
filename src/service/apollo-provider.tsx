@@ -2,10 +2,11 @@
 
 import { HttpLink } from "@apollo/client";
 import {
-  ApolloNextAppProvider,
   ApolloClient,
+  ApolloNextAppProvider,
   InMemoryCache,
 } from "@apollo/experimental-nextjs-app-support";
+
 import { BASE_URL } from "./config";
 
 function makeClient() {

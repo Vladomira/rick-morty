@@ -1,7 +1,8 @@
 import React from "react";
+
+import { socialLinks } from "@/src/constants/social-links";
 import Image from "next/image";
 import Link from "next/link";
-import { socialLinks } from "@/src/constants/social-links";
 
 function Footer() {
   return (

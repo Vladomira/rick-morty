@@ -1,7 +1,7 @@
-import Image from "next/image";
 import CharacterBackground from "./CharacterBackground";
 import CharacterButtons from "./CharacterButtons";
 import { CharacterInfoBoxProps } from "@/src/types/components";
+import Image from "next/image";
 
 export function CharacterInfoBox({
   src,

@@ -1,10 +1,9 @@
-import Image from "next/image";
 import { useState } from "react";
 
-import { AnimatePresence, motion } from "framer-motion";
-
-import { FiltersProps } from "@/src/types/components";
 import FilterItem from "./FilterItem";
+import { FiltersProps } from "@/src/types/components";
+import { AnimatePresence, motion } from "framer-motion";
+import Image from "next/image";
 
 function Filters({ name, values, setCurrentPage }: FiltersProps) {
   const [openOptions, setOpenOptions] = useState(false);

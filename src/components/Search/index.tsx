@@ -1,16 +1,20 @@
 "use client";
-import React, { useState, useEffect } from "react";
-import { useQuery } from "@apollo/client";
-import CharactersTable from "@/src/components/Search/CharactersTable";
-import { characterByFilter } from "@/src/service/queries/queries.graphql";
-import CharacterInput from "@/src/components/Filter/CharacterInput";
+
+import React, { useEffect, useState } from "react";
+
 import { filtersArray } from "@/src/constants/filters";
-import Filters from "@/src/components/Filter/FIlters";
+import { characterByFilter } from "@/src/service/queries/queries.graphql";
 import { SearchResult } from "@/src/types/CharactersData";
-import { useGetParams } from "@/src/hooks/useGetParams";
-import TableSkeleton from "@/src/components/Search/TableSkeleton";
-import TablePagination from "@/src/components/Search/TablePagination";
 import { FiltersInstance } from "@/src/types/components";
+import { useQuery } from "@apollo/client";
+
+import { useGetParams } from "@/src/hooks/useGetParams";
+
+import CharacterInput from "@/src/components/Filter/CharacterInput";
+import Filters from "@/src/components/Filter/FIlters";
+import CharactersTable from "@/src/components/Search/CharactersTable";
+import TablePagination from "@/src/components/Search/TablePagination";
+import TableSkeleton from "@/src/components/Search/TableSkeleton";
 
 const defaultPageCount = 2;
 

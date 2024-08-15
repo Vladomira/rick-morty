@@ -1,5 +1,5 @@
 .character__section {
-  @apply w-[100%]  pt-24 px-0 pb-32 opacity-90 bg-[url(/assets/background/rick-and-morty.jpg)] bg-no-repeat bg-cover;
+  @apply w-[100%]  pt-24 px-0 pb-32 opacity-90 bg-[url(/assets/background/rick-and-morty.webp)] bg-no-repeat bg-cover;
 }
 
 .character__infobox {

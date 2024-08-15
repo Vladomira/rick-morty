@@ -1,13 +1,15 @@
-import * as THREE from "three";
 import { Ref, useEffect, useRef, useState } from "react";
-import { GroupProps, ThreeEvent, useFrame } from "@react-three/fiber";
-import { easing } from "maath";
-import { FramesProps } from "@/src/types/Locations";
-import { motion } from "framer-motion-3d";
-import { locationImagesArr } from "@/src/constants/locations-imgs";
+
 import Frame from "./Frame";
-import { useWindowSize } from "@/src/hooks/useWindowSize";
 import { GOLDENRATIO } from "@/src/constants/goldenratio";
+import { locationImagesArr } from "@/src/constants/locations-imgs";
+import { FramesProps } from "@/src/types/Locations";
+import { GroupProps, ThreeEvent, useFrame } from "@react-three/fiber";
+import { motion } from "framer-motion-3d";
+import { easing } from "maath";
+import * as THREE from "three";
+
+import { useWindowSize } from "@/src/hooks/useWindowSize";
 
 function Frames({
   q = new THREE.Quaternion(),

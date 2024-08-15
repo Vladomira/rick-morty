@@ -1,11 +1,14 @@
 "use client";
+
 import { useState } from "react";
-import { Canvas } from "@react-three/fiber";
-import { MeshReflectorMaterial, Environment } from "@react-three/drei";
-import { LocationItem } from "@/src/types/Locations";
+
 import Frames from "./Frames/Frames";
-import { LocationDetails } from "../LocationDetails";
+import { LocationItem } from "@/src/types/Locations";
+import { Environment, MeshReflectorMaterial } from "@react-three/drei";
+import { Canvas } from "@react-three/fiber";
 import { AnimatePresence } from "framer-motion";
+
+import { LocationDetails } from "../LocationDetails";
 
 export const LocationsScene = ({
   locations,

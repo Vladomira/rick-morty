@@ -1,9 +1,12 @@
 "use client";
+
 import { useState } from "react";
-import { CharacterInstance } from "@/src/types/CharactersData";
-import { sortData } from "../../helpers/sort";
+
 import Table from "./Table/Table";
 import TableInfoList from "./Table/TableInfoList";
+import { CharacterInstance } from "@/src/types/CharactersData";
+
+import { sortData } from "../../helpers/sort";
 
 export default function CharactersTable({
   items,

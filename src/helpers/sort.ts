@@ -1,7 +1,7 @@
 import {
-  SortOrder,
-  LocationForStatistics,
   CharacterInstance,
+  LocationForStatistics,
+  SortOrder,
 } from "../types/CharactersData";
 
 export function sortData(items: CharacterInstance[], order: SortOrder) {

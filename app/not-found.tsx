@@ -6,7 +6,7 @@ export default function Error() {
       className="character__section h-[100vh]"
       style={{
         backgroundImage:
-          " linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)),  url(/assets/background/home-back2.jpg)",
+          " linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)),  url(/assets/background/home-back2.webp)",
       }}
     >
       <div className="inform__text-box flex-col items-center">

@@ -1,8 +1,9 @@
 import React from "react";
-import Image from "next/image";
+
+import ResidentEpisodes from "./Episodes/ResidentEpisodes";
 import { CharacterInstance } from "@/src/types/CharactersData";
 import { motion } from "framer-motion";
-import ResidentEpisodes from "./Episodes/ResidentEpisodes";
+import Image from "next/image";
 import Link from "next/link";
 
 function LocationDetailsItem({ resident }: { resident: CharacterInstance }) {

@@ -1,5 +1,5 @@
 .statistics__section {
-  @apply pt-16  pb-24  bg-[url(/assets/background/rick-and-morty.jpg)] bg-no-repeat bg-center bg-cover bg-fixed;
+  @apply pt-16  pb-24  bg-[url(/assets/background/rick-and-morty.webp)] bg-no-repeat bg-center bg-cover bg-fixed;
 }
 
 /* table header */
@@ -44,7 +44,6 @@
 }
 
 .filters__item {
-  /* min-w-[160px] */
   @apply flex flex-col w-[160px] superSmall:max-w-max;
 }
 

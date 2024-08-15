@@ -1,7 +1,6 @@
+import { CharacterListItem } from "@/src/types/CharactersData";
 import Image from "next/image";
 import Link from "next/link";
-
-import { CharacterListItem } from "@/src/types/CharactersData";
 
 export const ListItem = ({ id, name, image }: CharacterListItem) => {
   return (

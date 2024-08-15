@@ -1,29 +1,24 @@
 import { Suspense } from "react";
-import Fallback from "@/src/components/Fallback";
 
+import { isLocationsFetchData } from "@/src/helpers/checkTypeOfData";
+import { QueryType } from "@/src/types/domain";
+
+import { fetchQueries } from "@/src/service/api/fetchQueries";
+
+import Fallback from "@/src/components/Fallback";
 import { LocationsScene } from "@/src/components/Locations/Scene";
-import { fetchLocations } from "@/src/service/api/fetchLocations";
-import { handleDataError } from "@/src/helpers/handleDataError";
-import { ApolloError } from "@apollo/client";
-import { DataError } from "@/src/types/domain";
-import { LocationItem } from "@/src/types/Locations";
 
 async function Locations() {
-  let locationsData: LocationItem[] | undefined;
-  let dataError: DataError;
-  try {
-    const { data, error } = await fetchLocations();
-    if (error) {
-      throw error;
-    }
-    locationsData = data.locations.results;
-  } catch (error) {
-    dataError = handleDataError(error as ApolloError);
-  }
+  const { resData, dataError } = await fetchQueries({
+    queryType: QueryType.Locations,
+  });
+  const locations = resData.data.locations.results;
 
   return (
     <Suspense fallback={<Fallback />}>
-      {!dataError && <LocationsScene locations={locationsData} />}
+      {resData && isLocationsFetchData(resData) && (
+        <LocationsScene locations={locations} />
+      )}
       {dataError && (
         <div
           className="chracters__section"

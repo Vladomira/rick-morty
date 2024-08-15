@@ -1,24 +1,28 @@
 "use client";
+
 import React, { useRef, useState } from "react";
-import InfiniteScroll from "react-infinite-scroll-component";
-import { BallTriangle } from "react-loader-spinner";
+
 import { List } from "./List";
+import { handleDataError } from "@/src/helpers/handleDataError";
+import { characters } from "@/src/service/queries/queries.graphql";
 import {
   CharacterListItem,
   CharactersFetchData,
   CharactersListProps,
 } from "@/src/types/CharactersData";
 import { useSuspenseQuery } from "@apollo/client";
-import { characters } from "@/src/service/queries/queries.graphql";
-import ScrollButtons from "../ScrollButtons.tsx";
 import { AnimatePresence } from "framer-motion";
-import { handleDataError } from "@/src/helpers/handleDataError";
+import InfiniteScroll from "react-infinite-scroll-component";
+import { BallTriangle } from "react-loader-spinner";
+
+import ScrollButtons from "../ScrollButtons.tsx";
 
 const CharactersList = ({ charactersData, count }: CharactersListProps) => {
   const [page, setPage] = useState<number>(2);
   const { data, error }: CharactersFetchData = useSuspenseQuery(characters, {
     variables: { page },
   });
+
   const [items, setItems] = useState<CharacterListItem[]>(charactersData);
   const sectionRef = useRef<HTMLDivElement | null>(null);
 

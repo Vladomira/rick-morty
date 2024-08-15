@@ -1,26 +1,19 @@
-import { handleDataError } from "@/src/helpers/handleDataError";
-import CharactersList from "@/src/components/CharactersList";
-import { CharacterListItem } from "@/src/types/CharactersData";
-import { fetchAllCharacters } from "@/src/service/api/fetchAllCharacters";
-import { ApolloError } from "@apollo/client";
-import { DataError } from "@/src/types/domain";
+import { isCharactersFetchData } from "@/src/helpers/checkTypeOfData";
+import { QueryType } from "@/src/types/domain";
+import dynamic from "next/dynamic";
 
+import { fetchQueries } from "@/src/service/api/fetchQueries";
+
+// import CharactersList from "@/src/components/CharactersList";
+
+const DynamicCharactersList = dynamic(
+  () => import("../src/components/CharactersList")
+);
 async function Home() {
-  let charactersData: CharacterListItem[] | undefined;
-  let charactersCount: number = 0;
-  let dataError: DataError;
-
-  try {
-    const { data, error } = await fetchAllCharacters();
-
-    if (error) {
-      throw error;
-    }
-    charactersData = data.characters.results;
-    charactersCount = data.characters.info.count;
-  } catch (error) {
-    dataError = handleDataError(error as ApolloError);
-  }
+  const { resData, dataError, charactersCount } = await fetchQueries({
+    queryType: QueryType.Characters,
+  });
+  const data = resData.data;
 
   return (
     <section
@@ -28,15 +21,15 @@ async function Home() {
       style={{
         minHeight: "calc(100vh - 53px)",
         backgroundImage:
-          "linear-gradient(rgba(47, 48, 58, 0.6), rgba(47, 48, 58, 0.6)),  url(/assets/background/home-back2.jpg)",
+          "linear-gradient(rgba(47, 48, 58, 0.6), rgba(47, 48, 58, 0.6)),  url(/assets/background/home-back2.webp)",
       }}
     >
       {dataError && (
         <h2 className="inform__text-box--text max-w-max m-auto">{dataError}</h2>
       )}
-      {charactersData !== undefined && (
-        <CharactersList
-          charactersData={charactersData}
+      {resData !== undefined && isCharactersFetchData(data) && (
+        <DynamicCharactersList
+          charactersData={data.characters.results}
           count={charactersCount}
         />
       )}

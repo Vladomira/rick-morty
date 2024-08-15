@@ -1,7 +1,7 @@
-import Link from "next/link";
-import Image from "next/image";
-import { CharacterInstance } from "@/src/types/CharactersData";
 import { EpisodeDropDown } from "./EpisodeDropDown";
+import { CharacterInstance } from "@/src/types/CharactersData";
+import Image from "next/image";
+import Link from "next/link";
 
 export default function TableInfoList({
   items,

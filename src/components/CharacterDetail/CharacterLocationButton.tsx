@@ -1,4 +1,5 @@
 "use client";
+
 import { useRouter } from "next/navigation";
 
 function CharacterLocationButton({ id }: { id: string }) {

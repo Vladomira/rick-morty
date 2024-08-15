@@ -42,7 +42,7 @@ query character($id: ID!) {
   }
 }
 
-query locations {
+query getLocationsQuery {
   locations {
     results {
       name
@@ -53,7 +53,7 @@ query locations {
   }
 }
 
-query location($id: ID!) {
+query getLocationQuery($id: ID!) {
   location(id: $id) {
     name
     type

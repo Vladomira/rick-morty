@@ -1,10 +1,14 @@
 "use client";
+
 import React from "react";
+
 import CharacterLocationButton from "./CharacterLocationButton";
-import ResidentEpisodes from "../Locations/LocationDetails/Episodes/ResidentEpisodes";
-import { CharacterEpisode } from "@/src/types/CharactersData";
-import { useWindowSize } from "@/src/hooks/useWindowSize";
 import { createBackground } from "@/src/helpers/createBackground";
+import { CharacterEpisode } from "@/src/types/CharactersData";
+
+import { useWindowSize } from "@/src/hooks/useWindowSize";
+
+import ResidentEpisodes from "../Locations/LocationDetails/Episodes/ResidentEpisodes";
 
 function CharacterButtons({
   id,

@@ -1,4 +1,5 @@
 "use client";
+
 import { useEffect } from "react";
 
 export default function Error({
@@ -18,7 +19,7 @@ export default function Error({
       style={{
         minHeight: "calc(100vh - 53px)",
         backgroundImage:
-          " linear-gradient(rgba(47, 48, 58, 0.6), rgba(47, 48, 58, 0.6)),  url(/assets/background/home-back2.jpg)",
+          " linear-gradient(rgba(47, 48, 58, 0.6), rgba(47, 48, 58, 0.6)),  url(/assets/background/home-back2.webp)",
       }}
     >
       <div className="container flex flex-col items-center ">

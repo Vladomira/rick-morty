@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
+
 import { subMenuAnimate } from "@/src/constants/animation-settings";
 import { formattedDate } from "@/src/helpers/formattedData";
 import { CharacterEpisode } from "@/src/types/CharactersData";
+import { motion } from "framer-motion";
 
 export const EpisodeDropDown = ({
   episode,

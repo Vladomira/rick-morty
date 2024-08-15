@@ -2,7 +2,7 @@
   @apply h-[250px] m-0  flex items-end justify-center pb-[30px] border-b-[1px] border-primaryYellow
    bg-[url(/assets/gifs/rick-and-morty-rtj.gif)]  bg-cover bg-no-repeat bg-center;
 
-  /* /assets/background/home-page-header.jpg */
+  /* /assets/background/home-page-header.webp */
 }
 
 .header__title {

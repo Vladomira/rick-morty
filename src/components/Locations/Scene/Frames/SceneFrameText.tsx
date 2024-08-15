@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { RoundedBox, Text, Text3D, useCursor } from "@react-three/drei";
-import { FrameTextProps } from "@/src/types/Locations";
+
 import { gradientShaderMaterial } from "@/src/constants/bg-scene-text";
+import { FrameTextProps } from "@/src/types/Locations";
+import { RoundedBox, Text, Text3D, useCursor } from "@react-three/drei";
 
 function SceneFrameText({ name, type }: FrameTextProps) {
   const [hovered, setHover] = useState(false);

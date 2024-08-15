@@ -1,4 +1,5 @@
 import React from "react";
+
 import { TitleBoxProps } from "@/src/types/components";
 
 function TitleBox({ name, type, dimension, residentsQuantity }: TitleBoxProps) {
