@@ -1,32 +1,34 @@
-import Image from "next/image";
 import { useState } from "react";
 
+import FilterOptions from "./FilterOptions";
+import { FiltersProps } from "@/src/types/components";
 import { AnimatePresence, motion } from "framer-motion";
 
-import { FiltersProps } from "@/src/types/components";
-import FilterItem from "./FilterItem";
+import { useGetParams } from "@/src/hooks/useGetParams";
 
 function Filters({ name, values, setCurrentPage }: FiltersProps) {
   const [openOptions, setOpenOptions] = useState(false);
   const [selected, setSelected] = useState("");
 
+  const valueFromThePath = useGetParams(name);
+
   return (
-    <div className="filters__item ">
-      <p className="filters__item-name text-md">{name}</p>
+    <div className="select__box">
+      <p className="select__label">{name}</p>
 
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: 50 }}
-        transition={{ ease: "linear", duration: 2, y: { duration: 0.9 } }}
-        className="input pt-1 pb-2 relative min-h-[44px] "
+        transition={{ ease: "linear", duration: 0.9, y: { duration: 0.9 } }}
+        className="select"
         onClick={() => setOpenOptions(!openOptions)}
       >
-        {selected !== "None" ? selected : ""}
+        {selected !== "None" ? selected || valueFromThePath : ""}
 
         <AnimatePresence>
           {openOptions && (
-            <FilterItem
+            <FilterOptions
               setCurrentPage={setCurrentPage}
               values={values}
               setSelected={setSelected}
@@ -36,15 +38,6 @@ function Filters({ name, values, setCurrentPage }: FiltersProps) {
             />
           )}
         </AnimatePresence>
-        <button type="button" className="absolute top-[7px] right-2 pt-1">
-          <Image
-            src={"/assets/tech/arrows/arrow-down.svg"}
-            alt={"arrow"}
-            width={20}
-            height={20}
-            className={`${openOptions && "rotate-180"}`}
-          />
-        </button>
       </motion.div>
     </div>
   );

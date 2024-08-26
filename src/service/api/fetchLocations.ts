@@ -1,11 +1,11 @@
 import { LocationsFetchData } from "@/src/types/Locations";
+
 import { getClient } from "../apollo";
-import { locations } from "../queries/queries.graphql";
+import { getLocationsQuery } from "../queries/queries.graphql";
 
 export const fetchLocations = async () => {
   const { data, error }: LocationsFetchData = await getClient().query({
-    query: locations,
+    query: getLocationsQuery,
   });
-
   return { data, error };
 };

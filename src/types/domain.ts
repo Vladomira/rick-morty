@@ -16,3 +16,10 @@ export type CharacterProfile = {
 };
 
 export type FetchApolloError = { error?: ApolloError };
+
+// querie
+export enum QueryType {
+  Characters = "characters",
+  CharactersById = "characterById",
+  Locations = "locations",
+}

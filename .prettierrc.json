@@ -4,5 +4,23 @@
   "singleQuote": false,
   "tabWidth": 2,
   "useTabs": false,
-  "endOfLine": "auto"
+  "endOfLine": "auto",
+  "plugins": ["@trivago/prettier-plugin-sort-imports"],
+  "importOrder": [
+    "^react$",
+    "<THIRD_PARTY_MODULES>",
+    "interface",
+    "(?=content|api)",
+    "context/",
+    "mock/",
+    "config",
+    "utils/",
+    "hooks/",
+    "(components/|./index)",
+    ".svg",
+    "^../(.*)$",
+    "(?=./styles.module.css)"
+  ],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true
 }

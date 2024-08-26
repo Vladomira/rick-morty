@@ -5,3 +5,4 @@ export enum Links {
   LOCATION = "Locations",
   SEARCH = "Search",
 }
+

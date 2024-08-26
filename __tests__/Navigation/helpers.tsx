@@ -1,6 +1,6 @@
+import { Links, NAV_TEST_ID } from "./constants";
 import DashboardLayout from "@/app/dashboard/DashboardLayout";
 import { render, screen } from "@testing-library/react";
-import { Links, NAV_TEST_ID } from "./constants";
 
 export const setupNav = () => {
   const { container } = render(<DashboardLayout />);

@@ -1,4 +1,5 @@
-import { ShaderMaterial, Color } from "three";
+import { Color, ShaderMaterial } from "three";
+
 export const gradientShaderMaterial = new ShaderMaterial({
   uniforms: {
     color1: { value: new Color("purple") },

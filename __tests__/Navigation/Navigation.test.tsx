@@ -1,8 +1,9 @@
-import { cleanup, fireEvent, render, screen } from "@testing-library/react";
 import { Links } from "./constants";
 import { formattedLink, setupNav } from "./helpers";
-import mockRouter from "next-router-mock";
 import DashboardLayout from "@/app/dashboard/DashboardLayout";
+import { cleanup, fireEvent, render, screen } from "@testing-library/react";
+import mockRouter from "next-router-mock";
+
 import { MemoryRouterProvider } from "next-router-mock/MemoryRouterProvider";
 
 jest.mock("next/router", () => require("next-router-mock"));

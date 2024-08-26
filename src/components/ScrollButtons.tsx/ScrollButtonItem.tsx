@@ -1,6 +1,6 @@
-import Image from "next/image";
-import { motion } from "framer-motion";
 import { btnScrollAnimation } from "@/src/constants/animation-settings";
+import { motion } from "framer-motion";
+import Image from "next/image";
 
 function ScrollButtonItem({
   scrollTo,

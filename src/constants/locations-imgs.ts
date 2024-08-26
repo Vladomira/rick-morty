@@ -1,4 +1,5 @@
 import { Euler, Vector3 } from "three";
+
 function scaleValue1(originalValue: number, newWidth: number) {
   return originalValue * (newWidth / 1920);
 }
@@ -36,7 +37,7 @@ export const locationImagesArr = (windowWidth: number) => {
         adjustPoint(1.9, windowWidth)
       ),
       rotation: new Euler(0, Math.PI / 2.5, 0),
-      url: "mr.-goldenfold's-dream",
+      url: "mr.-goldenfolds-dream",
     },
     {
       position: new Vector3(
@@ -118,7 +119,7 @@ export const locationImagesArr = (windowWidth: number) => {
     {
       position: new Vector3(-0.6, 0, -0.6),
       rotation: new Euler(0, 0, 0),
-      url: "giant's-town",
+      url: "giants-town",
     },
     {
       position: new Vector3(0.6, 0, -0.6),
@@ -128,7 +129,7 @@ export const locationImagesArr = (windowWidth: number) => {
     {
       position: new Vector3(1.9, 0, -0.9),
       rotation: new Euler(0, 0, 0),
-      url: "worldender's-lair",
+      url: "worldenders-lair",
     },
     // top back
     {

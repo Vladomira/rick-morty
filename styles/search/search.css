@@ -1,5 +1,5 @@
-.statistics__section {
-  @apply pt-16  pb-24  bg-[url(/assets/background/rick-and-morty.jpg)] bg-no-repeat bg-center bg-cover bg-fixed;
+.search__section {
+  @apply pt-16  pb-24 min-h-[calc(100vh-53px)]  bg-search-bg bg-fixed;
 }
 
 /* table header */
@@ -11,13 +11,27 @@
   @apply py-1 px-2 font-bold text-2xl ml-2  maxLarge:ml-0 superSmall:text-xl 
   hover:scale-125  transform transition duration-300;
 }
+.table__wrapper {
+  @apply mt-5 flex items-center flex-col;
+}
 
 /* body */
 .table {
   @apply border-collapse text-primaryYellow rounded-[30px] overflow-hidden bg-blackTransparent max-w-max;
 }
+
 .table__item {
   @apply text-center  sm:shadow-table pt-5 px-7 pb-3 maxLarge:px-3;
+}
+.table__item--cell {
+  @apply flex  items-center maxLarge:flex-col superSmall:text-sm;
+}
+.table__item-img {
+  @apply rounded mr-5 maxLarge:mr-0;
+}
+
+.table__item-skeleton {
+  @apply table__item--small w-[189px]  h-[50px] maxMedium:px-3;
 }
 .table__item--small {
   @apply superSmall:p-0 superSmall:w-max superSmall:text-sm superSmall:break-all;
@@ -28,14 +42,16 @@
 
 /* input */
 .input__wrapper {
-  @apply relative  w-full min-w-[200px] max-w-max rounded-[11px]  focus-within:border-green-600 focus-within:border-4;
+  @apply relative mx-auto  w-full min-w-[200px] max-w-max rounded-[11px] shadow-standart;
 }
 .input {
-  @apply w-full px-3 py-3 pr-20 rounded-[7px] border-[3px]  bg-black  text-xl font-normal text-primaryYellow  outline-0 transition-all 
-  focus:border-[3px] focus:border-primaryYellow capitalize;
+  @apply pr-[80px] relative w-full pl-3 py-3 rounded-[7px]  bg-black text-xl font-normal text-primaryYellow  outline-0 transition-all 
+  focus:border-[1px] focus:border-primaryYellow capitalize;
 }
 .input__button {
-  @apply absolute right-[7px] top-2 px-6 py-2 font-medium uppercase rounded-[3px] bg-gradient-to-b from-green-600 to-green-800;
+  @apply absolute w-[95px] right-[7px] top-2 px-6 py-2 font-medium text-primaryYellow uppercase rounded-[3px] bg-gradient-to-b from-green-400 to-green-800
+  hover:scale-105 focus:scale-105 transform transition duration-300
+  hover:bg-gradient-to-t;
 }
 
 /* filters */
@@ -43,24 +59,37 @@
   @apply flex justify-evenly mt-6 superSmall:justify-center superSmall:gap-5 superSmall:flex-wrap;
 }
 
-.filters__item {
-  /* min-w-[160px] */
+.select__box {
   @apply flex flex-col w-[160px] superSmall:max-w-max;
 }
-
-.filters__item-name {
-  @apply mb-2 max-w-max font-semibold text-lg text-black bg-primaryYellow py-1 px-2 rounded-md capitalize drop-shadow-shiny;
-}
-.filter__option-wraper {
-  @apply absolute w-[160px] top-[36px] left-[-2px] z-10 bg-black  py-3 border-x-[3px] border-b-[3px] rounded-b-[7px]  shadow-table;
-}
-.filter__option-item {
-  @apply w-full px-3 hover:bg-primaryYellow hover:text-black;
+/* arrow */
+.select::before {
+  @apply absolute content-[""] bg-arrow-down bottom-3 right-4 w-[16px] h-[17px]
+      text-primaryYellow bg-cover bg-no-repeat pointer-events-none;
 }
 
-.inform__text-box {
-  @apply flex justify-center;
+.select__label {
+  @apply mb-1 max-w-max font-semibold text-base text-black bg-primaryYellow py-1 px-2 rounded-md capitalize shadow-standart;
 }
-.inform__text-box--text {
-  @apply text-primaryYellow font-bold text-2xl drop-shadow-nav  text-center;
+.select {
+  @apply relative appearance-none min-h-10 w-full pl-2 pr-3 py-2 text-xl text-primaryYellow cursor-pointer rounded-[7px] bg-black shadow-standart
+   outline-none hover:border-primaryYellow hover:border-[1px] focus:border-primaryYellow focus:border-[1px] capitalize;
+}
+
+.option-list__wrapper {
+  @apply absolute  w-full top-[48px] left-0 pt-2 z-10 bg-black rounded-[7px] shadow-table;
+}
+
+.option__item {
+  @apply w-full px-3 hover:shadow-bottomGreen rounded-b-[7px];
+}
+
+
+/* episodes drop down */
+.drop-down__length{
+   @apply relative underline cursor-pointer
+}
+ 
+.drop-down__wrapper{
+  @apply z-10 absolute right-[-36px] bg-green-600 bg-gradient-to-br border-2 border-black shadow-table maxMedium:right-[6px] overflow-hidden md:right-[33px] md:h-[130px] lg:right-[-17px] md:w-[310px] lg:w-[370px] md:bg-gradient-to-br md:from-black md:to-primaryYellow
 }

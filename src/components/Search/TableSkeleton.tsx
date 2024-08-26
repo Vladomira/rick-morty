@@ -1,8 +1,9 @@
 import React from "react";
-import Skeleton from "react-loading-skeleton";
-import "react-loading-skeleton/dist/skeleton.css";
+
 import Table from "./Table/Table";
 import { Children } from "@/src/types/components";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 function TableSkeleton() {
   return (
@@ -24,10 +25,7 @@ function EmptyTableRow({ children }: Children) {
       {rows.map((el) => (
         <tr className="superSmall:shadow-table text-balance" key={el}>
           {cells.map((el) => (
-            <td
-              className="table__item table__item--small w-[189px]  h-[50px] maxMedium:px-3"
-              key={el}
-            >
+            <td className="table__item table__item-skeleton" key={el}>
               {children}
             </td>
           ))}

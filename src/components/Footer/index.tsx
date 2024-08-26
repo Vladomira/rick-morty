@@ -1,33 +1,26 @@
 import React from "react";
-import Image from "next/image";
-import Link from "next/link";
+
 import { socialLinks } from "@/src/constants/social-links";
+import Link from "next/link";
 
 function Footer() {
   return (
-    <footer className="fixed bottom-0 left-0 right-0  bg-black pb-3 z-10">
-      <div className="w-[100%] h-[1px] bg-primaryYellow" />
-      <div className="flex justify-center pt-3 px-[30px] m-auto">
-        <ul className="flex  ">
-          {socialLinks.map(({ name, link }) => (
-            <li
-              key={name}
-              className="text-primaryYellow mb-1 last:mb-0 mr-4 last:mr-0"
-            >
-              <Link href={link} className="flex">
-                <Image
-                  src={`/assets/social/${name.toLowerCase()}.svg`}
-                  alt={"github"}
-                  width={20}
-                  height={20}
-                  className="mr-1"
+    <footer className="footer">
+      <div className="footer__line" />
+      <ul className="social-links__list">
+        {socialLinks.map(({ name, link }) => (
+          <li key={name} className="social-links__item">
+            <Link href={link} className="social-links__link">
+              <svg className="social-links__img">
+                <use
+                  href={`/assets/social/symbol-defs.svg#${name.toLowerCase()}`}
                 />
-                {name}
-              </Link>
-            </li>
-          ))}{" "}
-        </ul>
-      </div>
+              </svg>
+              {name}
+            </Link>
+          </li>
+        ))}
+      </ul>
     </footer>
   );
 }

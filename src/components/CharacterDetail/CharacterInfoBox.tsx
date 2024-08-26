@@ -1,9 +1,9 @@
-import Image from "next/image";
 import CharacterBackground from "./CharacterBackground";
 import CharacterButtons from "./CharacterButtons";
 import { CharacterInfoBoxProps } from "@/src/types/components";
+import Image from "next/image";
 
-export function CharacterInfoBox({
+export default function CharacterInfoBox({
   src,
   imgName,
   infoItems,
@@ -12,11 +12,12 @@ export function CharacterInfoBox({
   episode,
 }: CharacterInfoBoxProps) {
   const bgImg = bg?.toLowerCase().replace(/\s+/g, "-");
+
   return (
-    <div className="character__infobox min-h-[364px] ">
+    <div className="character__infobox">
       {bgImg && <CharacterBackground bgImg={bgImg} />}
       <div
-        className={`flex justify-between ${src ? "superSmall:flex-col" : ""}`}
+        className={`character__info-wrapper ${src ? "superSmall:flex-col" : ""}`}
       >
         {src && src.trim() !== "" && (
           <div className="character__imgthumb">
@@ -38,9 +39,9 @@ export function CharacterInfoBox({
                   <p
                     className={`${
                       idx === 0
-                        ? "character__infotext--biggest"
-                        : "character__infotext"
-                    } rounded-lg px-3 py-2 inline-block`}
+                        ? "character__infotext--title"
+                        : "character__infotext--paragraph"
+                    } character__infotext`}
                   >
                     {el}
                   </p>

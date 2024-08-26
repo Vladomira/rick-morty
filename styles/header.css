@@ -1,17 +1,24 @@
 .header__section {
-  @apply h-[250px] m-0  flex items-end justify-center pb-[30px] border-b-[1px] border-primaryYellow
-   bg-[url(/assets/gifs/rick-and-morty-rtj.gif)]  bg-cover bg-no-repeat bg-center;
-
-  /* /assets/background/home-page-header.jpg */
+  @apply w-[100%] h-[250px]  items-end justify-center pb-[30px] m-0 flex  border-b-[1px]
+   border-primaryYellow bg-header-banner;
 }
-
 .header__title {
-  @apply flex justify-center py-[10px] px-3 text-xl font-bold rounded-[10px] bg-black text-primaryYellow;
+  @apply flex justify-center py-[10px] px-3 text-xl font-bold rounded-[10px] bg-black text-primaryYellow shadow-table;
 }
+.header__title-box {
+  @apply rounded-[10px] shadow-pinkBack;
+}
+.navbox {
+  @apply flex mt-3;
+}
+
 .nav {
-  @apply inline-block py-[5px] px-2 font-semibold  text-[19px] text-primaryYellow mr-3 last:mr-0 rounded-[10px]  
-hover:shadow-table transition-all  transform  duration-200;
+  @apply flex font-semibold  text-[19px] text-primaryYellow mr-3 last:mr-0 rounded-[10px]  
+hover:shadow-yellowShadow transition-all ease-linear  transform  duration-200 bg-blackTransparent;
 }
 .nav--active {
-  @apply bg-fuchsia-300 text-primaryYellow shadow-table;
+  @apply bg-fuchsia-300 shadow-listItem;
+}
+.nav__text {
+  @apply py-[5px] px-2 shadow-table rounded-[10px];
 }

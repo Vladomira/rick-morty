@@ -1,63 +1,38 @@
 "use client";
-import React, { useRef, useState } from "react";
+
+import React, { useRef } from "react";
+
+import { List } from "./List";
+import { CharactersListProps } from "@/src/types/CharactersData";
+import { AnimatePresence } from "framer-motion";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { BallTriangle } from "react-loader-spinner";
-import { List } from "./List";
-import {
-  CharacterListItem,
-  CharactersFetchData,
-  CharactersListProps,
-} from "@/src/types/CharactersData";
-import { useSuspenseQuery } from "@apollo/client";
-import { characters } from "@/src/service/queries/queries.graphql";
+
+import { useCharactersPagination } from "@/src/hooks/useCharactersPagination";
+
+import InfoMessage from "../InfoMessage";
 import ScrollButtons from "../ScrollButtons.tsx";
-import { AnimatePresence } from "framer-motion";
-import { handleDataError } from "@/src/helpers/handleDataError";
 
 const CharactersList = ({ charactersData, count }: CharactersListProps) => {
-  const [page, setPage] = useState<number>(2);
-  const { data, error }: CharactersFetchData = useSuspenseQuery(characters, {
-    variables: { page },
-  });
-  const [items, setItems] = useState<CharacterListItem[]>(charactersData);
+  const { items, getMoreCharacters, hasMore } = useCharactersPagination(
+    charactersData,
+    count
+  );
   const sectionRef = useRef<HTMLDivElement | null>(null);
 
-  const itemsPerPage = 20;
-  const pagesCount = Math.floor(count / itemsPerPage);
-
-  const changePage = () => {
-    if (page < pagesCount) {
-      setPage((prev) => {
-        return prev + 1;
-      });
-    } else {
-      return;
-    }
-  };
-
-  const getMoreCharacters = async () => {
-    changePage();
-
-    if (error) handleDataError(error);
-    const results = data.characters.results;
-
-    setItems((prev: CharacterListItem[]) => [...prev, ...results]);
-  };
   return (
     <div className={"container m-auto"} ref={sectionRef}>
       <InfiniteScroll
         dataLength={items?.length}
         next={getMoreCharacters}
-        scrollThreshold={"100%"}
-        hasMore={page < pagesCount}
+        scrollThreshold={"95%"}
+        hasMore={hasMore}
         loader={
-          <div className="flex justify-center mt-4 ">
+          <div className="preloader__box">
             <BallTriangle color="yellow" height={100} width={90} />
           </div>
         }
-        endMessage={
-          <h4 className="inform__text-box--text ">Nothing more to show</h4>
-        }
+        endMessage={<InfoMessage message="Nothing more to show" />}
       >
         <List items={items} />
       </InfiniteScroll>

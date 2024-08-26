@@ -10,19 +10,17 @@ function CloseButton({
   return (
     <button
       type="button"
-      className="absolute right-1 top-1 z-10 h-[58px] w-[59px] flex justify-end rounded-full shadow-greyShadow "
+      className="close__button"
       onMouseEnter={() => setCloseImg(toggleButtonImages.closed)}
       onMouseLeave={() => setCloseImg(toggleButtonImages.opened)}
       onClick={setIsOpen}
     >
       {closeImg === toggleButtonImages.closed && (
-        <p className="absolute text-green-400 drop-shadow-nav  font-bold -bottom-6 left-0">
-          Close
-        </p>
+        <p className="close__button-text">Close</p>
       )}
 
       <Image
-        className="h-[55px] rounded-full border-2 border-black"
+        className="close__button-img"
         src={closeImg}
         alt={"close"}
         width={55}

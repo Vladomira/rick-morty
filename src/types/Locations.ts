@@ -1,6 +1,6 @@
-import { Euler, Vector3 } from "three";
 import { CharacterInstance } from "./CharactersData";
 import { CoreData, FetchApolloError } from "./domain";
+import { Euler, Vector3 } from "three";
 
 /**fetch**/
 export type LocationsFetchData = FetchApolloError & {

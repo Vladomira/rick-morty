@@ -1,8 +1,9 @@
 import React from "react";
-import Image from "next/image";
+
+import ResidentEpisodes from "./Episodes/ResidentEpisodes";
 import { CharacterInstance } from "@/src/types/CharactersData";
 import { motion } from "framer-motion";
-import ResidentEpisodes from "./Episodes/ResidentEpisodes";
+import Image from "next/image";
 import Link from "next/link";
 
 function LocationDetailsItem({ resident }: { resident: CharacterInstance }) {
@@ -32,7 +33,7 @@ function LocationDetailsItem({ resident }: { resident: CharacterInstance }) {
           </Link>
 
           {/* small screen */}
-          <div className="md:hidden lg:hidden">
+          <div className="resident-episodes--small">
             <ResidentEpisodes episode={episode} />
           </div>
         </div>
@@ -45,14 +46,14 @@ function LocationDetailsItem({ resident }: { resident: CharacterInstance }) {
             Species: <span className="not-italic">{species}</span>
           </p>
           <p className="italic">
-            Gender:
+            Gender:&#160;
             <span className="not-italic">
               {gender === "unknown" ? "none" : gender}
             </span>
           </p>
         </div>
 
-        <div className="sm:hidden superSmall:hidden md:flex ">
+        <div className="resident-episodes">
           <ResidentEpisodes episode={episode} />
         </div>
       </div>

@@ -1,8 +1,10 @@
 "use client";
+
 import React, { RefObject, useEffect, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
-import { btnsAnimation } from "@/src/constants/animation-settings";
+
 import ScrollButtonItem from "./ScrollButtonItem";
+import { btnsAnimation } from "@/src/constants/animation-settings";
+import { AnimatePresence, motion } from "framer-motion";
 
 const isBrowser = () => typeof window !== "undefined";
 

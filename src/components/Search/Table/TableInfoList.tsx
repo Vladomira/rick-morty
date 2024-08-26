@@ -1,7 +1,7 @@
-import Link from "next/link";
-import Image from "next/image";
-import { CharacterInstance } from "@/src/types/CharactersData";
 import { EpisodeDropDown } from "./EpisodeDropDown";
+import { CharacterInstance } from "@/src/types/CharactersData";
+import Image from "next/image";
+import Link from "next/link";
 
 export default function TableInfoList({
   items,
@@ -22,14 +22,14 @@ export default function TableInfoList({
           image,
         }: CharacterInstance) => {
           return (
-            <tr key={id} className="superSmall:shadow-table text-balance">
-              <td className="table__item flex items-center maxLarge:flex-col  superSmall:text-sm  ">
+            <tr key={id}>
+              <td className="table__item table__item--cell">
                 <Image
                   src={image}
                   alt={name}
                   width={60}
                   height={60}
-                  className="rounded mr-5 maxLarge:mr-0"
+                  className="table__item-img"
                 />
                 <Link
                   href={`/characters/${id}`}

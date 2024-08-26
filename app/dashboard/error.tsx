@@ -1,5 +1,8 @@
 "use client";
+
 import { useEffect } from "react";
+
+import InfoMessage from "@/src/components/InfoMessage";
 
 export default function Error({
   error,
@@ -13,22 +16,18 @@ export default function Error({
   }, [error]);
 
   return (
-    <div
-      className="chracters__section"
-      style={{
-        minHeight: "calc(100vh - 53px)",
-        backgroundImage:
-          " linear-gradient(rgba(47, 48, 58, 0.6), rgba(47, 48, 58, 0.6)),  url(/assets/background/home-back2.jpg)",
-      }}
-    >
-      <div className="container flex flex-col items-center ">
-        <h2 className="inform__text-box--text max-w-max">{error.message}</h2>
-        <button
-          onClick={() => resetErrorBoundary()}
-          className="bg-fuchsia-300 text-primaryYellow font-bold text-2xl mt-10 shadow-table px-4 py-2 rounded-lg max-w-max"
-        >
-          Try again
-        </button>
+    <div className="empty__scene bg-black-sky bg-image-position">
+      <div className="container error__container">
+        <InfoMessage message={error.message} />
+
+        <div className="error__button-box">
+          <button
+            onClick={() => resetErrorBoundary()}
+            className="error__button"
+          >
+            Try again
+          </button>
+        </div>
       </div>
     </div>
   );

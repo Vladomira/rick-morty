@@ -1,42 +1,39 @@
 import { Suspense } from "react";
-import { CharacterInfoBox } from "@/src/components/CharacterDetail/CharacterInfoBox";
-import { fetchCharacterById } from "@/src/service/api/fetchCharacterById";
+
+import { isCharacterInstance } from "@/src/helpers/checkTypeOfData";
+import { QueryType } from "@/src/types/domain";
+import dynamic from "next/dynamic";
+
+import { fetchQueries } from "@/src/service/api/fetchQueries";
+
 import Fallback from "@/src/components/Fallback";
-import { handleDataError } from "@/src/helpers/handleDataError";
-import { ApolloError } from "@apollo/client";
-import { CharacterInstance } from "@/src/types/CharactersData";
-import { DataError } from "@/src/types/domain";
+
+const DynamicInfoMessage = dynamic(
+  () => import("@/src/components/InfoMessage")
+);
+const DynamicCharacterInfoBox = dynamic(
+  () => import("@/src/components/CharacterDetail/CharacterInfoBox")
+);
 
 export default async function CharacterPage({
   params,
 }: {
   params: { id: string };
 }) {
-  let characterData: CharacterInstance | undefined;
-  let dataError: DataError;
-
   const { id } = params;
-  try {
-    const { data, error } = await fetchCharacterById(id);
-
-    if (error) {
-      throw error;
-    }
-    characterData = data.character;
-  } catch (error) {
-    dataError = handleDataError(error as ApolloError);
-  }
+  const { resData, dataError } = await fetchQueries({
+    queryType: QueryType.CharactersById,
+    id,
+  });
+  const characterData = resData.data.character;
 
   return (
     <Suspense fallback={<Fallback />}>
-      <section
-        className="character__section"
-        style={{ minHeight: "calc(100vh - 53px)" }}
-      >
+      <section className="character__section bg-image-position">
         <div className="container m-auto">
-          {characterData && (
-            <div className="flex md:flex-col md:items-center gap-5 lg:flex-row lg:justify-around sm:flex-col maxMedium:flex-col maxMedium:items-center ">
-              <CharacterInfoBox
+          {characterData && isCharacterInstance(characterData) && (
+            <div className="character__infobox-wrapper">
+              <DynamicCharacterInfoBox
                 src={characterData.image}
                 imgName={characterData.name}
                 infoItems={[
@@ -46,7 +43,7 @@ export default async function CharacterPage({
                   characterData.status,
                 ]}
               />
-              <CharacterInfoBox
+              <DynamicCharacterInfoBox
                 imgName={characterData.location.name}
                 infoItems={[
                   characterData.location.name,
@@ -58,7 +55,7 @@ export default async function CharacterPage({
               />
             </div>
           )}
-          {dataError && <h2 className="inform__text-box--text">{dataError}</h2>}
+          {dataError && <DynamicInfoMessage message={dataError} />}
         </div>
       </section>
     </Suspense>

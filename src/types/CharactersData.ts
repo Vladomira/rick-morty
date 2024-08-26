@@ -1,5 +1,5 @@
-import { ApolloError } from "@apollo/client";
 import { CharacterProfile, CoreData, Count, FetchApolloError } from "./domain";
+import { ApolloError } from "@apollo/client";
 
 /*****fetch*****/
 export type CharactersFetchData = FetchApolloError & {

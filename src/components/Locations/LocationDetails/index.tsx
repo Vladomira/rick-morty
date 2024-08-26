@@ -1,22 +1,23 @@
 "use client";
+
 import React, { useState } from "react";
-import { motion } from "framer-motion";
-import { useSuspenseQuery } from "@apollo/client";
-import { LocationData, LocationdetailsProps } from "@/src/types/Locations";
-import { location } from "@/src/service/queries/queries.graphql";
+
+import CloseButton from "./CloseButton";
 import LocationDetailsItem from "./LocationDetailsItem";
 import TitleBox from "./TitleBox";
-import CloseButton from "./CloseButton";
+import { getLocationQuery } from "@/src/service/queries/queries.graphql";
+import { LocationData, LocationdetailsProps } from "@/src/types/Locations";
+import { useSuspenseQuery } from "@apollo/client";
+import { motion } from "framer-motion";
+
+import InfoMessage from "../../InfoMessage";
 
 const toggleButtonImages = {
-  opened: "/assets/tech/green.jpeg",
-  closed: "/assets/tech/red.jpeg",
+  opened: "/assets/tech/green.webp",
+  closed: "/assets/tech/red.webp",
 };
-export function LocationDetails({
-  setIsOpen,
-  locationId,
-}: LocationdetailsProps) {
-  const { data }: LocationData = useSuspenseQuery(location, {
+function LocationDetails({ setIsOpen, locationId }: LocationdetailsProps) {
+  const { data }: LocationData = useSuspenseQuery(getLocationQuery, {
     variables: { id: locationId },
   });
   const [closeImg, setCloseImg] = useState(toggleButtonImages.opened);
@@ -52,9 +53,7 @@ export function LocationDetails({
                 ))}
               </ul>
             ) : (
-              <p className="font-bold text-2xl drop-shadow-nav text-center ">
-                No residents
-              </p>
+              <InfoMessage message={"No residents"} />
             )}
           </div>
         </div>
@@ -62,3 +61,4 @@ export function LocationDetails({
     </motion.div>
   );
 }
+export default LocationDetails;

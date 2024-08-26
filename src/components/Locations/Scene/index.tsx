@@ -1,13 +1,19 @@
 "use client";
-import { useState } from "react";
-import { Canvas } from "@react-three/fiber";
-import { MeshReflectorMaterial, Environment } from "@react-three/drei";
-import { LocationItem } from "@/src/types/Locations";
-import Frames from "./Frames/Frames";
-import { LocationDetails } from "../LocationDetails";
-import { AnimatePresence } from "framer-motion";
 
-export const LocationsScene = ({
+import { useState } from "react";
+
+import Frames from "./Frames/Frames";
+import { LocationItem, LocationdetailsProps } from "@/src/types/Locations";
+import { Environment, MeshReflectorMaterial } from "@react-three/drei";
+import { Canvas } from "@react-three/fiber";
+import { AnimatePresence } from "framer-motion";
+import dynamic from "next/dynamic";
+
+const DynamicLocationDetails = dynamic<LocationdetailsProps>(
+  () => import("../LocationDetails")
+);
+
+const LocationsScene = ({
   locations,
 }: {
   locations: LocationItem[] | undefined;
@@ -51,7 +57,7 @@ export const LocationsScene = ({
 
       <AnimatePresence>
         {openLocationDetails && (
-          <LocationDetails
+          <DynamicLocationDetails
             locationId={locationId}
             setIsOpen={() => setOpenLocationDetails(false)}
           />
@@ -60,3 +66,4 @@ export const LocationsScene = ({
     </>
   );
 };
+export default LocationsScene;

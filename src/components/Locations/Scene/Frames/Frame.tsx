@@ -1,12 +1,19 @@
 import { memo, useRef, useState } from "react";
-import { useFrame } from "@react-three/fiber";
-import { useCursor, Image, PositionalAudio } from "@react-three/drei";
-import { easing } from "maath";
-import { FrameItemProps } from "@/src/types/Locations";
+
 import SceneFrameText from "./SceneFrameText";
-import { useWindowSize } from "@/src/hooks/useWindowSize";
-import { makeFrameSize } from "@/src/helpers/scaleParameters";
 import { GOLDENRATIO } from "@/src/constants/goldenratio";
+import {
+  BLACK_COLOR,
+  LIGHT_LILAC__COLOR,
+  LILAC__COLOR,
+} from "@/src/constants/locations";
+import { makeFrameSize } from "@/src/helpers/scaleParameters";
+import { FrameItemProps } from "@/src/types/Locations";
+import { Image, PositionalAudio, useCursor } from "@react-three/drei";
+import { useFrame } from "@react-three/fiber";
+import { easing } from "maath";
+
+import { useWindowSize } from "@/src/hooks/useWindowSize";
 
 const Frame = memo(function Frame({
   imageData,
@@ -44,7 +51,7 @@ const Frame = memo(function Frame({
     if (frame.current) {
       easing.dampC(
         frame.current.material.color,
-        hovered ? "#E0ACF9" : "#ECCFFB",
+        hovered ? LILAC__COLOR : LIGHT_LILAC__COLOR,
         0.1,
         dt
       );
@@ -62,7 +69,7 @@ const Frame = memo(function Frame({
       >
         <boxGeometry />
         <meshStandardMaterial
-          color="#151515"
+          color={BLACK_COLOR}
           metalness={0.5}
           roughness={0.5}
           envMapIntensity={2}
@@ -82,7 +89,7 @@ const Frame = memo(function Frame({
           raycast={() => null}
           ref={image}
           position={[0, 0, 0.7]}
-          url={`/assets/locations/${imageData.url}.jpg`}
+          url={`/assets/locations/${imageData.url}.webp`}
         />
       </mesh>
       {isActive && <SceneFrameText name={location.name} type={location.type} />}

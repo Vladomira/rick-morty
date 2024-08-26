@@ -1,16 +1,16 @@
 import React from "react";
-import Stack from "@mui/material/Stack";
-import Pagination from "@mui/material/Pagination";
-import PaginationItem from "@mui/material/PaginationItem";
 
-import {
-  arrows,
-  paginationItemStyles,
-} from "@/src/constants/table/table-pagination";
 import {
   getButtonStyles,
   isButtonDisabled,
 } from "@/src/constants/table/pagination-styles";
+import {
+  arrows,
+  paginationItemStyles,
+} from "@/src/constants/table/table-pagination";
+import Pagination from "@mui/material/Pagination";
+import PaginationItem from "@mui/material/PaginationItem";
+import Stack from "@mui/material/Stack";
 
 type TableProps = {
   pageCount: number;

@@ -1,10 +1,11 @@
 "use client";
+
 import React, { useState } from "react";
 
-import { motion } from "framer-motion";
 import { subMenuAnimate } from "@/src/constants/animation-settings";
-import { CharacterEpisode } from "@/src/types/CharactersData";
 import { formattedDate } from "@/src/helpers/formattedData";
+import { CharacterEpisode } from "@/src/types/CharactersData";
+import { motion } from "framer-motion";
 
 export default function ResidentEpisodes({
   episode,
@@ -29,7 +30,7 @@ export default function ResidentEpisodes({
       >
         <div className="sub-menu-container ">
           {episode.map(({ name, air_date }) => (
-            <div key={name} className="sub-menu-item font-normal text-lg ">
+            <div key={name} className="sub-menu-item ">
               <p>{name}</p>
               <p className="text-base"> {formattedDate(air_date)}</p>
             </div>

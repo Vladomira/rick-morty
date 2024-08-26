@@ -1,8 +1,8 @@
 @tailwind base;
 @tailwind components;
-@tailwind utilities;
 
-@import "./location/style.css";
+@import "./common.css";
+@import "./location/locations.css";
 @import "./header.css";
 @import "./search/search.css";
 

@@ -1,5 +1,5 @@
-import { TableHeaderProps } from "@/src/types/CharactersData";
 import TableHeader from "./TableHeader";
+import { TableHeaderProps } from "@/src/types/CharactersData";
 import { Children } from "@/src/types/components";
 
 export type TableProps = Children &
