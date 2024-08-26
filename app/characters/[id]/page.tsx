@@ -2,11 +2,18 @@ import { Suspense } from "react";
 
 import { isCharacterInstance } from "@/src/helpers/checkTypeOfData";
 import { QueryType } from "@/src/types/domain";
+import dynamic from "next/dynamic";
 
 import { fetchQueries } from "@/src/service/api/fetchQueries";
 
-import { CharacterInfoBox } from "@/src/components/CharacterDetail/CharacterInfoBox";
 import Fallback from "@/src/components/Fallback";
+
+const DynamicInfoMessage = dynamic(
+  () => import("@/src/components/InfoMessage")
+);
+const DynamicCharacterInfoBox = dynamic(
+  () => import("@/src/components/CharacterDetail/CharacterInfoBox")
+);
 
 export default async function CharacterPage({
   params,
@@ -22,14 +29,11 @@ export default async function CharacterPage({
 
   return (
     <Suspense fallback={<Fallback />}>
-      <section
-        className="character__section"
-        style={{ minHeight: "calc(100vh - 53px)" }}
-      >
+      <section className="character__section bg-image-position">
         <div className="container m-auto">
           {characterData && isCharacterInstance(characterData) && (
-            <div className="flex md:flex-col md:items-center gap-5 lg:flex-row lg:justify-around sm:flex-col maxMedium:flex-col maxMedium:items-center ">
-              <CharacterInfoBox
+            <div className="character__infobox-wrapper">
+              <DynamicCharacterInfoBox
                 src={characterData.image}
                 imgName={characterData.name}
                 infoItems={[
@@ -39,7 +43,7 @@ export default async function CharacterPage({
                   characterData.status,
                 ]}
               />
-              <CharacterInfoBox
+              <DynamicCharacterInfoBox
                 imgName={characterData.location.name}
                 infoItems={[
                   characterData.location.name,
@@ -51,7 +55,7 @@ export default async function CharacterPage({
               />
             </div>
           )}
-          {dataError && <h2 className="inform__text-box--text">{dataError}</h2>}
+          {dataError && <DynamicInfoMessage message={dataError} />}
         </div>
       </section>
     </Suspense>

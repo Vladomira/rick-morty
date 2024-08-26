@@ -15,8 +15,8 @@ export const ListItem = ({ id, name, image }: CharacterListItem) => {
             alt={name}
           />
         </div>
-        <div className=" mt-4 shadow-yellowShadow rounded-[10px]">
-          <p className="characters__text ">{name}</p>
+        <div className="characters__text-box">
+          <p className="characters__text">{name}</p>
         </div>
       </Link>
     </li>

@@ -33,7 +33,7 @@ function LocationDetailsItem({ resident }: { resident: CharacterInstance }) {
           </Link>
 
           {/* small screen */}
-          <div className="md:hidden lg:hidden">
+          <div className="resident-episodes--small">
             <ResidentEpisodes episode={episode} />
           </div>
         </div>
@@ -46,14 +46,14 @@ function LocationDetailsItem({ resident }: { resident: CharacterInstance }) {
             Species: <span className="not-italic">{species}</span>
           </p>
           <p className="italic">
-            Gender:
+            Gender:&#160;
             <span className="not-italic">
               {gender === "unknown" ? "none" : gender}
             </span>
           </p>
         </div>
 
-        <div className="sm:hidden superSmall:hidden md:flex ">
+        <div className="resident-episodes">
           <ResidentEpisodes episode={episode} />
         </div>
       </div>

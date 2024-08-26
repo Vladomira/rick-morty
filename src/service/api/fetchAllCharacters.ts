@@ -9,10 +9,9 @@ export const fetchAllCharacters = async (): Promise<CharactersFetchData> => {
     variables: { page: 1 },
     context: {
       fetchOptions: {
-        next: { revalidate: 10 },
+        next: { revalidate: 20 },
       },
     },
   });
-
   return { data, error };
 };

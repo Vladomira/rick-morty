@@ -1,19 +1,20 @@
 .character__section {
-  @apply w-[100%]  pt-24 px-0 pb-32 opacity-90 bg-[url(/assets/background/rick-and-morty.webp)] bg-no-repeat bg-cover;
+  @apply w-[100%] min-h-[calc(100vh-53px)] pt-24 px-0 pb-32 opacity-90 bg-item-bg;
 }
 
 .character__infobox {
-  @apply relative  flex flex-col justify-between p-11 rounded-3xl superSmall:flex-col superSmall:max-w-[450px] w-[100%] md:max-w-[540px] lg:max-w-[560px]
+  @apply relative min-h-[364px] flex flex-col justify-between p-11 rounded-3xl superSmall:flex-col superSmall:max-w-[450px] w-[100%] md:max-w-[540px] lg:max-w-[560px]
     
-   bg-blackTransparent border-[3px] border-primaryYellow;
+   bg-blackTransparent border-[1px] border-primaryYellow shadow-listItem;
 }
 .character__infobox--bg {
   @apply absolute top-0 right-0 left-0 bottom-0 rounded-3xl bg-no-repeat bg-cover bg-center opacity-80;
 }
 
 .character__imgthumb {
-  @apply flex items-center justify-center w-[100%] maxMedium:max-w-xs h-auto md:w-[250px] md:h-[250px] overflow-hidden
-   shadow-yellowShadow rounded-lg transform transition duration-500 hover:scale-110 focus:scale-110 superSmall:mb-5 superSmall:mr-0 beforeXl:mr-5;
+  @apply flex items-center justify-center w-[100%] overflow-hidden rounded-lg shadow-listItem
+   transform transition duration-500 hover:scale-110 focus:scale-110
+  mr-5 maxMedium:max-w-xs md:w-[250px] md:h-[250px] lg:h-[250px] superSmall:mb-5 superSmall:mr-0
 }
 .character__img {
   @apply w-[100%] h-[100%];
@@ -22,17 +23,28 @@
 .character__infolist {
   @apply text-primaryYellow;
 }
-
+.character__infobox-wrapper {
+  @apply flex flex-col items-center gap-5 lg:flex-row lg:justify-evenly;
+}
+.character__info-wrapper {
+  @apply flex
+}
 .character__infoitem {
   @apply last:mb-0 mb-5 transform transition duration-500 hover:scale-110 focus:scale-110;
 }
 .character__infotext {
-  @apply bg-black text-primaryYellow font-medium text-xl;
+  @apply rounded-lg px-3 py-2 inline-block;
 }
-.character__infotext--biggest {
-  @apply bg-primaryYellow text-black font-bold text-2xl;
+.character__infotext--paragraph {
+  @apply bg-black text-primaryYellow font-medium text-xl shadow-yellowShadow;
+}
+.character__infotext--title {
+  @apply bg-primaryYellow text-black font-bold text-2xl shadow-listItem;
 }
 
 .character__btn {
-  @apply bg-primaryYellow text-black font-medium py-1 px-2 text-lg rounded-lg border-[3px] border-black;
+  @apply bg-primaryYellow text-black font-medium py-1 px-2 text-lg rounded-lg mr-2 maxMedium:text-sm border-[3px] border-black shadow-standart;
+}
+.character__btn-box {
+  @apply flex items-center  relative;
 }

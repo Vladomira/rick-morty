@@ -20,8 +20,7 @@ export default function RootLayout({ children }: Children) {
     <html lang="en">
       <ApolloWrapper>
         <body>
-          <main className="w-screen h-full sm:min-w-min  md:min-w-min lg:min-w-min">
-            {/* <Navigation /> */}
+          <main className="main">
             <DynamicNavigation />
             <ErrorBoundary FallbackComponent={Error}>{children}</ErrorBoundary>
             <Footer />

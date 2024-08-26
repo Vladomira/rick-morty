@@ -34,7 +34,7 @@ fragment characterInfo on Character {
   image
   id
 }
-query character($id: ID!) {
+query getCharacterQuery($id: ID!) {
   character(id: $id) {
     ...characterInfo
     ...locationFields
@@ -78,7 +78,7 @@ fragment unitedResults on Character {
   ...episodeFields
 }
 
-query characterByFilter(
+query getCharacterByFilterQuery(
   $name: String
   $status: String
   $species: String

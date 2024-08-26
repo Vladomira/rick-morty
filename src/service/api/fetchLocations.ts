@@ -7,6 +7,5 @@ export const fetchLocations = async () => {
   const { data, error }: LocationsFetchData = await getClient().query({
     query: getLocationsQuery,
   });
-
   return { data, error };
 };

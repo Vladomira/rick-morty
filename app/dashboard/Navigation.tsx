@@ -13,10 +13,13 @@ export default function Navigation() {
   const pathname = usePathname();
 
   return (
-    <header className="header__section">
+    <header className="header__section bg-image-position">
       <div>
-        <h1 className="header__title shadow-table">Rick and Morty</h1>
-        <nav className="mt-3" data-testid="navigation">
+        <div className="header__title-box">
+          <h1 className="header__title">Rick and Morty</h1>
+        </div>
+
+        <nav className="navbox" data-testid="navigation">
           {navigationList.map(({ name, link }) => (
             <Link
               href={link}
@@ -25,7 +28,7 @@ export default function Navigation() {
               data-testid={name}
             >
               <p
-                className={`hover:drop-shadow-nav ${
+                className={`nav__text ${
                   isMatch(link, pathname) ? "drop-shadow-nav" : ""
                 }`}
               >

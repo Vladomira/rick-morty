@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 
 import { gradientShaderMaterial } from "@/src/constants/bg-scene-text";
+import {
+  LILAC__COLOR,
+  PINK_COLOR,
+  YELLOW_COLOR,
+} from "@/src/constants/locations";
 import { FrameTextProps } from "@/src/types/Locations";
 import { RoundedBox, Text, Text3D, useCursor } from "@react-three/drei";
 
@@ -23,7 +28,7 @@ function SceneFrameText({ name, type }: FrameTextProps) {
         anchorY="top"
         position={name.length <= 22 ? [-0.28, 0.4, 0.17] : [-0.35, 0.4, 0.17]}
         fontSize={0.06}
-        color={"rgb(255,24,240)"}
+        color={PINK_COLOR}
       >
         {type}
       </Text>
@@ -34,7 +39,7 @@ function SceneFrameText({ name, type }: FrameTextProps) {
         position={name.length <= 22 ? [-0.28, 0.3, 0.17] : [-0.35, 0.3, 0.17]}
         fontSize={0.058}
         castShadow={true}
-        color="#feff26"
+        color={YELLOW_COLOR}
       >
         {name}
       </Text>
@@ -66,7 +71,7 @@ function SceneFrameText({ name, type }: FrameTextProps) {
           letterSpacing={0.01}
         >
           View more
-          <meshStandardMaterial color={"#E0ACF9"} />
+          <meshStandardMaterial color={LILAC__COLOR} />
         </Text3D>
       </mesh>
     </group>

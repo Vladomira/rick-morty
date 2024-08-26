@@ -1,6 +1,6 @@
 /* section */
 .chracters__section {
-  @apply pt-20 pb-28  w-screen bg-fixed bg-cover bg-no-repeat bg-center;
+  @apply pt-20 pb-28  w-screen min-h-[calc(100vh-53px)] bg-fixed bg-characters-bg;
 }
 
 .characters__list {
@@ -24,6 +24,9 @@
   superSmall:w-[150px] superSmall:h-[150px];
 }
 
+.characters__text-box {
+  @apply mt-4 shadow-yellowShadow rounded-[10px];
+}
 .characters__text {
   @apply px-3 py-2 font-medium text-lg bg-black text-primaryYellow rounded-[10px] text-center shadow-table;
 }

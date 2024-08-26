@@ -1,51 +1,30 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 import { filtersArray } from "@/src/constants/filters";
-import { characterByFilter } from "@/src/service/queries/queries.graphql";
-import { SearchResult } from "@/src/types/CharactersData";
-import { FiltersInstance } from "@/src/types/components";
-import { useQuery } from "@apollo/client";
+import dynamic from "next/dynamic";
 
-import { useGetParams } from "@/src/hooks/useGetParams";
+import { useSearchQuery } from "@/src/hooks/useSearchHook";
 
 import CharacterInput from "@/src/components/Filter/CharacterInput";
 import Filters from "@/src/components/Filter/FIlters";
 import CharactersTable from "@/src/components/Search/CharactersTable";
-import TablePagination from "@/src/components/Search/TablePagination";
 import TableSkeleton from "@/src/components/Search/TableSkeleton";
 
-const defaultPageCount = 2;
+const DynamicTablePagination = dynamic(
+  () => import("@/src/components/Search/TablePagination")
+);
+const DynamicInfoMessage = dynamic(() => import("../InfoMessage"));
 
 export const SearchPanel = () => {
   const [value, setValue] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 20;
-  const [pageCount, setPageCount] = useState(defaultPageCount);
-  const filters: FiltersInstance = {
-    name: useGetParams("query") || "Rick",
-    gender: useGetParams("gender") || "",
-    status: useGetParams("status") || "",
-    species: useGetParams("species") || "",
-  };
+  const { data, loading, error, itemsQuantity, resultsLength } =
+    useSearchQuery(currentPage);
 
-  const { data, loading, error }: SearchResult = useQuery(characterByFilter, {
-    variables: {
-      page: currentPage,
-      ...filters,
-    },
-    fetchPolicy: "network-only",
-  });
-
-  const resultsLength = data?.characters?.results?.length ?? 0;
-
-  useEffect(() => {
-    if (data) {
-      setPageCount(data?.characters?.info?.count);
-    }
-  }, [data]);
-
+  const pageQuantity = Math.ceil(itemsQuantity / itemsPerPage);
   return (
     <div className={"px-6"}>
       {!error && (
@@ -65,7 +44,7 @@ export const SearchPanel = () => {
       )}
 
       {!error && (
-        <div className="mt-5 flex items-center flex-col">
+        <div className="table__wrapper">
           {loading ? (
             <TableSkeleton />
           ) : (
@@ -73,9 +52,9 @@ export const SearchPanel = () => {
               {resultsLength > 0 && data && (
                 <CharactersTable items={data?.characters?.results} />
               )}
-              {pageCount > 0 && (
-                <TablePagination
-                  pageCount={Math.ceil(pageCount / itemsPerPage)}
+              {pageQuantity > 0 && itemsQuantity > itemsPerPage && (
+                <DynamicTablePagination
+                  pageCount={pageQuantity}
                   setPage={setCurrentPage}
                   page={currentPage}
                 />
@@ -86,9 +65,10 @@ export const SearchPanel = () => {
       )}
 
       {resultsLength === 0 && data && !loading && (
-        <p className="inform__text-box--text ">No results</p>
+        <DynamicInfoMessage message="No results" />
       )}
-      {error && <p className="inform__text-box--text ">{error.message}</p>}
+
+      {error && <DynamicInfoMessage message={error.message} />}
     </div>
   );
 };

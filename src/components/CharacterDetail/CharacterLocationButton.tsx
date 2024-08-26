@@ -8,7 +8,7 @@ function CharacterLocationButton({ id }: { id: string }) {
   return (
     <button
       type="button"
-      className="character__btn bg-primaryYellow mr-2  maxMedium:text-sm "
+      className="character__btn"
       onClick={() => {
         id && localStorage.setItem("id", id);
         router.push("/locations");

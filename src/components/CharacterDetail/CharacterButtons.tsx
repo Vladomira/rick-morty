@@ -2,14 +2,17 @@
 
 import React from "react";
 
-import CharacterLocationButton from "./CharacterLocationButton";
 import { createBackground } from "@/src/helpers/createBackground";
 import { CharacterEpisode } from "@/src/types/CharactersData";
+import dynamic from "next/dynamic";
 
 import { useWindowSize } from "@/src/hooks/useWindowSize";
 
 import ResidentEpisodes from "../Locations/LocationDetails/Episodes/ResidentEpisodes";
 
+const DynamicLocationButton = dynamic<{ id: string }>(
+  () => import("./CharacterLocationButton")
+);
 function CharacterButtons({
   id,
   bgImg,
@@ -21,14 +24,10 @@ function CharacterButtons({
 }) {
   const windowWidth = useWindowSize();
   const isCustomImg =
-    createBackground(bgImg, windowWidth) === "url(/assets/space/space2.jpg)";
+    createBackground(bgImg, windowWidth) === "url(/assets/space/space3.webp)";
   return (
-    <div
-      className={`flex items-center  relative ${
-        isCustomImg ? "justify-end" : ""
-      }`}
-    >
-      {id && !isCustomImg && <CharacterLocationButton id={id} />}
+    <div className={`character__btn-box ${isCustomImg ? "justify-end" : ""}`}>
+      {id && !isCustomImg && <DynamicLocationButton id={id} />}
       {bgImg && episode && (
         <ResidentEpisodes episode={episode} rounded="rounded-lg" />
       )}

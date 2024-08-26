@@ -1,5 +1,7 @@
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
+import { useGetParams } from "@/src/hooks/useGetParams";
+
 function CharacterInput({
   value,
   setValue,
@@ -29,19 +31,19 @@ function CharacterInput({
   };
 
   return (
-    <div className="input__wrapper mx-auto ">
+    <div className="input__wrapper">
       <input
-        className="input relative"
+        className="input "
         type="text"
         value={value}
-        placeholder="Rick"
+        placeholder={useGetParams("query") || "Rick"}
         onChange={(e: { target: { value: string } }) =>
           setValue(e.target.value)
         }
         onKeyDown={onKeyDownEvent}
       />
       <button className="input__button" onClick={handleSearch}>
-        Show
+        <span className="drop-shadow-nav">Show</span>
       </button>
     </div>
   );

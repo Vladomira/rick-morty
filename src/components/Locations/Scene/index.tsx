@@ -3,14 +3,17 @@
 import { useState } from "react";
 
 import Frames from "./Frames/Frames";
-import { LocationItem } from "@/src/types/Locations";
+import { LocationItem, LocationdetailsProps } from "@/src/types/Locations";
 import { Environment, MeshReflectorMaterial } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { AnimatePresence } from "framer-motion";
+import dynamic from "next/dynamic";
 
-import { LocationDetails } from "../LocationDetails";
+const DynamicLocationDetails = dynamic<LocationdetailsProps>(
+  () => import("../LocationDetails")
+);
 
-export const LocationsScene = ({
+const LocationsScene = ({
   locations,
 }: {
   locations: LocationItem[] | undefined;
@@ -54,7 +57,7 @@ export const LocationsScene = ({
 
       <AnimatePresence>
         {openLocationDetails && (
-          <LocationDetails
+          <DynamicLocationDetails
             locationId={locationId}
             setIsOpen={() => setOpenLocationDetails(false)}
           />
@@ -63,3 +66,4 @@ export const LocationsScene = ({
     </>
   );
 };
+export default LocationsScene;

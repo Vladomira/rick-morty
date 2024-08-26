@@ -10,14 +10,13 @@ import { LocationData, LocationdetailsProps } from "@/src/types/Locations";
 import { useSuspenseQuery } from "@apollo/client";
 import { motion } from "framer-motion";
 
+import InfoMessage from "../../InfoMessage";
+
 const toggleButtonImages = {
-  opened: "/assets/tech/green.jpeg",
-  closed: "/assets/tech/red.jpeg",
+  opened: "/assets/tech/green.webp",
+  closed: "/assets/tech/red.webp",
 };
-export function LocationDetails({
-  setIsOpen,
-  locationId,
-}: LocationdetailsProps) {
+function LocationDetails({ setIsOpen, locationId }: LocationdetailsProps) {
   const { data }: LocationData = useSuspenseQuery(getLocationQuery, {
     variables: { id: locationId },
   });
@@ -54,9 +53,7 @@ export function LocationDetails({
                 ))}
               </ul>
             ) : (
-              <p className="font-bold text-2xl drop-shadow-nav text-center ">
-                No residents
-              </p>
+              <InfoMessage message={"No residents"} />
             )}
           </div>
         </div>
@@ -64,3 +61,4 @@ export function LocationDetails({
     </motion.div>
   );
 }
+export default LocationDetails;

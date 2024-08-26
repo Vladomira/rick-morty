@@ -30,7 +30,7 @@ export default function ResidentEpisodes({
       >
         <div className="sub-menu-container ">
           {episode.map(({ name, air_date }) => (
-            <div key={name} className="sub-menu-item font-normal text-lg ">
+            <div key={name} className="sub-menu-item ">
               <p>{name}</p>
               <p className="text-base"> {formattedDate(air_date)}</p>
             </div>

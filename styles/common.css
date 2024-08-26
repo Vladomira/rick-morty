@@ -1,0 +1,76 @@
+@tailwind utilities;
+
+@layer utilities {
+  .bg-image-position {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}
+.preloader__box {
+  @apply flex justify-center mt-4;
+}
+
+.notfound__box {
+  @apply flex-col items-center;
+}
+
+.main {
+  @apply w-screen h-full sm:min-w-min  md:min-w-min lg:min-w-min;
+}
+
+.error__container {
+  @apply flex flex-col items-center;
+}
+
+.error__button-box {
+  @apply shadow-listItem flex mt-10 rounded-lg;
+}
+.error__button {
+  @apply bg-fuchsia-300 text-primaryYellow font-bold text-2xl shadow-table px-4 py-2 rounded-lg;
+}
+
+.fallback__wrapper {
+  @apply w-screen bg-black py-16 min-h-[calc(100vh-53px)];
+}
+.fallback__dots-box {
+  @apply flex justify-center items-center mb-7;
+}
+.fallback__dots-item {
+  @apply w-[5px] h-9 m-1 rounded-2xl drop-shadow-shiny;
+}
+.fallback__animation {
+  @apply m-auto bg-[url(/assets/gifs/rick-dancing-ezgif.com-optimize.gif)]  w-[400px] h-[400px]  bg-contain bg-no-repeat;
+}
+.inform__text-box {
+  @apply flex justify-center;
+}
+.inform__text-box--text {
+  @apply text-primaryYellow font-bold text-2xl drop-shadow-nav text-center;
+}
+
+
+/* footer */
+.footer{
+  @apply fixed bottom-0 left-0 right-0  bg-black pb-3 z-10
+}
+
+.footer__line{
+  @apply w-[100%] h-[1px] bg-primaryYellow
+}
+
+.social-links__list{
+  @apply flex justify-center pt-3 px-[30px] m-auto
+}
+
+.social-links__item{
+   @apply text-primaryYellow mb-1 last:mb-0 mr-4 last:mr-0
+}
+
+.social-links__link{
+  @apply flex items-center
+}
+
+.social-links__img{
+ @apply mr-1 w-[20px] h-[20px]
+}
