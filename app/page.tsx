@@ -6,8 +6,8 @@ import { fetchQueries } from "@/src/service/api/fetchQueries";
 
 import InfoMessage from "@/src/components/InfoMessage";
 
-const DynamicCharactersList = dynamic(
-  () => import("../src/components/CharactersList")
+const DynamicCharactersSection = dynamic(
+  () => import("../src/components/CharactersSection")
 );
 async function Home() {
   const { resData, dataError, charactersCount } = await fetchQueries({
@@ -19,7 +19,10 @@ async function Home() {
     <section className="chracters__section">
       {dataError && <InfoMessage message={dataError} />}
       {resData !== undefined && isCharactersFetchData(resData?.data) && (
-        <DynamicCharactersList charactersData={data} count={charactersCount} />
+        <DynamicCharactersSection
+          charactersData={data}
+          count={charactersCount}
+        />
       )}
     </section>
   );

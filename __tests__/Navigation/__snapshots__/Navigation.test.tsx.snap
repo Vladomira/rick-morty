@@ -3,16 +3,20 @@
 exports[`Navigation links should have attrgibute href 1`] = `
 <div>
   <header
-    class="header__section"
+    class="header__section bg-image-position"
   >
     <div>
-      <h1
-        class="header__title shadow-table"
+      <div
+        class="header__title-box"
       >
-        Rick and Morty
-      </h1>
+        <h1
+          class="header__title"
+        >
+          Rick and Morty
+        </h1>
+      </div>
       <nav
-        class="mt-3"
+        class="navbox"
         data-testid="navigation"
       >
         <a
@@ -21,7 +25,7 @@ exports[`Navigation links should have attrgibute href 1`] = `
           href="/"
         >
           <p
-            class="hover:drop-shadow-nav "
+            class="nav__text "
           >
             Home
           </p>
@@ -32,7 +36,7 @@ exports[`Navigation links should have attrgibute href 1`] = `
           href="/locations"
         >
           <p
-            class="hover:drop-shadow-nav "
+            class="nav__text "
           >
             Locations
           </p>
@@ -43,7 +47,7 @@ exports[`Navigation links should have attrgibute href 1`] = `
           href="/search"
         >
           <p
-            class="hover:drop-shadow-nav "
+            class="nav__text "
           >
             Search
           </p>
