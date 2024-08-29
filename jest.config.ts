@@ -2,7 +2,6 @@
 //  * For a detailed explanation regarding each configuration property, visit:
 //  * https://jestjs.io/docs/configuration
 //  */
-
 import type { Config } from "jest";
 import nextJest from "next/jest";
 
@@ -17,6 +16,10 @@ const customJestConfig: Config = {
   testEnvironment: "jsdom",
   moduleNameMapper: {
     "^@/(.*)$": "<rootDir>/$1",
+  },
+  testMatch: ["**/?(*.)+(test).tsx"],
+  transform: {
+    "\\.(gql|graphql)$": "./transform-graphql.js",
   },
 };
 
