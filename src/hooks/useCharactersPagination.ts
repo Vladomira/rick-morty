@@ -27,7 +27,6 @@ export const useCharactersPagination = (
     }
   );
 
-  
   const itemsPerPage = 20;
   const pagesCount = Math.floor(count / itemsPerPage);
 
