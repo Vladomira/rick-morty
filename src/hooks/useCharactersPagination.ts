@@ -26,6 +26,8 @@ export const useCharactersPagination = (
       skip: page === 1,
     }
   );
+
+  
   const itemsPerPage = 20;
   const pagesCount = Math.floor(count / itemsPerPage);
 

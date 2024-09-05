@@ -84,12 +84,11 @@
   @apply w-full px-3 hover:shadow-bottomGreen rounded-b-[7px];
 }
 
-
 /* episodes drop down */
-.drop-down__length{
-   @apply relative underline cursor-pointer
+.drop-down__length {
+  @apply relative underline cursor-pointer;
 }
- 
-.drop-down__wrapper{
-  @apply z-10 absolute right-[-36px] bg-green-600 bg-gradient-to-br border-2 border-black shadow-table maxMedium:right-[6px] overflow-hidden md:right-[33px] md:h-[130px] lg:right-[-17px] md:w-[310px] lg:w-[370px] md:bg-gradient-to-br md:from-black md:to-primaryYellow
+
+.drop-down__wrapper {
+  @apply z-10 absolute right-[-36px] bg-green-600 bg-gradient-to-br border-2 border-black shadow-table maxMedium:right-[6px] overflow-hidden md:right-[33px] md:h-[130px] lg:right-[-17px] md:w-[310px] lg:w-[370px] md:bg-gradient-to-br md:from-black md:to-primaryYellow;
 }
