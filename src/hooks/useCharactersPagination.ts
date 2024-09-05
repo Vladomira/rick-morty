@@ -18,7 +18,7 @@ export const useCharactersPagination = (
 ) => {
   const [page, setPage] = useState<number>(2);
   const [items, setItems] = useState<CharacterListItem[]>(initialData);
-  
+
   const { data, error } = useQuery<CharacterQueryResult, OperationVariables>(
     characters,
     {
@@ -26,8 +26,6 @@ export const useCharactersPagination = (
       skip: page === 1,
     }
   );
-
-
   const itemsPerPage = 20;
   const pagesCount = Math.floor(count / itemsPerPage);
 
@@ -37,7 +35,7 @@ export const useCharactersPagination = (
 
     results && setItems((prev) => [...prev, ...results]);
   };
-  
+
   return {
     items,
     getMoreCharacters,
