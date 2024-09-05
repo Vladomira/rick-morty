@@ -14,7 +14,7 @@
 .character__imgthumb {
   @apply flex items-center justify-center w-[100%] overflow-hidden rounded-lg shadow-listItem
    transform transition duration-500 hover:scale-110 focus:scale-110
-  mr-5 maxMedium:max-w-xs md:w-[250px] md:h-[250px] lg:h-[250px] superSmall:mb-5 superSmall:mr-0
+  mr-5 maxMedium:max-w-xs md:w-[250px] md:h-[250px] lg:h-[250px] superSmall:mb-5 superSmall:mr-0;
 }
 .character__img {
   @apply w-[100%] h-[100%];
@@ -27,7 +27,7 @@
   @apply flex flex-col items-center gap-5 lg:flex-row lg:justify-evenly;
 }
 .character__info-wrapper {
-  @apply flex
+  @apply flex;
 }
 .character__infoitem {
   @apply last:mb-0 mb-5 transform transition duration-500 hover:scale-110 focus:scale-110;

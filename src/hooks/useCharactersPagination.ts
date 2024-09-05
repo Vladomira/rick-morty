@@ -1,6 +1,7 @@
 import { useState } from "react";
 
-import { OperationVariables, useSuspenseQuery } from "@apollo/client";
+import { OperationVariables } from "@apollo/client";
+import { useQuery } from "@apollo/client";
 
 import { incrementPage } from "../helpers/incrementPage";
 import { characters } from "../service/queries/queries.graphql";
@@ -17,13 +18,14 @@ export const useCharactersPagination = (
 ) => {
   const [page, setPage] = useState<number>(2);
   const [items, setItems] = useState<CharacterListItem[]>(initialData);
-  const { data, error } = useSuspenseQuery<
-    CharacterQueryResult,
-    OperationVariables
-  >(characters, {
-    variables: { page },
-    skip: page === 1,
-  });
+
+  const { data, error } = useQuery<CharacterQueryResult, OperationVariables>(
+    characters,
+    {
+      variables: { page },
+      skip: page === 1,
+    }
+  );
 
   const itemsPerPage = 20;
   const pagesCount = Math.floor(count / itemsPerPage);
@@ -34,6 +36,7 @@ export const useCharactersPagination = (
 
     results && setItems((prev) => [...prev, ...results]);
   };
+
   return {
     items,
     getMoreCharacters,
