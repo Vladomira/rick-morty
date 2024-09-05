@@ -1,9 +1,9 @@
 import { Links, NAV_TEST_ID } from "./constants";
-import DashboardLayout from "@/app/dashboard/DashboardLayout";
+import Navigation from "@/app/dashboard/Navigation";
 import { render, screen } from "@testing-library/react";
 
 export const setupNav = () => {
-  const { container } = render(<DashboardLayout />);
+  const { container } = render(<Navigation />);
   const heading = screen.getByRole("heading", { level: 1 });
   const nav = screen.getByTestId(NAV_TEST_ID);
 

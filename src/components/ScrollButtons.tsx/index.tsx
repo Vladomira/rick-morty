@@ -8,6 +8,11 @@ import { AnimatePresence, motion } from "framer-motion";
 
 const isBrowser = () => typeof window !== "undefined";
 
+export enum BtnsTestId {
+  BtnTop = "btn-top",
+  BtnBottom = "btn-bottom",
+}
+
 function ScrollButtons({
   sectionRef,
 }: {
@@ -43,16 +48,24 @@ function ScrollButtons({
     <motion.div
       {...btnsAnimation}
       key="btns-container"
-      className="scroll-btns__div "
+      className="scroll-btns__div"
+      data-testid="scroll-buttons"
     >
       <AnimatePresence key={"btn-top"}>
         {!isTop && (
-          <ScrollButtonItem scrollTo={scrollToTop} imgStyles="rotate-180" />
+          <ScrollButtonItem
+            testId={BtnsTestId.BtnTop}
+            scrollTo={scrollToTop}
+            imgStyles="rotate-180"
+          />
         )}
       </AnimatePresence>
 
       <AnimatePresence key={"btn-bottom"}>
-        <ScrollButtonItem scrollTo={scrollToBottom} />
+        <ScrollButtonItem
+          testId={BtnsTestId.BtnBottom}
+          scrollTo={scrollToBottom}
+        />
       </AnimatePresence>
     </motion.div>
   );

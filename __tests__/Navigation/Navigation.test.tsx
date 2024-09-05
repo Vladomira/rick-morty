@@ -1,6 +1,6 @@
 import { Links } from "./constants";
 import { formattedLink, setupNav } from "./helpers";
-import DashboardLayout from "@/app/dashboard/DashboardLayout";
+import Navigation from "@/app/dashboard/Navigation";
 import { cleanup, fireEvent, render, screen } from "@testing-library/react";
 import mockRouter from "next-router-mock";
 
@@ -44,7 +44,7 @@ describe("Navigation", () => {
     });
 
     it("should change the route path to '/locations", () => {
-      render(<DashboardLayout />, {
+      render(<Navigation />, {
         wrapper: MemoryRouterProvider,
       });
       fireEvent.click(screen.getByTestId(Links.LOCATION));
@@ -52,7 +52,7 @@ describe("Navigation", () => {
       expect(mockRouter.asPath).toBe(formattedLink(Links.LOCATION));
     });
     it("should change the route path to '/search", () => {
-      render(<DashboardLayout />, {
+      render(<Navigation />, {
         wrapper: MemoryRouterProvider,
       });
       const searchLink = screen.getByTestId(Links.SEARCH);

@@ -2,9 +2,9 @@ import { CharacterListItem } from "@/src/types/CharactersData";
 import Image from "next/image";
 import Link from "next/link";
 
-export const ListItem = ({ id, name, image }: CharacterListItem) => {
+export const CharactersListItem = ({ id, name, image }: CharacterListItem) => {
   return (
-    <li className="characters__item">
+    <li className="characters__item" role="list-item">
       <Link href={`/characters/${id}`} className="characters__link">
         <div className="characters__thumb">
           <Image
